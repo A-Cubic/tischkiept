@@ -1,0 +1,24 @@
+/* pages/navHome/navHome.wxss */
+page{
+  background: #fbfbfb;
+}
+.f1 {
+  float: left;
+}
+.r1 {
+  float: right;
+}
+.fff{
+  background: #fff;
+}
+.swiper {
+  position: relative;
+}
+.swiper image {
+  width: 100%;
+  height: auto;
+}
+.ticket{
+ padding: 10rpx;
+ font-size: 30rpx;
+}

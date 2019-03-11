@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/navHome/navHome",
     "pages/index/index",
     "pages/start/start",
    

@@ -1,0 +1,19 @@
+<!--pages/navHome/navHome.wxml-->
+<!-- <text>首页</text> -->
+
+<view class='swiper'>
+  <swiper indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" duration="{{duration}}" interval='{{interval}}' bindchange="bindchange"  circular="{{circular}}" style="height:{{imgheights[current]}}rpx;" indicator-color='rgba(256, 256, 256, 0.4)' indicator-active-color='#fff'>
+  <block wx:for='{{allData.listHome}}' wx:key="index">
+    <swiper-item>
+      <image src="{{item.img}}" data-homeImgId='{{item.homeImgId}}' data-urlCode='{{item.urlCode}}' class="slide-image" mode="widthFix"  height='280'/>
+    </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class='ticket fff'>
+  <view class='clearfix'>
+    <text class='fl'>桃花岛</text><text class='fr'>济州岛</text>
+  </view>
+</view>
+  
+  
