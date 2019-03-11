@@ -1,0 +1,45 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/start/start",
+   
+    "pages/register/register",
+    
+    "pages/test/test"
+    
+    
+
+    
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#FF0000",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首 页",
+        "iconPath": "static/img/shop_bar_icon_addition_normal@3x.png",
+        "selectedIconPath": "static/img/top_bar_icon_addition_normal@3x.png"
+      },
+      {
+        "pagePath": "pages/test/test",
+        "text": "咨询",
+        "iconPath": "static/img/top_bar_icon_shop_default@3x.png",
+        "selectedIconPath": "static/img/shop_bar_icon_shop_selected@3x.png"
+      },
+      {
+        "pagePath": "pages/test/test",
+        "text": "个人中心",
+        "iconPath": "static/img/top_bar_icon_shop_default@3x.png",
+        "selectedIconPath": "static/img/shop_bar_icon_shop_selected@3x.png"
+      }
+    ]
+  }
+}

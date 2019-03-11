@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "van-dialog": "../../vant/dialog/index",
+    "van-field": "../../vant/field/index",
+    "van-cell": "../../vant/cell/index",
+    "van-cell-group": "../../vant/cell-group/index",
+    "van-button": "../../vant/button/index",
+    "van-icon": "../../vant/icon/index",
+    "van-area": "../../vant/area/index"
+  }
+}

@@ -1,0 +1,95 @@
+
+<view class='paymentBusiness'>
+
+  <!-- 搜索 -->
+    <!-- <view class="page__bd">
+        <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                    <input type="text" class="weui-search-bar__input" placeholder="输入商家名称查询" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm="search"/>
+                    <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                        <icon type="clear" size="14"></icon>
+                    </view>
+                </view>
+                <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                    <icon class="weui-icon-search" type="search" size="14"></icon>
+                    <view class="weui-search-bar__text">输入商家名称查询</view>
+                </label>
+            </view>
+            <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+        </view>
+    </view> -->
+    <!-- 选项卡 -->
+    <view class="page__bd">
+        <view class="weui-tab">
+            <view class="weui-navbar" >
+                <block wx:for-items="{{tabs}}" wx:key="{{index}}">
+                    <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                        <view class="weui-navbar__title">{{item}}</view>
+                    </view>
+                </block>
+                <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+            </view>
+            <view class="weui-tab__panel">
+              <!-- ************待付款************ -->
+                <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+
+                  <view class='content'>
+                    <view class='content_receivables ' wx:for="{{getData.apply.applyList}}" wx:key="{{id}}" data-guid="{{item.guid}}" data-ifpay="0" bindtap='getPayDetails'>
+                      <view class='content_address clearfix borBotGray' ><text class='f1' >{{item.payName}} </text><text class='hot r1' >已申请银行卡付款</text></view>
+                      <view class='content_nav'>
+                        <view class='content_nav_left'  >
+                          <view class='menu'>共{{item.count}}笔</view>
+                          <view class='menu'>消费金额：₩ {{item.total}}</view>
+                          <view class='menu'>待付款：¥ {{item.money}}</view>
+                          <view class='menu'>最早提现时间：{{item.payTime}}</view>
+                        </view>
+                         <!-- <view class='content_nav_right'>
+                          <view class='scanning' bindtap='toSweepOrder'>{{item.scavenging}}</view>
+                        </view> -->
+                      </view>
+                      
+                    </view>
+                  </view>
+                  <view class='total' hidden="{{getData.apply.applyList == ''}}">
+                    <view class='total_title'>共{{getData.apply.applyCount}}条记录</view>
+                    <view class='total_title'>消费金额总计：₩ {{getData.apply.applyTotal}}</view>
+                    <view class='total_title'>待付款总计：¥ {{getData.apply.applyMoney}}</view>
+                  </view>
+              <!-- 当内容List 不为空时隐藏 -->
+                  <view class='noRecord' hidden="{{getData.apply.applyList != ''}}">{{noRecord}}</view>
+                </view>
+              <!-- ************已付款************ -->
+                <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+                
+                  <view class='content'>
+                    <view class='content_receivables' wx:for="{{getData.pay.payList}}" wx:key="{{id}}" data-guid="{{item.guid}}" data-ifpay="1" bindtap='getPayDetails'>
+                      <view class='content_address clearfix borBotGray' ><text class='f1' >{{item.payName}}</text><text  class='hot r1' >银行卡付款</text></view>
+                      <view class='content_nav'>
+                        <view class='content_nav_left'>
+                          <view class='menu'>共{{item.count}}笔</view>
+                          <view class='menu'>消费金额：₩ {{item.total}}</view>
+                          <view class='menu'>已付款：¥ {{item.money}}</view>
+                          <view class='menu'>付款时间：{{item.payTime}}</view>
+                        </view>
+                         <view class='content_nav_right' >
+                           <view class='card_img' >
+                            <image mode='aspectFit' class='img' src='{{item.payImg}}' data-payImg='{{item.payImg}}' catchtap='previewImg'></image>
+                           </view>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                  <view class='total'  hidden="{{getData.pay.payList == ''}}">
+                    <view class='total_title'>共{{getData.pay.payCount}}条记录</view>
+                    <view class='total_title'>消费金额总计：₩ {{getData.pay.payTotal}}</view>
+                    <view class='total_title'>预计收款总计：¥ {{getData.pay.payMoney}}</view>
+                  </view>
+                  <!-- 当内容List 不为空时隐藏 -->
+                  <view class='noRecord' hidden="{{getData.pay.payList != ''}}">{{noRecord}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

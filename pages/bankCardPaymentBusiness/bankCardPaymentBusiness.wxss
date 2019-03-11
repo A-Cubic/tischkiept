@@ -1,0 +1,223 @@
+/* pages/bankCardPaymentBusiness/bankCardPaymentBusiness.wxss */
+/* 搜索默认样式 */
+.f1 {
+  float: left;
+}
+.r1 {
+  float: right;
+}
+.searchbar-result{
+    margin-top: 0;
+    font-size: 14px;
+}
+.searchbar-result:before{
+    display: none;
+}
+.weui-cell{
+    padding: 12px 15px 12px 35px;
+}
+.page__bd {
+  padding-bottom:0px;
+}
+.paymentBusiness .weui-search-bar{
+  z-index: 99
+}
+/* 选项卡默认样式 */
+page,
+.page,
+.page__bd{
+    height: 100%;
+}
+.page__bd{
+    padding-bottom: 0;
+}
+
+page .weui-navbar  {
+  position: fixed;
+  background: #fff;
+}
+
+.weui-navbar__item.weui-bar__item_on {
+  color: #FC595A;
+}
+.weui-navbar__slider {
+  background: #FC595A;
+}
+.content{
+  background: #fff;
+  float: left;
+  /* padding-bottom: 25rpx; */
+  overflow: hidden;
+}
+.content_receivables {
+  width: 690rpx;
+  height: auto;
+  padding: 30rpx;
+  overflow: hidden;
+  border-bottom: 1rpx solid #E5E5E5;
+}
+
+.content_nav {
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #999999;
+  clear: both;
+}
+.content_time {
+  position: absolute;
+  right: 30rpx;
+  top: 30rpx;
+   font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #999999;
+}
+.total {
+  width: 710rpx;
+  height: auto;
+  padding: 20rpx;
+  text-align: right;
+  background: #fff;
+  clear: both;
+  
+}
+.total_title {
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #586C94;
+}
+.content_address {
+  clear: both;
+}
+.content_nav_left {
+  width: 492rpx;
+  height: auto;
+  float: left;
+}
+.content_nav_right {
+  width: 190rpx;
+  height: auto;
+  float: right;
+}
+.hot{
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #999999;
+  text-align: right;
+}
+.menu {
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #999999;
+  clear: both;
+  background: #fff;
+}
+.scanning {
+  padding: 0rpx 14rpx;
+  text-align: center;
+  line-height: 60rpx;
+  background: #F8F8F8;
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #353535;
+  border-radius: 7rpx;
+  float: right;
+}
+.img {
+  width: 113rpx;
+  height: 113rpx;
+  float: right;
+}
+.img image {
+   width: 113rpx;
+  height: 113rpx;
+}
+
+
+
+.drawer_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.2;
+  /* overflow: hidden; */
+  z-index: 2999;
+  color: #fff;
+}
+
+.drawer_attr_box {
+  /* width: 100%; */
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 5000;
+  right: 0;
+  top: 0;
+  margin: auto;
+  width: 100%;
+  height: 50%;
+  
+
+}
+
+.close_icon {
+  width: 25rpx;
+  height: 25rpx;
+  line-height: 20rpx;
+  font-size: 30rpx;
+  position: absolute;
+  right: 5rpx;
+  top:5rpx;
+  padding: 10rpx;
+  color: #ccc;
+  border: 1rpx solid #ccc;
+  border-radius: 50%;
+  text-align: center;
+  background: #fff;
+}
+
+.drawer_attr_content {
+  padding: 20rpx;
+  height: 600rpx;
+  overflow-y: scroll;
+}
+
+.img .drawer_image {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.drawer_desc{
+    font-size:26rpx;
+    margin:20rpx;
+}
+
+.btn {
+  width: 80%;
+  padding: 15rpx 0;
+  border-radius: 10rpx;
+  text-align: center;
+}
+
+.open_btn {
+  margin: 40rpx 10%;
+  border-radius: 10rpx;
+  background: #20bb21;
+  color: #fff;
+}
+.noRecord{
+  width: 100%;
+  /* height: 90%; */
+  position: absolute;
+  
+  top: 350%;
+  text-align: center;
+  background: url('http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/PurchasingAssistantShop/shop_icon_norecord@3x.png') no-repeat center 0%;
+background-size:180rpx 180rpx;
+padding:220rpx 0 0;
+
+}
