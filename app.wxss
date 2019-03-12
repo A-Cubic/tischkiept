@@ -29,3 +29,6 @@
 .borBotGray{
   border-bottom:1px dashed #EDEDED; 
 }
+.fff{
+  background: #fff;
+}

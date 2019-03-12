@@ -10,10 +10,47 @@
     </block>
   </swiper>
 </view>
-<view class='ticket fff'>
-  <view class='clearfix'>
-    <text class='fl'>桃花岛</text><text class='fr'>济州岛</text>
+<form class="page__bd" catchsubmit="formSubmit" catchreset="formReset">
+<view class='ticket fff '>
+  <view class='addressWrap borBotGray'>
+    <text class='flex1'>桃花岛</text>
+    <picker class='flex1 address-picker' bindchange="bindPickerChange" value="{{index}}" range="{{address}}">
+      <view class="picker">
+        {{address[index]}}
+      </view>
+    </picker>
+  </view>
+  <view class='dateWrap'>
+    <view class='flex1'>3月22日</view>
+    <view class='flex1 date-checkbox'>
+      <checkbox-group name="checkbox">
+        <label><checkbox value="checkbox1"/>折价票</label>
+      </checkbox-group>
+    </view>
+  </view>
+    <view class="btnWrap">
+      <button class='btn' formType="submit">查询</button>
+    </view>
+</view>
+</form>
+<view class='mapWrap'>
+ <view class='shop'>
+    <view class='shop_adress borBotGray' bindtap='goAddress'>
+      <image 
+     class='shop_adress_img' src='http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/Hairdressing/hair_map.png' mode="widthFix"></image> 
+     <view class='shop_adress_word'>
+      <text>地址：菜园子西屯75号</text>
+     </view>
+    </view>
+    <view class='shop_phone'>
+      <image 
+      class='shop_phone_img' src='http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/Hairdressing/hair_tele.png' mode="widthFix"></image> 
+      <view class='shop_phone_word'>
+        <text>电话：(0411)89896000</text>
+      </view>
+      <image 
+      class='shop_phone_phone' src='http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/Hairdressing/hair_phone.png' mode="widthFix" bindtap='madeCall'></image> 
+    </view>
   </view>
 </view>
-  
   

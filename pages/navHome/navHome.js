@@ -15,7 +15,8 @@ Page({
       ],
       listShop:[]
     },
-          
+    index:0,
+    address:['地点A','地点B'],   
     autoplay: true,//是否自动切换  
     indicatorDots: true,//是否显示圆点  
     interval: 5000,//自动切换间隔  
@@ -62,11 +63,42 @@ Page({
       }
     )
   },
-  bindchange: function (e) {
-    // console.log(e.detail.current)
-    this.setData({ current: e.detail.current })
+  bindPickerChange: function (e) {
+    console.log(e.detail.value)
+    this.setData({ index: e.detail.value })
   },
-
+  formSubmit: function (e) {
+    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+  },
+  formReset: function (e) {
+    console.log('form发生了reset事件，携带数据为：', e.detail.value)
+  },
+  madeCall: function () {
+    wx.makePhoneCall({
+      phoneNumber: '(0411)89896000' // 仅为示例，并非真实的电话号码
+    })
+  },
+  goAddress: function () {
+    wx.getLocation({//获取当前经纬度
+      type: 'wgs84', //返回可以用于wx.openLocation的经纬度，官方提示bug: iOS 6.3.30 type 参数不生效，只会返回 wgs84 类型的坐标信息  
+      success: function (res) {
+        console.log('ssss', res)
+        wx.openLocation({//​使用微信内置地图查看位置。
+          latitude: 38.91864,//要去的纬度-地址
+          longitude: 121.64511,//要去的经度-地址
+          name: "中山广场店",
+          address: '中山广场A地铁口'
+        })
+      }
+    })
+  },
+  callTele: function (e) {
+    console.log(e.currentTarget.dataset.tele)
+    const te = e.currentTarget.dataset.tele;
+    wx.makePhoneCall({
+      phoneNumber: te // 仅为示例，并非真实的电话号码
+    })
+  },
   imageLoad: function (e) {//获取图片真实宽度  
   console.log(e)
     var imgwidth = e.detail.width,
