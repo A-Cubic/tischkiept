@@ -84,8 +84,8 @@ Page({
       success: function (res) {
         console.log('ssss', res)
         wx.openLocation({//​使用微信内置地图查看位置。
-          latitude: 38.91864,//要去的纬度-地址
-          longitude: 121.64511,//要去的经度-地址
+          latitude: 122.516797,//要去的纬度-地址122.516797,39.306283
+          longitude: 39.306283,//要去的经度-地址
           name: "中山广场店",
           address: '中山广场A地铁口'
         })

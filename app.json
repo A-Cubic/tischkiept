@@ -1,40 +1,42 @@
 {
   "pages":[
-    "pages/navHome/navHome",
     "pages/navMine/navMine",
+    "pages/navHome/navHome",
+    "pages/navConsult/navConsult",
+    
     "pages/index/index",
     "pages/start/start",
-   
     "pages/register/register",
-    
     "pages/test/test"
-    
-    
-
-    
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#1c99ff",
+    "navigationBarBackgroundColor": "#6badf8",
     "navigationBarTitleText": "",
     "navigationBarTextStyle":"white"
   },
   "tabBar": {
     "color": "#a9b7b7",
-    "selectedColor": "#FF0000",
+    "selectedColor": "#6badf8",
     "borderStyle": "white",
     "list": [
       {
         "pagePath": "pages/navHome/navHome",
         "text": "首 页",
-        "iconPath": "static/img/shop_bar_icon_addition_normal@3x.png",
-        "selectedIconPath": "static/img/top_bar_icon_addition_normal@3x.png"
+        "iconPath": "static/img/home.png",
+        "selectedIconPath": "static/img/home_active.png"
+      },
+      {
+        "pagePath": "pages/navConsult/navConsult",
+        "text": "咨询台",
+        "iconPath": "static/img/consult.png",
+        "selectedIconPath": "static/img/consult_active.png"
       },
       {
         "pagePath": "pages/navMine/navMine",
         "text": "个人中心",
-        "iconPath": "static/img/top_bar_icon_shop_default@3x.png",
-        "selectedIconPath": "static/img/shop_bar_icon_shop_selected@3x.png"
+        "iconPath": "static/img/mine.png",
+        "selectedIconPath": "static/img/mine_active.png"
       }
     ]
   }

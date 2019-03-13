@@ -30,7 +30,9 @@ page{
    /* width: 670rpx; */
   height: 80rpx;
   line-height: 80rpx;
-  background: #1c99ff;
+  /* background: #1c99ff; */
+  /* background: #518ed8; */
+  background: #6badf8;
   font-size: 30rpx;
   color: #FFFFFF;
   margin: 0 auto;
