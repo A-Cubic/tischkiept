@@ -6,7 +6,6 @@
     "pages/navHome/navHome",
     "pages/navConsult/navConsult",
     
-    "pages/modifyPassport/modifyPassport",
     "pages/index/index",
     "pages/start/start",
     "pages/register/register",
