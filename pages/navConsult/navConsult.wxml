@@ -1,2 +1,19 @@
 <!--pages/navConsult/navConsult.wxml-->
-<text>pages/navConsult/navConsult.wxml</text>
+<view class='navConsult'>
+  <view class='headline'>紧急咨询台</view>
+  <view class='consultList'>
+    <view class='unit borBotGray' wx:for="{{consultList}}">
+      <text class='addr'>{{item.addr}}</text>
+      <text class='phone'>{{item.phone}}</text>
+    </view>
+  </view>
+  <view class='headline'>近期动态</view>
+  <view class='newsList'>
+    <view class='unit' wx:for="{{newsList}}">
+      <view class='title'>{{item.title}}</view>
+      <view class='time'>{{item.time}}</view>
+      <image class='image' mode="widthFix" src='{{item.url}}'></image>
+      <view class='reading' >阅读量：{{item.reading}}</view>
+    </view>
+  </view>
+</view>

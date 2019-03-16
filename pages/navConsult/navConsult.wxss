@@ -1,1 +1,42 @@
 /* pages/navConsult/navConsult.wxss */
+page{
+  font-size: 28rpx;
+  color: #666;
+  background: #fbfbfb;
+}
+.headline{
+  font-size: 30rpx;
+  color: #fff;
+  /* text-align: center; */
+  background: #6badf8;
+  padding: 20rpx;
+  /* border-radius: 10rpx; */
+  margin: 0rpx 0rpx 8rpx;
+}
+.consultList .unit{
+  background: #fff;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  margin: 6rpx 20rpx;
+}
+.addr,.phone{
+  display: inline-block;
+  width: 50%;
+}
+.newsList .unit{
+  background: #fff;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  margin: 10rpx 20rpx;
+}
+.title{
+  color: #333;
+}
+.time,.reading{
+  font-size: 24rpx;
+  color: #777;
+}
+.image{
+  border-radius: 16rpx;
+  overflow: hidden;
+}

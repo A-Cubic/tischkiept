@@ -5,7 +5,31 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    consultList:[
+      {
+        addr:'警务室',
+        phone:'123'
+      }, {
+        addr: '售票处',
+        phone: '234'
+      }, {
+        addr: '咨询台',
+        phone: '4565'
+      }
+    ],
+    newsList:[
+      {
+        title:'学哲学使我们能够过上经过思虑的人生',
+        time:'2019-03-16 18：03：03',
+        url:'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/bannerEuropeanAmerican.jpg',
+        reading:'20'
+      }, {
+        title: '学哲学使我们能够过上经过思虑的人生',
+        time: '2019-03-16 18：03：03',
+        url: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/bannerEuropeanAmerican.jpg',
+        reading: '22'
+      }
+    ]
   },
 
   /**
@@ -56,11 +80,4 @@ Page({
   onReachBottom: function () {
 
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

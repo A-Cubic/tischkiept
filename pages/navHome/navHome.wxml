@@ -37,19 +37,19 @@
  <view class='shop'>
     <view class='shop_adress borBotGray' bindtap='goAddress'>
       <image 
-     class='shop_adress_img' src='http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/Hairdressing/hair_map.png' mode="widthFix"></image> 
+     class='shop_adress_img' src='../../static/img/map.png' mode="widthFix"></image> 
      <view class='shop_adress_word'>
       <text>地址：菜园子西屯75号</text>
      </view>
     </view>
     <view class='shop_phone'>
       <image 
-      class='shop_phone_img' src='http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/Hairdressing/hair_tele.png' mode="widthFix"></image> 
+      class='shop_phone_img' src='../../static/img/tele.png' mode="widthFix"></image> 
       <view class='shop_phone_word'>
         <text>电话：(0411)89896000</text>
       </view>
       <image 
-      class='shop_phone_phone' src='http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/Hairdressing/hair_phone.png' mode="widthFix" bindtap='madeCall'></image> 
+      class='shop_phone_phone' src='../../static/img/phone.png' mode="widthFix" bindtap='madeCall'></image> 
     </view>
   </view>
 </view>

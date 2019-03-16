@@ -1,10 +1,12 @@
 {
   "pages":[
+    "pages/navConsult/navConsult",
+    "pages/navHome/navHome",
     "pages/addPassenger/addPassenger",
     "pages/orderList/orderList",
     "pages/navMine/navMine",
-    "pages/navHome/navHome",
-    "pages/navConsult/navConsult",
+    
+    
     
     "pages/index/index",
     "pages/start/start",
