@@ -108,7 +108,8 @@ page {
 .content_all {
   width: 750rpx;
   height: 80rpx;
-  margin-bottom:30rpx; 
+  padding: 30rpx 0;
+  margin-bottom:10rpx; 
   display: flex;
 }
 .content_all view {
@@ -120,6 +121,9 @@ page {
 }
 .content_all view text {
   display: block;
+}
+.content_left{
+  border-left: 1px solid #CED7DB;
 }
 .content_center {
   border-left: 1px solid #CED7DB;

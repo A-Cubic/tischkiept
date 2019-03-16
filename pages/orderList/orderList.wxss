@@ -15,41 +15,37 @@ page,
    
 }
 .index .weui-bar__item_on {
-  color:#FC595A;
-  border-bottom: 6rpx solid #FC595A;
+  color:#6badf8;
+  border-bottom: 6rpx solid #6badf8;
 }
 .index .weui-navbar__slider {
   background: none;
   opacity: 0;
 }
-.main {
-  width: 690rpx;
+.unit {
+  width: 650rpx;
   height: auto; 
   padding:20rpx 30rpx;
   border-bottom: 1rpx solid #E5E5E5;
   background: #fff;
+  margin: 20rpx;
+  border-radius: 20rpx;
 }
-.h1 {
-  width: 690rpx;
-  /* height: 40rpx; */
-  line-height: 50rpx; 
-}
-.time {
-  font-family: PingFangSC-Regular;
+
+.address {
   font-size: 26rpx;
-  color: #222222;
+  color: #333;
   text-align: left;
 }
-.putForward {
-  font-family: PingFangSC-Regular;
+.line-right {
   font-size: 26rpx;
-  color: #999999;
+  color: #777;
   text-align: right;
   }
-.h2 {
-  font-family: PingFangSC-Regular;
+.line {
   font-size: 26rpx;
-  color: #999999;
+  color: #777;
+  padding: 6rpx;
 }
 .total{
   width: 690rpx;
@@ -70,8 +66,10 @@ page,
   
   top: 350%;
   text-align: center;
-  background: url('http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/PurchasingAssistantShop/shop_icon_norecord@3x.png') no-repeat center 0%;
+  /* background: url('http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/PurchasingAssistantShop/shop_icon_norecord@3x.png') no-repeat center 0%; */
 background-size:180rpx 180rpx;
 padding:220rpx 0 0;
+font-size: 30rpx;
+color: #777;
 
 }

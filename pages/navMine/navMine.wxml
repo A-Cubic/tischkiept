@@ -22,22 +22,28 @@
   
   <view class='content'> 
     <view class='content_all'>
-      <view class='content_left' bindtap='consumptionfunction'  >
+     <view class=''>
         <navigator class='looks-view' url="/pages/CRrecord/CRrecord?num=0">
         <text class='content_num'>0{{getData.process}}</text>
-        <text class='content_method'>待付款</text>
+        <text class='content_method'>全部订单</text>
+        </navigator>
+      </view>
+      <view class='content_left'>
+        <navigator class='looks-view' url="/pages/CRrecord/CRrecord?num=0">
+        <text class='content_num'>0{{getData.process}}</text>
+        <text class='content_method'>待支付</text>
         </navigator>
       </view>
       <view class='content_center'>
       <navigator class='looks-view' url="/pages/CRrecord/CRrecord?num=1">
         <text class='content_num'>0{{getData.pay}}</text>
-        <text class='content_method'>已付款</text>
+        <text class='content_method'>已支付</text>
       </navigator>
       </view>
       <view class='content_right'>
       <navigator class='looks-view' url="/pages/CRrecord/CRrecord?num=2">
         <text class='content_num'>0{{getData.paid}}</text>
-        <text class='content_method'>已完成</text>
+        <text class='content_method'>已退票</text>
       </navigator>
       </view>
     </view>
@@ -50,7 +56,7 @@
         <text class='main_logo weui-cell__ft weui-cell__ft_in-access'></text>
       </view>
       <view class='main_nav' bindtap='card'>
-        <text class='main_title'>联系人管理</text>
+        <text class='main_title'>常用乘车人</text>
         <text class='main_theme'></text>
         <text class='main_logo weui-cell__ft weui-cell__ft_in-access'></text>
       </view>

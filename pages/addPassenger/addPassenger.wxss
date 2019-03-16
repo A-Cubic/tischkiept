@@ -54,7 +54,7 @@
 }
 
 
-.iphone {
+.line {
   width: 690rpx;
   height: 89rpx;
   line-height: 89rpx;
@@ -104,7 +104,7 @@
    width: 670rpx;
   height: 94rpx;
   line-height: 94rpx;
-  background: #1AAD19;
+  background: #6badf8;
   border-radius: 10rpx;
   font-size: 36rpx;
   color: #FFFFFF;

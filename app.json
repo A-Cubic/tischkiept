@@ -1,9 +1,12 @@
 {
   "pages":[
+    "pages/addPassenger/addPassenger",
+    "pages/orderList/orderList",
     "pages/navMine/navMine",
     "pages/navHome/navHome",
     "pages/navConsult/navConsult",
-    "pages/CRrecord/CRrecord",
+    
+    "pages/modifyPassport/modifyPassport",
     "pages/index/index",
     "pages/start/start",
     "pages/register/register",

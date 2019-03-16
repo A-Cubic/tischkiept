@@ -1,0 +1,100 @@
+<!--pages/CRrecord'/CRrecord.wxml-->
+<!-- <text>消费返利记录</text> -->
+<view class='index'>
+  <view class="page__bd">
+    <view class="weui-tab">
+        <view class="weui-navbar">
+            <block wx:for-items="{{tabs}}" wx:key="{{index}}">
+                <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                    <view class="weui-navbar__title">{{item}}</view>
+                </view>
+            </block>
+            <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+        </view>
+        <view class="weui-tab__panel">
+        <!-- 全部订单 -->
+            <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+              <view class='content'>
+                  <view class='unit' wx:for="{{getData.allList}}" wx:key='{{id}}'>
+                    <view class='line clearfix borBotGray'>
+                      <view class=' address fl'>{{item.address}}</view>
+                      <view class='line-right fr'>{{payState[item.payState]}}</view>
+                    </view>
+                    <view class='line clearfix'>
+                      <view class='fl'>{{item.time}}</view>
+                      <view class='line-right fr'>¥{{item.payState}}</view>
+                    </view>
+                    <view class='line' >
+                      <text wx:for="{{item.buyers}}">{{item}} </text>
+                    </view>
+                  </view>
+                  <!-- 当内容List 不为空时隐藏 -->
+                  <view class='noRecord' hidden="{{getData.allList != ''}}">{{noRecord}}</view>
+                </view>
+            </view>
+            <!-- 待支付 -->
+            <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+              <view class='content'>
+                  <view class='unit' wx:for="{{getData.unpaidList}}" wx:key='{{id}}'>
+                    <view class='line clearfix borBotGray'>
+                      <view class=' address fl'>{{item.address}}</view>
+                      <view class='line-right fr'>{{payState[item.payState]}}</view>
+                    </view>
+                    <view class='line clearfix'>
+                      <view class='fl'>{{item.time}}</view>
+                      <view class='line-right fr'>¥{{item.payState}}</view>
+                    </view>
+                    <view class='line' >
+                      <text wx:for="{{item.buyers}}">{{item}} </text>
+                    </view>
+                  </view>
+                  <!-- 当内容List 不为空时隐藏 -->
+                  <view class='noRecord' hidden="{{getData.unpaidList != ''}}">{{noRecord}}</view>
+                </view>
+            </view>
+            <!-- 已支付 -->
+            <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+                
+                <view class='content'>
+                  <view class='unit' wx:for="{{getData.havePaid}}" wx:key='{{id}}'>
+                    <view class='line clearfix borBotGray'>
+                      <view class=' address fl'>{{item.address}}</view>
+                      <view class='line-right fr'>{{payState[item.payState]}}</view>
+                    </view>
+                    <view class='line clearfix'>
+                      <view class='fl'>{{item.time}}</view>
+                      <view class='line-right fr'>¥{{item.payState}}</view>
+                    </view>
+                    <view class='line' >
+                      <text wx:for="{{item.buyers}}">{{item}} </text>
+                    </view>
+                  </view>
+                  <!-- 当内容List 不为空时隐藏 -->
+                  <view class='noRecord' hidden="{{getData.havePaid != ''}}">{{noRecord}}</view>
+                </view>
+            </view>
+            <!-- 已退票 -->
+            <view class="weui-tab__content" hidden="{{activeIndex != 3}}">
+
+                <view class='content'>
+                  <view class='unit' wx:for="{{getData.refundedList}}" wx:key='{{id}}'>
+                    <view class='line clearfix borBotGray'>
+                      <view class=' address fl'>{{item.address}}</view>
+                      <view class='line-right fr'>{{payState[item.payState]}}</view>
+                    </view>
+                    <view class='line clearfix'>
+                      <view class='fl'>{{item.time}}</view>
+                      <view class='line-right fr'>¥{{item.payState}}</view>
+                    </view>
+                    <view class='line' >
+                      <text wx:for="{{item.buyers}}">{{item}} </text>
+                    </view>
+                  </view>
+                  <!-- 当内容List 不为空时隐藏 -->
+                  <view class='noRecord' hidden="{{getData.refundedList != ''}}">{{noRecord}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+  </view>
+</view>

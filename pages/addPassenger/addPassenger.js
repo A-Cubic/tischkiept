@@ -6,30 +6,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-    bankcardUserName:'',
-    bankName:'',
-    subName:'',
-    bankcardCode:'',
+    adultTicket:'成人票',
+    passengerName:'',
+    idCard:'身份证',
+    idCardCode:'',
     disabled: true, 
   },
-  userNameInput: function (e) {
+ 
+  passengerNameInput: function (e) {
     this.setData({
-      bankcardUserName: e.detail.value
+      passengerName: e.detail.value
     })
   },
-  bankInput: function (e) {
+  idCardInput: function (e) {
     this.setData({
-      bankName: e.detail.value
+      idCard: e.detail.value
     })
   },
-  bankBranchInput: function (e) {
+  idCardCodeInput: function (e) {
     this.setData({
-      subName: e.detail.value
-    })
-  },
-  numberInput: function (e) {
-    this.setData({
-      bankcardCode: e.detail.value
+      idCardCode: e.detail.value
     })
   },
 
@@ -98,9 +94,9 @@ Page({
         if (json.success) {
           that.setData({
             bankcardUserName: json.data.bankcardUserName,
-            bankName: json.data.bankName,
-            subName: json.data.subName,
-            bankcardCode: json.data.bankcardCode,
+            passengerName: json.data.passengerName,
+            idCard: json.data.idCard,
+            idCardCode: json.data.idCardCode,
           })
         }else{
           app.Toast('', 'none', 3000, json.msg.code);
@@ -108,38 +104,4 @@ Page({
       }
     )
   },
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })
