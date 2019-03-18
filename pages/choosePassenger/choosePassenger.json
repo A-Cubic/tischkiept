@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "选择乘客",
+  "usingComponents": {
+    "van-icon": "../../vant/icon/index",
+    "i-checkbox": "../../iview/checkbox/index"
+  }
+}

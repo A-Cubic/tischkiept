@@ -1,0 +1,72 @@
+<view class='ticket-details'>
+  <view class="ticket-details-header">
+    <view class='header-info'>
+      <view class='header-info-date text-left'>{{ticketForm.startDate}}</view>
+      <view class='header-info-time text-left'>{{ticketForm.startTime}}</view>
+      <view class='header-info-place text-left'>{{ticketForm.startPlace}}</view>
+    </view>
+    <view class='header-info'>
+      <view class='header-info-line'>
+        <view class='info-line'></view>
+        <view class='line-mes'>时刻表</view>
+        <view class='info-line'></view>
+      </view>
+      <view class='header-info-lineName'>{{ticketForm.lineName}}</view>
+    </view>
+    <view class='header-info'>
+      <view class='header-info-date text-right'>{{ticketForm.endDate}}</view>
+      <view class='header-info-time text-right'>{{ticketForm.endTime}}</view>
+      <view class='header-info-place text-right'>{{ticketForm.endPlace}}</view>
+    </view>
+  </view>
+  <view class='ticket-details-info'>
+    <view class='ticket-details-seat'>
+      <block wx:for="{{ ticketForm.seatList }}" wx:key="{{item.id}}">
+        <view class='{{ index == ticketForm.seatList.lenght - 1 ? "details-seat-list no-border-flex" : "details-seat-list" }}' data-index="{{index}}">
+          <view class='seat-list-name'>{{item.seat}}</view>
+          <view class='seat-list-price'>￥{{item.price}}</view>
+          <view class='seat-list-num'>{{item.num}}张</view>
+        </view>
+      </block>
+    </view>
+    <view class='ticket-details-add' bindtap='addPassenger'>添加乘客</view>
+    <view class='ticket-details-person'>
+      <block wx:for="{{ ticketForm.personList }}" wx:key="{{item.userId}}">
+        <view class='ticket-details-person-list' data-index="{{index}}" bindtap='examineIt'>
+          <view class='person-operation'>
+            <van-icon name="delete" color="#6badf8"/>
+          </view>
+          <view class='person-info'>
+            <view class='person-name'>{{item.name}}</view>
+            <view class='person-type'>{{ item.type == 0 ? '成人票' : '学生票'}}</view>
+            <view class='person-id'>{{item.userId}}</view>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class='ticket-details-alert'>{{ticketForm.alert}}</view>
+    <view class='ticket-details-phone'>
+      <view class="ticket-details-phone-label">手机号</view>
+      <view class="ticket-details-phone-input">
+        <input class="phone-input" placeholder="请输入手机号" />
+      </view>
+    </view>
+    <view class='ticket-details-buy'>最高票价：￥{{ticketForm.price}} × {{ticketForm.num}}</view>
+    
+  </view>
+
+  <view class='ticket-details-reserve'>
+    <view class='reserve-btn'>立即预定</view>
+  </view>
+
+  <!-- <view class='ticket-details-wrap'>
+    <block wx:for="{{ ticketForm.seatList }}" wx:key="{{item.id}}">
+      <view class='ticket-details-list' data-index="{{index}}" bindtap='examineIt'>
+        <view class='details-list-flex'>{{item.label}}</view>
+        <view class='details-list-flex'>￥{{item.price}}</view>
+        <view class='details-list-flex'>{{item.val}}</view>
+        <view class='details-list-flex'>{{item.label}}</view>
+      </view>
+    </block>
+  </view> -->
+</view>

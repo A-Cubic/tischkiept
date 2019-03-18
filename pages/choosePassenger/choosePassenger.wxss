@@ -1,0 +1,101 @@
+page {
+  height: 100%;
+}
+.add-passenger {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #EFEFEF;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+}
+.add-passenger-header {
+  width: 100%;
+  padding: 20rpx 0;
+  /* position: fixed;
+  top: 0;
+  left: 0; */
+  background-color: #EFEFEF;
+}
+.add-passenger-header-btn {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #FFFFFF;
+  text-align: center;
+  color: #6badf8;
+}
+.add-passenger-wrap {
+  width: 100%;
+  /* position: absolute;
+  left: 0;
+  top: 130rpx; */
+  flex: auto;
+  overflow-y: auto;
+}
+.add-passenger-list {
+  background-color: #FFFFFF;
+  width: 100%;
+  height: 100rpx;
+  margin-bottom: 4rpx;
+  display: flex;
+}
+.add-passenger-edit {
+  width: 100rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+}
+.add-passenger-info {
+  flex: 1;
+  overflow: hidden;
+}
+.add-passenger-name {
+  font-size: 28rpx;
+  font-weight: 600;
+  float: left;
+  margin-top: 10rpx;
+}
+.add-passenger-type {
+  color: #aaaaaa;
+  font-size: 25rpx;
+  margin-left: 20rpx;
+  margin-top: 18rpx;
+  float: left;
+}
+.add-passenger-id {
+  font-size: 25rpx;
+  color: #888888;
+  clear: both;
+}
+.add-passenger-check {
+  width: 100rpx;
+  height: 100rpx;
+  line-height: 93rpx;
+  text-align: center;
+}
+.check {
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.add-passenger-bottom {
+  width: 100%;
+  padding: 20rpx 0;
+  background-color: #FFFFFF;
+  /* position: fixed;
+  bottom: 0;
+  left: 0; */
+}
+.add-passenger-bottom-btn {
+  width: 95%;
+  height: 90rpx;
+  line-height: 90rpx;
+  margin: auto;
+  background: #6badf8;
+  border-radius: 10rpx;
+  text-align: center;
+  color: #FFFFFF;
+}
+

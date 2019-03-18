@@ -1,0 +1,40 @@
+<view class='steamer-ticket'>
+  <view class="steamer-ticket-header">
+    <view class='header-last'>前一天</view>
+    <view class='header-next'>后一天</view>
+    <view class='header-time'>2012-08-13</view>
+  </view>
+  <view class='steamer-ticket-wrap'>
+    <block wx:for="{{ ticketForm.ticketList }}" wx:key="{{item.id}}">
+        <view class='steamer-ticket-list' data-index="{{index}}" bindtap='examineIt'>
+          <view class='ticket-list-info'>
+            <view class='list-info-flex'>
+              <view class='list-info-flex-time'>{{item.startTime}}</view>
+              <view class='list-info-flex-palce'>{{item.startPlace}}</view>
+            </view>
+            <view class='list-info-flex'>
+              <view class='list-info-flex-total'>{{item.allTime}}</view>
+              <view class='list-info-flex-line'>
+                <view class='line-circle'></view>
+                <view class='line'></view>
+                <view class='line-circle'></view>
+              </view>
+              <view class='list-info-flex-name'>{{item.lineName}}</view>
+            </view>
+            <view class='list-info-flex'>
+              <view class='list-info-flex-time'>{{item.endTime}}</view>
+              <view class='list-info-flex-palce'>{{item.endPlace}}</view>
+            </view>
+            <view class='list-info-flex'>
+              <view class='list-info-flex-price'>￥{{item.price}}</view>
+            </view>
+          </view>
+          <view class='ticket-list-seat'>
+            <block wx:for="{{ item.seatList }}" wx:for-item="seat" wx:key="{{seat.label}}">
+              <view class='seat'>{{seat.label}}: {{seat.val}}</view>
+            </block>
+          </view>
+        </view>
+      </block>
+  </view>
+</view>

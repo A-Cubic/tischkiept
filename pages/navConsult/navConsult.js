@@ -17,17 +17,20 @@ Page({
         phone: '4565'
       }
     ],
+    
     newsList:[
       {
         title:'学哲学使我们能够过上经过思虑的人生',
         time:'2019-03-16 18：03：03',
         url:'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/bannerEuropeanAmerican.jpg',
-        reading:'20'
+        reading:'20',
+        type: 0,
       }, {
         title: '学哲学使我们能够过上经过思虑的人生',
         time: '2019-03-16 18：03：03',
         url: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/bannerEuropeanAmerican.jpg',
-        reading: '22'
+        reading: '22',
+        type: 1
       }
     ]
   },
@@ -38,7 +41,12 @@ Page({
   onLoad: function (options) {
 
   },
-
+  madeCall: function (e) {
+    console.log(e.currentTarget.dataset.phone)
+    wx.makePhoneCall({
+      phoneNumber: e.currentTarget.dataset.phone // 仅为示例，并非真实的电话号码
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

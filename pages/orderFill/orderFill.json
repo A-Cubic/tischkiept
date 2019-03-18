@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "票务详情",
+  "usingComponents": {
+    "van-icon": "../../vant/icon/index",
+    "van-field": "../../vant/field/index"
+  }
+}

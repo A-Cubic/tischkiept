@@ -23,25 +23,25 @@
   <view class='content'> 
     <view class='content_all'>
      <view class=''>
-        <navigator class='looks-view' url="/pages/CRrecord/CRrecord?num=0">
+        <navigator class='looks-view' url="/pages/orderList/orderList?num=0">
         <text class='content_num'>0{{getData.process}}</text>
         <text class='content_method'>全部订单</text>
         </navigator>
       </view>
       <view class='content_left'>
-        <navigator class='looks-view' url="/pages/CRrecord/CRrecord?num=0">
+        <navigator class='looks-view' url="/pages/orderList/orderList?num=1">
         <text class='content_num'>0{{getData.process}}</text>
         <text class='content_method'>待支付</text>
         </navigator>
       </view>
       <view class='content_center'>
-      <navigator class='looks-view' url="/pages/CRrecord/CRrecord?num=1">
+      <navigator class='looks-view' url="/pages/orderList/orderList?num=2">
         <text class='content_num'>0{{getData.pay}}</text>
         <text class='content_method'>已支付</text>
       </navigator>
       </view>
       <view class='content_right'>
-      <navigator class='looks-view' url="/pages/CRrecord/CRrecord?num=2">
+      <navigator class='looks-view' url="/pages/orderList/orderList?num=3">
         <text class='content_num'>0{{getData.paid}}</text>
         <text class='content_method'>已退票</text>
       </navigator>

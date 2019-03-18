@@ -2,18 +2,35 @@
 <view class='navConsult'>
   <view class='headline'>紧急咨询台</view>
   <view class='consultList'>
-    <view class='unit borBotGray' wx:for="{{consultList}}">
+    <view class='unit borBotGray' wx:for="{{consultList}}" data-phone='{{item.phone}}' bindtap='madeCall' >
       <text class='addr'>{{item.addr}}</text>
       <text class='phone'>{{item.phone}}</text>
     </view>
   </view>
+  <!-- <view class='borBotGray'></view> -->
   <view class='headline'>近期动态</view>
   <view class='newsList'>
-    <view class='unit' wx:for="{{newsList}}">
-      <view class='title'>{{item.title}}</view>
-      <view class='time'>{{item.time}}</view>
-      <image class='image' mode="widthFix" src='{{item.url}}'></image>
-      <view class='reading' >阅读量：{{item.reading}}</view>
+  <view wx:for="{{newsList}}">
+    <block  wx:if="{{item.type==0}}" >
+      <view class='unit'>
+        <view class='title'>{{item.title}}</view>
+        <view class='time'>{{item.time}}</view>
+        <image class='image' mode="widthFix" src='{{item.url}}'></image>
+        <view class='reading' >阅读量：{{item.reading}}</view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class='unit'>
+        <view class='unit-left'>
+          <view class='title'>{{item.title}}</view>
+          <view class='time'>{{item.time}}</view>
+          <view class='reading' >阅读量：{{item.reading}}</view>
+        </view>
+        <view class='unit-right'>
+          <image class='unit-right-image' mode="widthFix" src='{{item.url}}'></image>
+        </view>
+      </view>
+    </block>
     </view>
   </view>
 </view>

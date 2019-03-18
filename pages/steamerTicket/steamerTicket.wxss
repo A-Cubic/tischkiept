@@ -1,0 +1,130 @@
+page {
+  height: 100%;
+}
+.steamer-ticket {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* background: url('http://img.ui.cn/data/file/8/6/4/1053468.gif?imageMogr2/auto-orient/strip') 0 0 no-repeat; */
+  background-size: 100% 100%;
+}
+/* .steamer-ticket-wrap {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.8);
+} */
+.steamer-ticket-header {
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  margin: auto;
+  overflow: hidden;
+  background: #6badf8;
+  color: #ffffff;
+}
+.header-last {
+  width: 160rpx;
+  float: left;
+  padding-left: 20rpx;
+}
+.header-next {
+  width: 160rpx;
+  float: right;
+  text-align: right;
+  padding-right: 20rpx;
+}
+.header-time {
+  width: 300rpx;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: auto;
+  text-align: center;
+}
+.steamer-ticket-wrap {
+  width: 100%;
+  position: absolute;
+  top: 120rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.steamer-ticket-list {
+  width: 100%;
+  height: 241rpx;
+  overflow: hidden;
+  margin: 0 auto 20rpx;
+  /* box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.30); */
+  background-color: #FFFFFF;
+}
+.ticket-list-info {
+  width: 100%;
+  height: 160rpx;
+  overflow: hidden;
+  display: flex;
+}
+.list-info-flex {
+  flex: 1;
+  text-align: center;
+}
+.list-info-flex-palce {
+  margin-top: 5rpx;
+  font-size: 28rpx;
+}
+.list-info-flex-time {
+  font-size: 45rpx;
+  margin-top: 28rpx;
+}
+.list-info-flex-name {
+  font-size: 25rpx;
+}
+.list-info-flex-total {
+  font-size: 25rpx; 
+  margin-top: 45rpx;
+}
+.list-info-flex-line {
+  display: flex;
+  overflow: hidden; 
+}
+.line-circle {
+  width: 13rpx;
+  height: 13rpx;
+  border-radius: 50px;
+  background-color: #aaaaaa;
+  border: 1rpx solid #aaaaaa;
+  float: left;
+}
+.line {
+  float: left;
+  flex: 1;
+  height: 1rpx;
+  margin-top: 7rpx;
+  background-color: #aaaaaa;
+}
+.list-info-flex-price {
+  font-size: 30rpx;
+  margin-top: 40rpx;
+}
+
+.ticket-list-seat {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-top: 1rpx dashed #d7d7d7;
+  overflow: hidden;
+  display: flex;
+}
+.seat {
+  flex: 1;
+  text-align: center;
+  font-size: 25rpx;
+  color: #aaaaaa;
+}
