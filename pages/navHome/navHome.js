@@ -16,7 +16,7 @@ Page({
       listShop:[]
     },
     index:0,
-    address:['地点A','地点B'],   
+    address: ['广鹿多落母港','杏树屯港'],   
     autoplay: true,//是否自动切换  
     indicatorDots: true,//是否显示圆点  
     interval: 5000,//自动切换间隔  

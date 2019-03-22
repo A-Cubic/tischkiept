@@ -6,9 +6,9 @@ Page({
         {
           id: 'a1111111111',
           imgUrl: 'http://img.ui.cn/data/file/0/2/7/751720.jpg',
-          lineName: 'K3456',
-          startPlace: '海南',
-          endPlace: '烟台',
+          lineName: '通泰7号',
+          startPlace: '长海鸳鸯港',
+          endPlace: '广鹿多落母港',
           startTime: '8:30',
           endTime: '13:00',
           allTime: '4.5小时',
@@ -17,7 +17,7 @@ Page({
           status: 0,
           seatList: [
             {
-              label: '硬座',
+              label: '软座',
               val: '有票'
             },
             {
@@ -37,9 +37,9 @@ Page({
         {
           id: 'a22222222222',
           imgUrl: 'http://img.ui.cn/data/file/9/7/0/626079.gif',
-          lineName: '波塞冬二号线',
-          startPlace: '大连',
-          endPlace: '广州',
+          lineName: '通泰7号',
+          startPlace: '长海鸳鸯港',
+          endPlace: '广鹿多落母港',
           startTime: '16:30',
           endTime: '19:30',
           allTime: '3小时',
@@ -68,9 +68,9 @@ Page({
         {
           id: 'a333333333333',
           imgUrl: 'http://img.ui.cn/data/file/9/7/0/626079.gif',
-          lineName: '波塞冬二号线',
-          startPlace: '大连',
-          endPlace: '广州',
+          lineName: '通泰7号',
+          startPlace: '长海鸳鸯港',
+          endPlace: '广鹿多落母港',
           startTime: '16:30',
           endTime: '19:30',
           allTime: '3小时',
@@ -99,9 +99,9 @@ Page({
         {
           id: 'a333333333333',
           imgUrl: 'http://img.ui.cn/data/file/9/7/0/626079.gif',
-          lineName: '波塞冬二号线',
-          startPlace: '大连',
-          endPlace: '广州',
+          lineName: '通泰7号',
+          startPlace: '长海鸳鸯港',
+          endPlace: '广鹿多落母港',
           startTime: '16:30',
           endTime: '19:30',
           allTime: '3小时',
@@ -130,9 +130,9 @@ Page({
         {
           id: 'a333333333333',
           imgUrl: 'http://img.ui.cn/data/file/9/7/0/626079.gif',
-          lineName: '波塞冬二号线',
-          startPlace: '大连',
-          endPlace: '广州',
+          lineName: '通泰7号',
+          startPlace: '长海鸳鸯港',
+          endPlace: '广鹿多落母港',
           startTime: '16:30',
           endTime: '19:30',
           allTime: '3小时',

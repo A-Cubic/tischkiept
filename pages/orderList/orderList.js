@@ -3,33 +3,33 @@ const app = getApp()
 Page({
   data: {
     getData: {
-      allList:[
+      allList:[],
+      unpaidList: [
         {
           shopName: 'shopName',
-          address: '桃花岛-华山 k2222',
-          time:'2019.08.02 11:08 - 12:02',
-          buyers:['黄老邪','米老鼠'],
+          address: '长海鸳鸯港-杏树屯港 獐子8号',
+          time: '2019.08.02 11:08 - 12:02',
+          buyers: ['张三', '李四'],
           total: 'total',
           rate: 'rate',
           money: 'money',
-          payState:1
-        },{
+          payState: 1
+        }, {
           shopName: 'shopName',
-          address: '桃花岛-华山 k2222',
-          time:'2019.08.02 11:08 - 12:02',
-          buyers:['黄老邪','米老鼠'],
+          address: '长海鸳鸯港-广鹿多落母港 通泰7号',
+          time: '2019.08.02 11:08 - 12:02',
+          buyers: ['黄老'],
           total: 'total',
           rate: 'rate',
           money: 'money',
-          payState:1
+          payState: 1
         }
       ],
-      unpaidList:[],
       havePaid:[],
       refundedList:[]
 
     },
-    tabs: ["全部订单","待支付", "已支付", "已退票"],
+    tabs: ["待支付", "已支付", "已退票"],
     payState:['待支付','已支付','已退款'],
     noRecord:'暂无订单',
     activeIndex: '',
@@ -83,5 +83,11 @@ Page({
         }
       }
     )
+  },
+  gotoTicketDetails(){
+    console.log(1111)
+    wx.navigateTo({
+      url: '../../pages/ticketDetails/ticketDetails',
+    })
   }
 });

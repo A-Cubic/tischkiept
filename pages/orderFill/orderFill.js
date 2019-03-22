@@ -3,9 +3,9 @@ Page({
     ticketForm: {
       id: 'a1111111111',
       imgUrl: 'http://img.ui.cn/data/file/0/2/7/751720.jpg',
-      lineName: 'K3456',
-      startPlace: '海南',
-      endPlace: '烟台',
+      lineName: '通泰7号',
+      startPlace: '长海鸳鸯港',
+      endPlace: '广鹿多落母港',
       startDate: '2017-11-11',
       endDate: '2017-11-11',
       startTime: '8:30',

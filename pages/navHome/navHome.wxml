@@ -13,7 +13,7 @@
 <form class="page__bd" catchsubmit="formSubmit" catchreset="formReset">
 <view class='ticket fff '>
   <view class='addressWrap borBotGray'>
-    <text class='flex1'>桃花岛</text>
+    <text class='flex1'>长海鸳鸯港</text>
     <picker class='flex1 address-picker' bindchange="bindPickerChange" value="{{index}}" range="{{address}}">
       <view class="picker">
         {{address[index]}}

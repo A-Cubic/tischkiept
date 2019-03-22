@@ -1,6 +1,6 @@
 /* pages/navHome/navHome.wxss */
 page{
-  background: #fbfbfb;
+  background: #fafafa;
 }
 
 .swiper {

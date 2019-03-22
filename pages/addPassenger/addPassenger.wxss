@@ -3,11 +3,11 @@
 .index {
   width: 680rpx;
   height: 489rpx;
-  background: #fff;
+  background: #fafafa;
   border-radius: 10rpx;
   margin: 25rpx auto;
   overflow: hidden;
-  border:1px solid #E5E5E5;
+  /* border:1px solid #fdfdfd; */
 }
 .wrap {
   width: 640rpx;
@@ -16,7 +16,6 @@
   border-radius: 10rpx;
   overflow: hidden;
   position: relative;
-  
 }
 
 .img1 {

@@ -1,10 +1,13 @@
 {
   "pages":[
+    
     "pages/navHome/navHome",
     "pages/navConsult/navConsult",
    
     "pages/addPassenger/addPassenger",
     "pages/orderList/orderList",
+    "pages/ticketDetails/ticketDetails",
+
     "pages/navMine/navMine",
     "pages/steamerTicket/steamerTicket",
     "pages/orderFill/orderFill",
@@ -20,6 +23,11 @@
     "navigationBarBackgroundColor": "#6badf8",
     "navigationBarTitleText": "",
     "navigationBarTextStyle":"white"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于地图路线"
+    }
   },
   "tabBar": {
     "color": "#a9b7b7",

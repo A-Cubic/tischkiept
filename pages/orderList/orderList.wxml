@@ -13,7 +13,7 @@
         </view>
         <view class="weui-tab__panel">
         <!-- 全部订单 -->
-            <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+            <!-- <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
               <view class='content'>
                   <view class='unit' wx:for="{{getData.allList}}" wx:key='{{id}}'>
                     <view class='line clearfix borBotGray'>
@@ -28,14 +28,14 @@
                       <text wx:for="{{item.buyers}}">{{item}} </text>
                     </view>
                   </view>
-                  <!-- 当内容List 不为空时隐藏 -->
+                  当内容List 不为空时隐藏
                   <view class='noRecord' hidden="{{getData.allList != ''}}">{{noRecord}}</view>
                 </view>
-            </view>
+            </view> -->
             <!-- 待支付 -->
-            <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+            <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
               <view class='content'>
-                  <view class='unit' wx:for="{{getData.unpaidList}}" wx:key='{{id}}'>
+                  <view class='unit' wx:for="{{getData.unpaidList}}" wx:key='{{id}}' bindtap='gotoTicketDetails'>
                     <view class='line clearfix borBotGray'>
                       <view class=' address fl'>{{item.address}}</view>
                       <view class='line-right fr'>{{payState[item.payState]}}</view>
@@ -53,7 +53,7 @@
                 </view>
             </view>
             <!-- 已支付 -->
-            <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+            <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
                 
                 <view class='content'>
                   <view class='unit' wx:for="{{getData.havePaid}}" wx:key='{{id}}'>
@@ -74,7 +74,7 @@
                 </view>
             </view>
             <!-- 已退票 -->
-            <view class="weui-tab__content" hidden="{{activeIndex != 3}}">
+            <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
 
                 <view class='content'>
                   <view class='unit' wx:for="{{getData.refundedList}}" wx:key='{{id}}'>
