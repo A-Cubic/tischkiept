@@ -1,14 +1,16 @@
 {
   "pages":[
-    
+
+"pages/navMine/navMine",
+
+    "pages/orderList/orderList",
     "pages/navHome/navHome",
     "pages/navConsult/navConsult",
    
     "pages/addPassenger/addPassenger",
-    "pages/orderList/orderList",
     "pages/ticketDetails/ticketDetails",
 
-    "pages/navMine/navMine",
+    
     "pages/steamerTicket/steamerTicket",
     "pages/orderFill/orderFill",
     "pages/choosePassenger/choosePassenger",

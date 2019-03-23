@@ -5,6 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    paystate:0,
+    payStateArr: ['待支付', '已支付', '已退款'],
     getData:{
       alert:'您已成功占座，请在20分钟之内完成支付，避免订单超时',
       ticketList:[
@@ -67,7 +69,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options)
+    this.setData({
+      paystate: options.paystate
+    })
   },
 
   /**

@@ -35,7 +35,7 @@
             <!-- 待支付 -->
             <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
               <view class='content'>
-                  <view class='unit' wx:for="{{getData.unpaidList}}" wx:key='{{id}}' bindtap='gotoTicketDetails'>
+                  <view class='unit' wx:for="{{getData.unpaidList}}" wx:key='{{item}}' bindtap='gotoTicketDetails' data-payState='{{item.payState}}'>
                     <view class='line clearfix borBotGray'>
                       <view class=' address fl'>{{item.address}}</view>
                       <view class='line-right fr'>{{payState[item.payState]}}</view>
@@ -56,7 +56,7 @@
             <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
                 
                 <view class='content'>
-                  <view class='unit' wx:for="{{getData.havePaid}}" wx:key='{{id}}'>
+                  <view class='unit' wx:for="{{getData.havePaid}}" wx:key='{{item}}' bindtap='gotoTicketDetails' data-payState='{{item.payState}}'>
                     <view class='line clearfix borBotGray'>
                       <view class=' address fl'>{{item.address}}</view>
                       <view class='line-right fr'>{{payState[item.payState]}}</view>
@@ -77,7 +77,7 @@
             <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
 
                 <view class='content'>
-                  <view class='unit' wx:for="{{getData.refundedList}}" wx:key='{{id}}'>
+                  <view class='unit' wx:for="{{getData.refundedList}}" wx:key='{{item}}' bindtap='gotoTicketDetails' data-payState='{{item.payState}}'>
                     <view class='line clearfix borBotGray'>
                       <view class=' address fl'>{{item.address}}</view>
                       <view class='line-right fr'>{{payState[item.payState]}}</view>

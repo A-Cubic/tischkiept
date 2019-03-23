@@ -13,6 +13,27 @@ Page({
           total: 'total',
           rate: 'rate',
           money: 'money',
+          payState: 0
+        }, {
+          shopName: 'shopName',
+          address: '长海鸳鸯港-广鹿多落母港 通泰7号',
+          time: '2019.08.02 11:08 - 12:02',
+          buyers: ['黄老'],
+          total: 'total',
+          rate: 'rate',
+          money: 'money',
+          payState: 0
+        }
+      ],
+      havePaid:[
+        {
+          shopName: 'shopName',
+          address: '长海鸳鸯港-杏树屯港 獐子8号',
+          time: '2019.08.02 11:08 - 12:02',
+          buyers: ['张三', '李四'],
+          total: 'total',
+          rate: 'rate',
+          money: 'money',
           payState: 1
         }, {
           shopName: 'shopName',
@@ -25,8 +46,27 @@ Page({
           payState: 1
         }
       ],
-      havePaid:[],
-      refundedList:[]
+      refundedList:[
+        {
+          shopName: 'shopName',
+          address: '长海鸳鸯港-杏树屯港 獐子8号',
+          time: '2019.08.02 11:08 - 12:02',
+          buyers: ['张三'],
+          total: 'total',
+          rate: 'rate',
+          money: 'money',
+          payState: 2
+        }, {
+          shopName: 'shopName',
+          address: '长海鸳鸯港-广鹿多落母港 通泰7号',
+          time: '2019.08.02 11:08 - 12:02',
+          buyers: ['黄老'],
+          total: 'total',
+          rate: 'rate',
+          money: 'money',
+          payState: 2
+        }
+      ]
 
     },
     tabs: ["待支付", "已支付", "已退票"],
@@ -40,7 +80,6 @@ Page({
     var that = this;
     that.setData({
       activeIndex: options.num
-      
     })
     wx.getSystemInfo({
       success: function (res) {
@@ -84,10 +123,9 @@ Page({
       }
     )
   },
-  gotoTicketDetails(){
-    console.log(1111)
+  gotoTicketDetails(e){
     wx.navigateTo({
-      url: '../../pages/ticketDetails/ticketDetails',
+      url: '../../pages/ticketDetails/ticketDetails?paystate=' + e.currentTarget.dataset.paystate,
     })
   }
 });
