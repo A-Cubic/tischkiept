@@ -95,6 +95,9 @@ Page({
       }
     })
   },
+  gotoPayAttention:function(){
+
+  },
   callTele: function (e) {
     console.log(e.currentTarget.dataset.tele)
     const te = e.currentTarget.dataset.tele;

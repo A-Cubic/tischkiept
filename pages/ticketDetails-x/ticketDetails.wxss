@@ -8,12 +8,12 @@ page{
   position: relative;
   margin-bottom: 120rpx;
 }
-.ticket-content{
-  padding: 20rpx;
-}
+
 .unit{
   padding: 20rpx;
-  /* background: #fff; */
+}
+.unit-num{
+
 }
 .ticket-details-alert {
   width: 100%;
@@ -39,36 +39,6 @@ page{
   background: #6badf8;
   color: #ffffff;
   display: flex;
-  position: relative;
-  
-}
-.unit-ticket-top-style{
-  background: radial-gradient(rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 20rpx, #6badf8 10rpx);
-    background-size: 700rpx 700rpx;
-    background-position: 356rpx -150rpx;
-}
-.unit-ticket-top-style::before{
-  content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 20px;
-    right: 20px;
-    z-index: -1;
-}
-.unit-ticket-bottom-style{
-  background: radial-gradient(rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 20rpx, #fff 10rpx);
-    background-size: 700rpx 700rpx;
-    background-position: 356rpx -350rpx;
-}
-.unit-ticket-bottom-style::before{
-  content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 20px;
-    right: 20px;
-    z-index: -1;
 }
 .header-info {
   flex: 1;
@@ -132,7 +102,7 @@ page{
   background: #F0F0F0;
   font-size: 23rpx;
   margin-left: 20rpx;
-  /* margin-top: 17rpx; */
+  margin-top: 17rpx;
   /* float: left; */
 }
 .bottom-right{
@@ -175,14 +145,3 @@ page{
   margin: 10rpx 20rpx 10rpx;
   float: right;
 }
-.refund-ticket{
-  display: inline-block;
-  background: #6badf8;
-  font-size: 22rpx;
-  color: #fff;
-  padding: 4rpx 20rpx;
-  border-radius: 8rpx;
-  /* width: 80rpx; */
-  /* margin: 10rpx; */
-}
-

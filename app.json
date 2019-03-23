@@ -14,7 +14,7 @@
     "pages/steamerTicket/steamerTicket",
     "pages/orderFill/orderFill",
     "pages/choosePassenger/choosePassenger",
-    
+    "pages/usedPassenger/usedPassenger",
     "pages/index/index",
     "pages/start/start",
     "pages/register/register",

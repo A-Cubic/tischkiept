@@ -1,0 +1,16 @@
+<view class='used-passenger'>
+  <view class="used-passenger-header"></view>
+  <view class="used-passenger-wrap">
+   <!-- <view class='used-passenger-header-btn' bindtap='gotoPassenger'>新增乘客</view> -->
+    <view class='used-passenger-list used-passenger-submit-btn' bindtap='gotoAddPassenger'>新增乘车人</view>
+    <block wx:for="{{ usedPassengerForm.list }}" wx:key="{{item.id}}">
+      <view class='used-passenger-list' data-index="{{index}}">
+        <view class='used-passenger-info'>
+           <view class='used-passenger-name'>{{item.name}}</view>
+           <view class='used-passenger-id'>身份证：{{item.userId}}</view>
+        </view>
+        <view class='add-passenger-pass'>{{ item.type === 0 ? '已通过' : '未通过' }}</view>
+      </view>
+    </block>
+  </view>
+</view>

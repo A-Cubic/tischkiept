@@ -50,12 +50,17 @@
   </view>
   
 <view class='nav'>
+      <view class='main_nav' bindtap='gotoPayAttention'>
+        <text class='main_title'>注意事项</text>
+        <text class='main_theme'>{{getData.phone}}</text>
+        <text class='main_logo weui-cell__ft weui-cell__ft_in-access'></text>
+      </view>
       <view class='main_nav' bindtap='iphone'>
         <text class='main_title'>系统通知</text>
         <text class='main_theme'>{{getData.phone}}</text>
         <text class='main_logo weui-cell__ft weui-cell__ft_in-access'></text>
       </view>
-      <view class='main_nav' bindtap='card'>
+      <view class='main_nav' bindtap='gotoUsedPassenger'>
         <text class='main_title'>常用乘车人</text>
         <text class='main_theme'></text>
         <text class='main_logo weui-cell__ft weui-cell__ft_in-access'></text>
@@ -63,7 +68,7 @@
       
       <view class='main_nav' >
         <view class='serviceWrap' >
-          <contact-button wx:for="{{13}}" wx:key="index" class='service' style='opacity:0' size="30" session-from="weapp" type="default-dark" ></contact-button>
+          <contact-button wx:for="{{12}}" wx:key="index" class='service' style='opacity:0' size="30" session-from="weapp" type="default-dark" ></contact-button>
         </view>
         <text class='main_title'>联系客服</text>
         <text class='main_theme'></text>

@@ -89,3 +89,47 @@ button[class="btn"]::after {
   width: 100rpx;
   flex: 1.5;
 }
+.main_nav {
+
+    margin: 10rpx 0 0rpx;
+  position: relative;
+  display: block;
+  clear: both;
+  width:690rpx;
+height:89rpx;
+background:#fff;
+padding:0 30rpx;
+line-height:89rpx;
+}
+.main_nav text {
+  display: block;
+  float: left;
+  height: 89rpx;
+}
+.main_title {
+  width: 200rpx;
+  font-size: 32rpx;
+  color: #000000;
+ 
+}
+.main_theme {
+  width:430rpx;
+  font-size: 34rpx;
+  color: #888;
+  display: block;
+  text-align: right;
+  margin-right: 30rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  }
+.main_logo {
+  font-size: 34rpx;
+  color: #C7C7CC;
+  text-align: right;
+}
+.serviceWrap{
+  position: absolute;
+  width: 690rpx;
+  overflow: hidden;
+}

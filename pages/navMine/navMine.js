@@ -103,6 +103,11 @@ Page({
       }
     )
   },
+  gotoUsedPassenger:function(){
+    wx.navigateTo({
+      url: '../../pages/usedPassenger/usedPassenger',
+    })
+  }
 });
 
 

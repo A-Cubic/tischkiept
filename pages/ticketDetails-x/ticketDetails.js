@@ -5,37 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    paystate:1,
+    paystate:0,
     payStateArr: ['待支付', '已支付', '已退款'],
     getData:{
       alert:'您已成功占座，请在20分钟之内完成支付，避免订单超时',
-      ticketMessage:{
-        num: '2323421',
-        lineName: '通泰7号',
-        startPlace: '长海鸳鸯港',
-        endPlace: '广鹿多落母港',
-        startDate: '2017-11-11',
-        endDate: '2017-11-11',
-        startTime: '8:30',
-        endTime: '13:00',
-      },
-      ticketPassengers:[
-        {
-          name: '张三',
-          idCard: '2743******4872',
-          paystate:0,
-          price: 1000,
-          seat: '02排07号',
-          type:0,
-        }, {
-          name: '李四',
-          idCard: '2743******4872',
-          paystate: 0,
-          price: 1000,
-          seat: '02排08号',
-          type: 1,
-        }
-      ],
       ticketList:[
         {
           num:'2323421',
