@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "选择出行日期",
+  "usingComponents": {
+    "calendar": "../../component/calendar/index"
+  }
+}

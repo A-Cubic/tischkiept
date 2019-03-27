@@ -21,7 +21,9 @@
     </picker>
   </view>
   <view class='dateWrap'>
-    <view class='flex1'>3月22日</view>
+    <view class='flex1'>
+     <navigator class="navigator" url="/pages/calendarComponent/index">{{today}}</navigator>
+     </view>
     <view class='flex1 date-checkbox'>
       <checkbox-group name="checkbox">
         <label><checkbox value="checkbox1"/>折价票</label>

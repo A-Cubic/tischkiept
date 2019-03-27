@@ -31,11 +31,21 @@ Page({
     //图片宽度 
     imgwidth: 750,
     //默认  
-    current: 0
+    current: 0,
+    today:''
   },
   onLoad: function () {
     // this.imageLoad();
     // this.getShopShow();
+  },
+  onShow:function(){
+    this.getToday()
+  },
+  getToday:function(){
+    let todayDate = new Date();
+    this.setData({
+      today: todayDate.getMonth()+1 + '月' + todayDate.getDate() + '日'
+    })
   },
   getShopShow:function(){
     const that = this;
