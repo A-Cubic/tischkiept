@@ -4,15 +4,15 @@
 <view class='start'>
   <form bindsubmit="formSubmit" bindreset="formReset">
     <view class='hot'>{{title}}</view>
-    <view class='nav'>
+    <!-- <view class='nav'>
       <text class='nav_text'>工号</text>
       <input value='{{num}}' name='num' class='nav_input' type='number' bindinput="userNumInput" placeholder='请输入编号'></input>
-    </view>
+    </view> -->
     <!-- <view class='service'>
       <image src='http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/PurchasingAssistantShop/article_icon_service@3x.png'></image>
       <contact-button class='service_click' size="27" session-from="weapp" type="default-dark" style='opacity:0'></contact-button>
     </view> -->
     
-    <button formType="submit" disabled="{{num == ''}}"  class='button' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" >立即注册</button>
+    <button formType="submit"   class='button' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" >授权使用该小程序</button>
   </form>
 </view>

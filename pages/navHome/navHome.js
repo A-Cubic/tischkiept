@@ -16,7 +16,8 @@ Page({
       listShop:[]
     },
     index:0,
-    address: ['广鹿多落母港','杏树屯港'],   
+    address: ['广鹿多落母港','杏树屯港'], 
+    bannerList:[],  
     autoplay: true,//是否自动切换  
     indicatorDots: true,//是否显示圆点  
     interval: 5000,//自动切换间隔  
@@ -36,7 +37,8 @@ Page({
   },
   onLoad: function () {
     // this.imageLoad();
-    // this.getShopShow();
+    this.getAddress();
+    this.getBanner();
   },
   onShow:function(){
     this.getToday()
@@ -47,22 +49,46 @@ Page({
       today: todayDate.getMonth()+1 + '月' + todayDate.getDate() + '日'
     })
   },
-  getShopShow:function(){
+  getAddress:function(){
     const that = this;
-    // 方法组名称为：User（代购用户），不是系统通用用户Users
     app.Ajax(
-      'User',
+      'Plan',
       'POST',
-      'GetShopShow',
+      'GetPort',
       { },
       function (json) {
         // console.log('json', json)
         if (json.success) {
           // that.imageLoad();
           that.setData({
-            allData: json.data
+            address: json.data
           })
         }else{
+          app.Toast('', 'none', 3000, json.msg.code);
+          // wx.showToast({
+          //   title: json.msg.msg,
+          //   icon: 'none',
+          //   duration: 2500
+          // });
+        }
+      }
+    )
+  },
+  getBanner: function () {
+    const that = this;
+    app.Ajax(
+      'User',
+      'POST',
+      'GetBanner',
+      {},
+      function (json) {
+        // console.log('json', json)
+        if (json.success) {
+          // that.imageLoad();
+          that.setData({
+            bannerList: json.data
+          })
+        } else {
           app.Toast('', 'none', 3000, json.msg.code);
           // wx.showToast({
           //   title: json.msg.msg,

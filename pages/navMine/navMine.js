@@ -103,9 +103,14 @@ Page({
       }
     )
   },
+  gotoSystemInforms(){
+    wx.navigateTo({
+      url: '../systemInforms/systemInforms',
+    })
+  },
   gotoUsedPassenger:function(){
     wx.navigateTo({
-      url: '../../pages/usedPassenger/usedPassenger',
+      url: '../usedPassenger/usedPassenger',
     })
   }
 });

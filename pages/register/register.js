@@ -44,15 +44,15 @@ Page({
   getData:function(){
     app.Ajax(
       // 方法组名称为：User（代购用户），不是系统通用用户Users
-      'Open',
+      'Plan',
       'POST',
-      'ShopUserReg',
-      { storeCode: this.data.num, ...app.globalData.userInfo },
+      'MemberReg',
+      {  ...app.globalData.userInfo },
       function (json) {
         // console.log('json',json);
         if (json.success) {
-          wx.redirectTo({
-            url: '../index/index',
+          wx.switchTab({
+            url: '../navHome/navHome',
           })
         } else {
           app.Toast('', 'none', 3000, json.msg.code);

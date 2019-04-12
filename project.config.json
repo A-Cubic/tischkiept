@@ -12,8 +12,8 @@
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.6.2",
-	"appid": "wx36db529673b38b23",
+	"libVersion": "2.6.5",
+	"appid": "wx0f8c143985098995",
 	"projectname": "tischkiept",
 	"debugOptions": {
 		"hidedInDevtools": []

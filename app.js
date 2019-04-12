@@ -9,7 +9,7 @@ App({
     var isDebug = false;//true调试状态使用本地服务器，非调试状态使用远程服务器
     if (!isDebug) {
       //远程域名
-      wx.setStorageSync('domainName', "https://wxapp.a-cubic.com/api/gift/Wx/")
+      wx.setStorageSync('domainName', "http://112.126.92.32:9290/api/analysis/Ship/")
     }
     else {
       //本地测试域名
@@ -21,27 +21,26 @@ App({
         const that = this;
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         this.Ajax(
-          'Open',
+          'Plan',
           'POST',
-          'ShopUserLogin',
+          'Login',
           { code: res.code },
           function (json) {
-            console.log('~~~',json);
+            // console.log('~~~',json);
             if (json.success) {
               wx.setStorageSync('token', json.data.token);
               // wx.setStorageSync('scanCode', json.data.scanCode);
               // console.log(json.data.token);
               // console.log(!!json.data.isReg)
 
-              if (!!json.data.isReg) {
-                console.log('已经登录过');
-                wx.redirectTo({
-                  url: '../index/index',
-                })
-              }else{
+              if (!json.data.isReg) {
+                // 跳转到授权登录页
+                console.log('跳转授权页');
                 wx.redirectTo({
                   url: '../register/register',
                 })
+              }else{
+                console.log('here');
               }
             } else {
               // that.Toast('','none',2000,json.msg.code)

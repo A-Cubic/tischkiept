@@ -55,7 +55,7 @@
         <text class='main_theme'>{{getData.phone}}</text>
         <text class='main_logo weui-cell__ft weui-cell__ft_in-access'></text>
       </view>
-      <view class='main_nav' bindtap='iphone'>
+      <view class='main_nav' bindtap='gotoSystemInforms' >
         <text class='main_title'>系统通知</text>
         <text class='main_theme'>{{getData.phone}}</text>
         <text class='main_logo weui-cell__ft weui-cell__ft_in-access'></text>

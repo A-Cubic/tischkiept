@@ -47,7 +47,7 @@ Page({
     app.Ajax(
       'User',
       'POST',
-      'GetNews',
+      'GetNotify',
       {},
       function (json) {
         // console.log('json', json)
@@ -67,7 +67,7 @@ Page({
       }
     )
   },
-  togoPublicArticle(e){
+  togoPublicArticle(e) {
     // console.log(e.currentTarget.dataset.url)
     wx.navigateTo({
       url: '../publicArticle/publicArticle?url=' + e.currentTarget.dataset.url,
