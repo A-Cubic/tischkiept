@@ -39,6 +39,7 @@ Page({
     this.setData({
       passengerChecked: app.globalData.passengerChecked
     })
+    // console.log('app.globalData', app.globalData)
     this.getPassengerList()
   },
   gotoPassenger:function(){
@@ -47,7 +48,7 @@ Page({
     })
   },
   // 获取乘客列表 及已选择乘客
-  getPassengerList: function (checked) {
+  getPassengerList: function () {
     const that = this;
     app.Ajax(
       'User',
@@ -67,14 +68,11 @@ Page({
               that.data.passengerChecked.map(j=>{
                 if (j == item.passengerId){
                   item.checked = true
-                }else{
-                  item.checked = false
                 }
               })
             }
 
           })
-          // console.log(' json.data',json.data)
           that.setData({
             passengerList: json.data
           })
@@ -109,7 +107,7 @@ Page({
   },
   //确定选择
   submitChecked: function () {
-    console.log(app.globalData.passengerChecked)
+    // console.log(app.globalData.passengerChecked)
     // var list = [];
     // var checkedStr = '';
     // this.data.passengerForm.passengerList.forEach((item) => {

@@ -16,6 +16,7 @@ Page({
       status: 0,
       gradeList: [
         {
+          gradeId: "021",
           gradeName: '软座',
           ticketLeft: '0'
         },
@@ -40,26 +41,26 @@ Page({
     },
     paramsData:{
       personList: [
-        {
-          passengerName: '刘刚',
-          passengerId:1,
-          passengerCard: '111111111111',
-          passengerType: 0,
-        },
-        {
-          passengerName: '李玲',
-          passengerId: 2,
-          passengerCard: '333333333333',
-          passengerType: 0,
-        },
+        // {
+        //   passengerName: '刘刚',
+        //   passengerId:1,
+        //   passengerCard: '111111111111',
+        //   passengerType: 0,
+        // },
+        // {
+        //   passengerName: '李玲',
+        //   passengerId: 2,
+        //   passengerCard: '333333333333',
+        //   passengerType: 0,
+        // },
       ],
-      phone: '13245678900',
+      phone: '',
     }
   },
   
   // 生命周期函数--监听页面加载
   onLoad: function (options) {
-    // console.log('options', JSON.parse(options.params))
+    console.log('options', JSON.parse(options.params))
     this.setData({
       ticketForm: JSON.parse(options.params)
     })
@@ -89,11 +90,6 @@ Page({
           that.setData({
             'paramsData.personList': list
           })
-          console.log('~~~', app.globalData.passengerChecked)
-          console.log('~~~', that.data.paramsData.personList)
-          console.log('~~2222~', that.data)
-
-          
         } else {
           app.Toast('', 'none', 3000, json.msg.code);
         }
@@ -112,6 +108,13 @@ Page({
     // }
   },
   addPassenger () {
+    app.globalData.passengerChecked=[];
+    if (this.data.paramsData.personList!=''){
+      this.data.paramsData.personList.map((item)=>{
+        app.globalData.passengerChecked.push(item.passengerId)
+      })
+    }
+    // console.log('sss', app.globalData.passengerChecked)
     // var list = [];
     // var str = '';
     // this.data.paramsData.personList.forEach((item) => {
@@ -121,10 +124,52 @@ Page({
     // wx.navigateTo({
     //   url: '../choosePassenger/choosePassenger?str=' + str
     // })
-
     wx.navigateTo({
       url: '../choosePassenger/choosePassenger'
     })
   },
- 
+  deletePassenger(e){
+    // console.log(e.currentTarget.dataset.passengerid)
+    let list = this.data.paramsData.personList
+    list.map((item,index)=>{
+      if (item.passengerId == e.currentTarget.dataset.passengerid){
+        list.splice(index, 1);
+        this.setData({
+          'paramsData.personList':list
+        })
+      }
+    })
+  },
+  bindPhoneInput(e){
+    this.setData({
+      'paramsData.phone': e.detail.value
+    })
+  },
+  gotoTicketDetails:function(){
+    const params = {
+      planId: this.data.ticketForm.planId,
+      gradeId: this.data.ticketForm.gradeList[0].gradeId,
+      passengerList: this.data.paramsData.personList,
+      mobile: this.data.paramsData.phone
+    }
+    const that = this;
+    app.Ajax(
+      'Plan',
+      'POST',
+      'BookingTicket',
+      { ...params},
+      function (json) {
+        // console.log('aaa',json);
+        if (json.success) {
+          wx.navigateTo({
+            url: '../ticketDetails/ticketDetails',
+          })
+        } else {
+          app.Toast('', 'none', 3000, json.msg.code);
+        }
+      }
+    )
+
+   
+  }
 })
