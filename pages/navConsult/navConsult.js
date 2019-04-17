@@ -42,6 +42,31 @@ Page({
   onLoad: function (options) {
     this.getNewsList();
   },
+  getTelList(){
+    const that = this;
+    app.Ajax(
+      'User',
+      'POST',
+      'GetTel',
+      {},
+      function (json) {
+        // console.log('json', json)
+        if (json.success) {
+          // that.imageLoad();
+          that.setData({
+            consultList: json.data
+          })
+        } else {
+          app.Toast('', 'none', 3000, json.msg.code);
+          // wx.showToast({
+          //   title: json.msg.msg,
+          //   icon: 'none',
+          //   duration: 2500
+          // });
+        }
+      }
+    )
+  },
   getNewsList(){
     const that = this;
     app.Ajax(

@@ -1,37 +1,38 @@
 <view class='ticket-details'>
   <view class="ticket-details-header">
     <view class='header-info'>
-      <view class='header-info-date text-left'>{{ticketForm.startDate}}</view>
-      <view class='header-info-time text-left'>{{ticketForm.startTime}}</view>
-      <view class='header-info-place text-left'>{{ticketForm.startPlace}}</view>
+      <view class='header-info-date text-left'>{{ticketForm.departureDate}}</view>
+      <view class='header-info-time text-left'>{{ticketForm.departureTime}}</view>
+      <view class='header-info-place text-left'>{{ticketForm.fromPort}}</view>
     </view>
     <view class='header-info'>
       <view class='header-info-line'>
         <view class='info-line'></view>
-        <view class='line-mes'>时刻表</view>
+        <view class='line-mes'>{{ticketForm.sailingTime}}</view>
         <view class='info-line'></view>
       </view>
-      <view class='header-info-lineName'>{{ticketForm.lineName}}</view>
+      <view class='header-info-lineName'>{{ticketForm.shipName}}</view>
     </view>
     <view class='header-info'>
-      <view class='header-info-date text-right'>{{ticketForm.endDate}}</view>
-      <view class='header-info-time text-right'>{{ticketForm.endTime}}</view>
-      <view class='header-info-place text-right'>{{ticketForm.endPlace}}</view>
+      <view class='header-info-date text-right'>{{ticketForm.arriveDate}}</view>
+      <view class='header-info-time text-right'>{{ticketForm.arriveTime}}</view>
+      <view class='header-info-place text-right'>{{ticketForm.toPort}}</view>
     </view>
   </view>
   <view class='ticket-details-info'>
     <view class='ticket-details-seat'>
-      <block wx:for="{{ ticketForm.seatList }}" wx:key="{{item.id}}">
-        <view class='{{ index == ticketForm.seatList.lenght - 1 ? "details-seat-list no-border-flex" : "details-seat-list" }}' data-index="{{index}}">
-          <view class='seat-list-name'>{{item.seat}}</view>
-          <view class='seat-list-price'>￥{{item.price}}</view>
-          <view class='seat-list-num'>{{item.num}}张</view>
+      <block wx:for="{{ ticketForm.gradeList }}" wx:key="{{item.id}}">
+        <view class='{{ index == ticketForm.gradeList.lenght - 1 ? "details-seat-list no-border-flex" : "details-seat-list" }}' data-index="{{index}}">
+          <view class='seat-list-name'>{{item.gradeName}}</view>
+          <view class='seat-list-price'>票价￥{{item.price}} | 半价￥{{item.halfPrice}}</view>
+       
+          <view class='seat-list-num'>{{item.ticketLeft}}张</view>
         </view>
       </block>
     </view>
     <view class='ticket-details-add' bindtap='addPassenger'>添加乘客</view>
     <view class='ticket-details-person'>
-      <block wx:for="{{ ticketForm.personList }}" wx:key="{{item.userId}}">
+      <block wx:for="{{ paramsData.personList }}" wx:key="{{item.userId}}">
         <view class='ticket-details-person-list' data-index="{{index}}" bindtap='examineIt'>
           <view class='person-operation'>
             <van-icon name="delete" color="#6badf8"/>
@@ -44,14 +45,14 @@
         </view>
       </block>
     </view>
-    <view class='ticket-details-alert'>{{ticketForm.alert}}</view>
+    <view class='ticket-details-alert'>{{alert}}</view>
     <view class='ticket-details-phone'>
       <view class="ticket-details-phone-label">手机号</view>
       <view class="ticket-details-phone-input">
         <input class="phone-input" placeholder="请输入手机号" />
       </view>
     </view>
-    <view class='ticket-details-buy'>最高票价：￥{{ticketForm.price}} × {{ticketForm.num}}</view>
+    <!-- <view class='ticket-details-buy'>最高票价：￥{{ticketForm.price}} × {{ticketForm.num}}</view> -->
     
   </view>
 

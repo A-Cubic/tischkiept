@@ -82,12 +82,12 @@ Page({
   getMainInfo:function(){
     const that = this;
     app.Ajax(
-      'User',
+      'Plan',
       'POST',
-      'GetMainInfo',
+      'TicketNum',
       {  },
       function (json) {
-        // console.log('ajson',json);
+        console.log('ajson',json);
         if (json.success) {
           that.setData({
             getData: json.data

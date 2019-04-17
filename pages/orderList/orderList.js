@@ -91,6 +91,7 @@ Page({
     });
   },
   tabClick: function (e) {
+    console.log(e)
     this.setData({
       sliderOffset: e.currentTarget.offsetLeft,
       activeIndex: e.currentTarget.id

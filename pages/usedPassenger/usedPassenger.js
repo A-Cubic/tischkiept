@@ -1,8 +1,17 @@
+const app = getApp();
 Page({
   data: {
-    usedPassengerForm: {
-      list: []
-    }
+    usedPassengerForm: [
+      {
+        passengerName: '刘刚',
+        passengerId: '111111111111',
+        passengerCard:'343512312132132',
+        passengerType:'001',
+        passengerCardType:'1',
+        type: 0,
+        passengerTel: '13124567890'
+      }
+    ]
   },
   
   // 生命周期函数--监听页面加载
@@ -14,35 +23,31 @@ Page({
 
   // 获取乘客列表 及已选择乘客
   getUsedPassenger: function () {
-    var list = [
-      {
-        name: '刘刚',
-        userId: '111111111111',
-        type: 0,
-        phone: '13124567890'
-      },
-      {
-        name: '王鹏',
-        userId: '222222222222',
-        type: 1,
-        phone: '13245678234'
-      },
-      {
-        name: '李玲',
-        userId: '333333333333',
-        type: 0,
-        phone: '13577889923'
-      },
-      {
-        name: '张正',
-        userId: '444444444444',
-        type: 0,
-        phone: '13765462890'
+    const that = this;
+    app.Ajax(
+      'User',
+      'POST',
+      'GetPassenger',
+      {},
+      function (json) {
+        // console.log('aaa',json);
+        if (json.success) {
+          that.setData({
+            usedPassengerForm: json.data
+          })
+        } else {
+          app.Toast('', 'none', 3000, json.msg.code);
+          // wx.showToast({
+          //   title: json.msg.msg,
+          //   icon: 'none',
+          //   duration: 2500
+          // });
+        }
       }
-    ];
-    this.setData({
-      'usedPassengerForm.list': list
-    });
+    )
+    // this.setData({
+    //   'usedPassengerForm.list': list
+    // });
   },
 
   //确定选择
@@ -50,6 +55,11 @@ Page({
     wx.navigateTo({
       url: '../../pages/addPassenger/addPassenger',
     })
+  },
+
+  //删除 
+  deletePassenger:function(e){
+    console.log(e.currentTarget.dataset.passengerid)
   }
 
  

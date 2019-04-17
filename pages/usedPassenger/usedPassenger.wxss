@@ -69,3 +69,9 @@ page {
   color: #6badf8;
   font-size: 25rpx;
 }
+.person-operation {
+  width: 100rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+}

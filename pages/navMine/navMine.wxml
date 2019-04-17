@@ -30,19 +30,19 @@
       </view> -->
       <view class=''>
         <navigator class='looks-view' url="/pages/orderList/orderList?num=0">
-        <text class='content_num'>0{{getData.process}}</text>
+        <text class='content_num'>{{getData.unpaid}}</text>
         <text class='content_method'>待支付</text>
         </navigator>
       </view>
       <view class='content_center'>
       <navigator class='looks-view' url="/pages/orderList/orderList?num=1">
-        <text class='content_num'>0{{getData.pay}}</text>
+        <text class='content_num'>{{getData.paid}}</text>
         <text class='content_method'>已支付</text>
       </navigator>
       </view>
       <view class='content_right'>
       <navigator class='looks-view' url="/pages/orderList/orderList?num=2">
-        <text class='content_num'>0{{getData.paid}}</text>
+        <text class='content_num'>{{getData.unpaid}}</text>
         <text class='content_method'>已退票</text>
       </navigator>
       </view>

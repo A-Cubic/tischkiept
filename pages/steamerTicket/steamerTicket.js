@@ -1,148 +1,24 @@
 Page({
   data: {
+    paramsData:'',
     ticketForm: {
-      ticketToyal: 2,
       ticketList: [
         {
-          id: 'a1111111111',
+          planId: 'a1111111111',
           imgUrl: 'http://img.ui.cn/data/file/0/2/7/751720.jpg',
-          lineName: '通泰7号',
-          startPlace: '长海鸳鸯港',
-          endPlace: '广鹿多落母港',
-          startTime: '8:30',
-          endTime: '13:00',
-          allTime: '4.5小时',
+          shipName: '通泰7号',
+          fromPort: '长海鸳鸯港',
+          toPort: '广鹿多落母港',
+          departureTime: '8:30',
+          arriveTime: '13:00',
+          sailingTime: '4.5小时',
           price: 1000,
           explain: '',
           status: 0,
-          seatList: [
+          gradeList: [
             {
-              label: '软座',
-              val: '有票'
-            },
-            {
-              label: '硬卧',
-              val: '有票'
-            },
-            {
-              label: '软卧',
-              val: '有票'
-            },
-            {
-              label: '无座',
-              val: '有票'
-            }
-          ]
-        },
-        {
-          id: 'a22222222222',
-          imgUrl: 'http://img.ui.cn/data/file/9/7/0/626079.gif',
-          lineName: '通泰7号',
-          startPlace: '长海鸳鸯港',
-          endPlace: '广鹿多落母港',
-          startTime: '16:30',
-          endTime: '19:30',
-          allTime: '3小时',
-          price: 1000,
-          explain: '',
-          status: 1,
-          seatList: [
-            {
-              label: '硬座',
-              val: '有票'
-            },
-            {
-              label: '硬卧',
-              val: '有票'
-            },
-            {
-              label: '软卧',
-              val: '有票'
-            },
-            {
-              label: '无座',
-              val: '有票'
-            }
-          ]
-        },
-        {
-          id: 'a333333333333',
-          imgUrl: 'http://img.ui.cn/data/file/9/7/0/626079.gif',
-          lineName: '通泰7号',
-          startPlace: '长海鸳鸯港',
-          endPlace: '广鹿多落母港',
-          startTime: '16:30',
-          endTime: '19:30',
-          allTime: '3小时',
-          price: 1000,
-          explain: '',
-          status: 2,
-          seatList: [
-            {
-              label: '硬座',
-              val: '有票'
-            },
-            {
-              label: '硬卧',
-              val: '有票'
-            },
-            {
-              label: '软卧',
-              val: '有票'
-            },
-            {
-              label: '无座',
-              val: '有票'
-            }
-          ]
-        },
-        {
-          id: 'a333333333333',
-          imgUrl: 'http://img.ui.cn/data/file/9/7/0/626079.gif',
-          lineName: '通泰7号',
-          startPlace: '长海鸳鸯港',
-          endPlace: '广鹿多落母港',
-          startTime: '16:30',
-          endTime: '19:30',
-          allTime: '3小时',
-          price: 1000,
-          explain: '',
-          status: 2,
-          seatList: [
-            {
-              label: '硬座',
-              val: '有票'
-            },
-            {
-              label: '硬卧',
-              val: '有票'
-            },
-            {
-              label: '软卧',
-              val: '有票'
-            },
-            {
-              label: '无座',
-              val: '有票'
-            }
-          ]
-        },
-        {
-          id: 'a333333333333',
-          imgUrl: 'http://img.ui.cn/data/file/9/7/0/626079.gif',
-          lineName: '通泰7号',
-          startPlace: '长海鸳鸯港',
-          endPlace: '广鹿多落母港',
-          startTime: '16:30',
-          endTime: '19:30',
-          allTime: '3小时',
-          price: 1000,
-          explain: '',
-          status: 2,
-          seatList: [
-            {
-              label: '硬座',
-              val: '有票'
+              gradeName: '软座',
+              ticketLeft: '0'
             },
             {
               label: '硬卧',
@@ -165,15 +41,22 @@ Page({
   // 生命周期函数--监听页面加载
   onLoad: function (options) {
     
+    // const ticketForm = JSON.parse(options)
+    // console.log('options', JSON.parse(options.params))
+    this.setData({
+      'ticketForm.ticketList': JSON.parse(options.params).shiplist,
+      paramsData: JSON.parse(options.params).paramsData
+    })
     var that = this;
   },
 
-  examineIt(e){
-    var index = e.currentTarget.dataset.index;
-    var id = this.data.ticketForm.ticketList[index].id;
-    console.log(id);
+  gotoOrderFill(e){
+    // console.log(e.currentTarget.dataset)
+    // var index = e.currentTarget.dataset.index;
+    // var id = this.data.ticketForm.ticketList[index].id;
+    // console.log(id);
     wx.navigateTo({
-      url: '../orderFill/orderFill?id=' + id
+      url: '../orderFill/orderFill?params=' + JSON.stringify(e.currentTarget.dataset.detail)
     })
   }
  

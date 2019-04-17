@@ -4,7 +4,12 @@
 <form bindsubmit="formSubmit" bindreset="formReset">
   <view class='line'>
     <view class='iphone_left'>
-      乘客类型 <input type='text'  value='{{adultTicket}}'  disabled style="color:#6badf8" placeholder='成人票'></input>
+      乘客类型 <picker class='flex1 address-picker' bindchange="bindPickerChange" value="{{index}}" range="{{address}}">
+      <view class="picker">
+        {{address[index]}}
+      </view>
+    </picker>
+    <!-- <input type='text'  value='{{adultTicket}}'  disabled style="color:#6badf8" placeholder='成人票'></input> -->
     </view>
   </view>
   <view class='line'>

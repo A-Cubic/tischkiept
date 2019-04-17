@@ -45,7 +45,7 @@
                       <view class='line-right fr'>¥{{item.payState}}</view>
                     </view>
                     <view class='line' >
-                      <text wx:for="{{item.buyers}}">{{item}} </text>
+                      <text wx:for="{{item.buyers}}" wx:key='{{item}}'>{{item}} </text>
                     </view>
                   </view>
                   <!-- 当内容List 不为空时隐藏 -->
@@ -66,7 +66,7 @@
                       <view class='line-right fr'>¥{{item.payState}}</view>
                     </view>
                     <view class='line' >
-                      <text wx:for="{{item.buyers}}">{{item}} </text>
+                      <text wx:for="{{item.buyers}}" wx:key='{{item}}'>{{item}} </text>
                     </view>
                   </view>
                   <!-- 当内容List 不为空时隐藏 -->
@@ -87,7 +87,7 @@
                       <view class='line-right fr'>¥{{item.payState}}</view>
                     </view>
                     <view class='line' >
-                      <text wx:for="{{item.buyers}}">{{item}} </text>
+                      <text wx:for="{{item.buyers}}" wx:key='{{item}}'>{{item}} </text>
                     </view>
                   </view>
                   <!-- 当内容List 不为空时隐藏 -->

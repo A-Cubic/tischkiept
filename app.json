@@ -2,8 +2,8 @@
   "pages":[
 
     
-"pages/navHome/navHome",
-"pages/navMine/navMine",
+    "pages/navHome/navHome",
+    "pages/navMine/navMine",
 
     "pages/orderList/orderList",
     

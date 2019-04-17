@@ -25,6 +25,7 @@ page {
   background: #FFFFFF;
   text-align: center;
   color: #6badf8;
+  font-size: 32rpx;
 }
 .add-passenger-wrap {
   width: 100%;

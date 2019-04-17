@@ -33,20 +33,64 @@ Page({
     imgwidth: 750,
     //默认  
     current: 0,
-    today:''
+    today:'',
+    nowDate:'',
+    preData:'',
+    paramsData:''
   },
   onLoad: function () {
     // this.imageLoad();
     this.getAddress();
     this.getBanner();
+
+    this.getToday()
+    // this.getPreData();
   },
   onShow:function(){
-    this.getToday()
+   
   },
   getToday:function(){
-    let todayDate = new Date();
+    // let todayDate = new Date();
+    // this.setData({
+    //   today: todayDate.getMonth()+1 + '月' + todayDate.getDate() + '日'
+    // })
+
+
+    let date = new Date();
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+    if (month < 10) {
+      month = "0" + month;
+    }
+    if (day < 10) {
+      day = "0" + day;
+    }
+    let nowDate = year + "-" + month + "-" + day;
+
     this.setData({
-      today: todayDate.getMonth()+1 + '月' + todayDate.getDate() + '日'
+      today: month + '月' + day + '日',
+      nowDate: nowDate,
+      paramsData: year.toString() + month.toString() + day.toString()
+    })
+  },
+  getPreData:function(){
+    let curDate = new Date();
+    let preDate = new Date(curDate.getTime() - 24 * 60 * 60 * 1000) //前一天
+    
+    let year = preDate.getFullYear();
+    let month = preDate.getMonth() + 1;
+    let day = preDate.getDate();
+    if (month < 10) {
+      month = "0" + month;
+    }
+    if (day < 10) {
+      day = "0" + day;
+    }
+    let preData = year + "-" + month + "-" + day;
+
+    this.setData({
+      preData: preData
     })
   },
   getAddress:function(){
@@ -100,14 +144,50 @@ Page({
     )
   },
   bindPickerChange: function (e) {
-    console.log(e.detail.value)
+    // console.log(e.detail.value)
     this.setData({ index: e.detail.value })
   },
   formSubmit: function (e) {
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
-    wx.navigateTo({
-      url:'../steamerTicket/steamerTicket'
-    })
+    
+    const params = {
+      dateFrom: this.data.paramsData,
+      dateTo: this.data.paramsData,
+      port: this.data.address[this.data.index]
+    }
+    // console.log('form发生了submit事件，携带数据为：', params)
+    const that = this;
+    app.Ajax(
+      'Plan',
+      'POST',
+      'GetPlan',
+      { ...params },
+      function (json) {
+        // console.log('json', json)
+        if (json.success) {
+          // that.imageLoad();
+          // that.setData({
+          //   address: json.data
+          // })
+          const params = {
+            ...json.data,
+            paramsData: that.data.nowDate
+          }
+          wx.navigateTo({
+            url: '../steamerTicket/steamerTicket?params=' + JSON.stringify(params)
+          })
+        } else {
+          app.Toast('', 'none', 3000, json.msg.code);
+          // wx.showToast({
+          //   title: json.msg.msg,
+          //   icon: 'none',
+          //   duration: 2500
+          // });
+        }
+      }
+    )
+
+
+    
   },
   formReset: function (e) {
     console.log('form发生了reset事件，携带数据为：', e.detail.value)
@@ -142,7 +222,7 @@ Page({
     })
   },
   imageLoad: function (e) {//获取图片真实宽度  
-  console.log(e)
+    console.log(e)
     var imgwidth = e.detail.width,
       imgheight = e.detail.height,
       //宽高比  

@@ -22,7 +22,7 @@
   </view>
   <view class='dateWrap'>
     <view class='flex1'>
-     <navigator class="navigator" url="/pages/calendarComponent/index">{{today}}</navigator>
+     <navigator class="navigator" url="/pages/calendarComponent/index?time={{today}}">{{today}}</navigator>
      </view>
     <!-- <view class='flex1 date-checkbox'>
       <checkbox-group name="checkbox">
