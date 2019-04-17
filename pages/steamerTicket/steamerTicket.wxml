@@ -19,7 +19,7 @@
                 <view class='line'></view>
                 <view class='line-circle'></view>
               </view>
-              <view class='list-info-flex-name'>{{item.lineName}}</view>
+              <view class='list-info-flex-name'>{{item.shipName}}</view>
             </view>
             <view class='list-info-flex'>
               <view class='list-info-flex-time'>{{item.departureTime}}</view>

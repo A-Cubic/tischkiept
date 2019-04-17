@@ -57,7 +57,7 @@
   width: 690rpx;
   height: 89rpx;
   line-height: 89rpx;
-  font-size: 34rpx;
+  font-size: 33rpx;
   background: #fff;
   margin: 0 auto 3rpx;
   padding: 0 30rpx
@@ -77,6 +77,7 @@
   color: #B2B2B2;
   margin-right: 0rpx;
 }
+
 .iphone_right {
   float:  left;
   width: 180rpx;
@@ -108,4 +109,8 @@
   font-size: 36rpx;
   color: #FFFFFF;
   margin: 0 auto;
+}
+.allPassengerTypes{
+  color:#6badf8;
+  font-size: 33rpx;
 }

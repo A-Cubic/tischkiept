@@ -3,14 +3,15 @@
 
 <form bindsubmit="formSubmit" bindreset="formReset">
   <view class='line'>
-    <view class='iphone_left'>
-      乘客类型 <picker class='flex1 address-picker' bindchange="bindPickerChange" value="{{index}}" range="{{address}}">
+    <!-- <view class='iphone_left'>
+      乘客类型 
+      <input type='text'  value='{{adultTicket}}'  disabled style="color:#6badf8" placeholder='成人票'></input>
+    </view> -->
+    <picker bindchange="bindPickerAllPassengerTypesChange" class='allPassengerTypes' value="{{allPassengerTypesIndex}}" range="{{allPassengerTypes}}">
       <view class="picker">
-        {{address[index]}}
+        乘客类型 ： {{allPassengerTypes[allPassengerTypesIndex]}}
       </view>
     </picker>
-    <!-- <input type='text'  value='{{adultTicket}}'  disabled style="color:#6badf8" placeholder='成人票'></input> -->
-    </view>
   </view>
   <view class='line'>
     <view class='iphone_left'>
@@ -18,20 +19,26 @@
     </view>
   </view>
   <view class='line'>
-    <view class='iphone_left'>
+    <!-- <view class='iphone_left'>
       证件类型 <input type='text' name="idCard" value='{{idCard}}' style="color:#6badf8" bindinput='idCardInput' disabled placeholder='身份证'></input>
-    </view>
+    </view> -->
+    <picker bindchange="bindPickerAllPassengerCardTypesChange" class='allPassengerTypes' value="{{allPassengerCardTypesIndex}}" range="{{allPassengerCardTypes}}">
+      <view class="picker">
+        证件类型 ： {{allPassengerCardTypes[allPassengerCardTypesIndex]}}
+      </view>
+    </picker>
   </view>
   <view class='line'>
     <view class='iphone_left'>
-      证件号码 <input type='number' name='idCardCode' value='{{idCardCode}}' maxlength='18' bindinput='idCardCodeInput'  placeholder='与乘车证件一致'></input>
+      证件号码  <input type='number' name='passengerCard' value='{{passengerCard}}'  bindinput='idCardCodeInput'  placeholder='与乘车证件一致'></input>
     </view>
   </view>
+  
   <!-- <view>{{num}}</view> -->
 
   <view class="weui-msg__extra-area">
     <view class="weui-footer">
-        <button disabled="{{passengerName == '' || idCard == '' || idCardCode == ''}}"  formType="submit" class='ok'>确定</button>
+        <button disabled="{{passengerName == ''  || idCardCode == ''}}"  formType="submit" class='ok'>确定</button>
     </view>
   </view>
   </form>

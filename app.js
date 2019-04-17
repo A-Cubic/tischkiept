@@ -3,7 +3,8 @@
 
 App({
   globalData:{
-    userInfo:null
+    userInfo:null,
+    passengerChecked:[]
   },
   onLaunch: function () {
     var isDebug = false;//true调试状态使用本地服务器，非调试状态使用远程服务器

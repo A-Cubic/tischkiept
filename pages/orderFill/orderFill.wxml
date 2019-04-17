@@ -32,15 +32,15 @@
     </view>
     <view class='ticket-details-add' bindtap='addPassenger'>添加乘客</view>
     <view class='ticket-details-person'>
-      <block wx:for="{{ paramsData.personList }}" wx:key="{{item.userId}}">
-        <view class='ticket-details-person-list' data-index="{{index}}" bindtap='examineIt'>
+      <block wx:for="{{paramsData.personList}}" wx:key="{{item.passengerId}}">
+        <view class='ticket-details-person-list' >
           <view class='person-operation'>
             <van-icon name="delete" color="#6badf8"/>
           </view>
           <view class='person-info'>
-            <view class='person-name'>{{item.name}}</view>
-            <view class='person-type'>{{ item.type == 0 ? '成人票' : '学生票'}}</view>
-            <view class='person-id'>{{item.userId}}</view>
+            <view class='person-name'>{{item.passengerName}}</view>
+            <view class='person-type'>{{item.passengerTypeName}}</view>
+            <view class='person-id'>{{item.passengerCard}}</view>
           </view>
         </view>
       </block>

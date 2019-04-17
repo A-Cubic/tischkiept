@@ -6,10 +6,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    adultTicket:'成人票',
+    allPassengerTypesIndex:0,
+    allPassengerTypes: ['普通票', '学生票', '儿童票','军人票'],
+    allPassengerTypesNum:['001','002','004','005'],
+    allPassengerCardTypesIndex: 0,
+    allPassengerCardTypes:['身份证','护照','军人证'],
+    allPassengerCardTypesNum:[1,2,3],
+    // adultTicket:'成人票',
+    // idCard: '身份证',
+    passengerType:'001',
     passengerName:'',
-    idCard:'身份证',
-    idCardCode:'',
+    passengerCardType:1,
+    passengerCard:'',
     disabled: true, 
   },
  
@@ -18,25 +26,40 @@ Page({
       passengerName: e.detail.value
     })
   },
-  idCardInput: function (e) {
-    this.setData({
-      idCard: e.detail.value
-    })
-  },
+
   idCardCodeInput: function (e) {
     this.setData({
-      idCardCode: e.detail.value
+      passengerCard: e.detail.value
+    })
+  },
+  bindPickerAllPassengerTypesChange(e) {
+    // console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      allPassengerTypesIndex: e.detail.value,
+      passengerType: this.data.allPassengerTypesNum[e.detail.value]
+    })
+  },
+  bindPickerAllPassengerCardTypesChange(e) {
+    // console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      allPassengerCardTypesIndex: e.detail.value,
+      passengerCardType: this.data.allPassengerCardTypesNum[e.detail.value]
     })
   },
 
-
   formSubmit: function (e) {
-    // console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    
+    const params ={
+      passengerType: this.data.passengerType,
+      passengerCardType: this.data.passengerCardType,
+      ...e.detail.value
+    }
+    console.log('form发生了submit事件，携带数据为：', params)
     app.Ajax(
       'User',
       'POST',
-      'UpdateBankCard',
-      { ...e.detail.value },
+      'AddPassenger',
+      { ...params },
       function (json) {
         // console.log('jsonsubmit',json);
         if (json.success) {
@@ -46,16 +69,10 @@ Page({
               delta: 1
             })
           },2000)
-          
-          // wx.showToast({
-          //   title: '绑定成功',
-          // })
+
         }else{
           app.Toast('', 'none', 3000, json.msg.code);
-          // wx.showToast({
-          //   title: '请重新绑定',
-          //   icon: 'none'
-          // })
+
         }
       }
     )
@@ -67,13 +84,6 @@ Page({
    */
   onLoad: function (options) {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-   
   },
 
   /**
@@ -103,5 +113,7 @@ Page({
         }
       }
     )
-  },
+  }
+
+
 })

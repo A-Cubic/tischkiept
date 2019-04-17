@@ -14,10 +14,8 @@ Page({
     ]
   },
   
-  // 生命周期函数--监听页面加载
-  onLoad: function (options) {
-    // var that = this;
-    // var checked = options.str.split(',');
+
+  onShow: function () {
     this.getUsedPassenger();
   },
 
@@ -60,6 +58,31 @@ Page({
   //删除 
   deletePassenger:function(e){
     console.log(e.currentTarget.dataset.passengerid)
+
+    const that = this;
+    app.Ajax(
+      'User',
+      'POST',
+      'DelPassenger',
+      { passengerId: e.currentTarget.dataset.passengerid},
+      function (json) {
+        // console.log('aaa',json);
+        if (json.success) {
+          app.Toast('删除成功', 'success', 2000);
+          setTimeout(function(){
+            that.getUsedPassenger();
+          },2000)
+          
+        } else {
+          app.Toast('', 'none', 3000, json.msg.code);
+          // wx.showToast({
+          //   title: json.msg.msg,
+          //   icon: 'none',
+          //   duration: 2500
+          // });
+        }
+      }
+    )
   }
 
  

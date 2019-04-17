@@ -1,3 +1,4 @@
+const app = getApp();
 Page({
   data: {
     alert: '优先按照制定作息出票',
@@ -40,16 +41,16 @@ Page({
     paramsData:{
       personList: [
         {
-          name: '刘刚',
-          userId: '111111111111',
-          type: 0,
-          phone: '13124567890',
+          passengerName: '刘刚',
+          passengerId:1,
+          passengerCard: '111111111111',
+          passengerType: 0,
         },
         {
-          name: '李玲',
-          userId: '333333333333',
-          type: 0,
-          phone: '13577889923',
+          passengerName: '李玲',
+          passengerId: 2,
+          passengerCard: '333333333333',
+          passengerType: 0,
         },
       ],
       phone: '13245678900',
@@ -58,22 +59,71 @@ Page({
   
   // 生命周期函数--监听页面加载
   onLoad: function (options) {
-    console.log('options', JSON.parse(options.params))
+    // console.log('options', JSON.parse(options.params))
     this.setData({
       ticketForm: JSON.parse(options.params)
     })
     var that = this;
   },
+  onShow:function(){
+    this.getPassengerList();
+  },
+  getPassengerList: function (checked) {
+    const that = this;
+    app.Ajax(
+      'User',
+      'POST',
+      'GetPassenger',
+      {},
+      function (json) {
+        // console.log('aaa',json);
+        if (json.success) {
+          let list = []
+          json.data.map(item=>{
+            app.globalData.passengerChecked.map(i=>{
+              if (item.passengerId==i){
+                list.push(item)
+              }
+            })
+          })
+          that.setData({
+            'paramsData.personList': list
+          })
+          console.log('~~~', app.globalData.passengerChecked)
+          console.log('~~~', that.data.paramsData.personList)
+          console.log('~~2222~', that.data)
 
+          
+        } else {
+          app.Toast('', 'none', 3000, json.msg.code);
+        }
+      }
+    )
+
+    // for (var i = 0; i < this.data.passengerForm.passengerList.length; i++) {
+    //   for (var j = 0; j < checked.length; j++) {
+    //     if (this.data.passengerForm.passengerList[i].userId == checked[j]) {
+    //       var passengerChecked = 'passengerForm.passengerList[' + i + '].checked';
+    //       this.setData({
+    //         [passengerChecked]: true
+    //       });
+    //     }
+    //   }
+    // }
+  },
   addPassenger () {
-    var list = [];
-    var str = '';
-    this.data.paramsData.personList.forEach((item) => {
-      list.push(item.userId);
-    }) 
-    str = list.join(',');
+    // var list = [];
+    // var str = '';
+    // this.data.paramsData.personList.forEach((item) => {
+    //   list.push(item.passengerId);
+    // }) 
+    // str = list.join(',');
+    // wx.navigateTo({
+    //   url: '../choosePassenger/choosePassenger?str=' + str
+    // })
+
     wx.navigateTo({
-      url: '../choosePassenger/choosePassenger?str=' + str
+      url: '../choosePassenger/choosePassenger'
     })
   },
  
