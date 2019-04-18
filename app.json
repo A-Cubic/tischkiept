@@ -1,9 +1,9 @@
 {
   "pages":[
-"pages/navMine/navMine",
+
     
     "pages/navHome/navHome",
-    
+    "pages/navMine/navMine",
     "pages/orderList/orderList",
     "pages/navConsult/navConsult",
    "pages/systemInforms/systemInforms",
@@ -18,9 +18,9 @@
     "pages/index/index",
     "pages/start/start",
     "pages/register/register",
-"pages/publicArticle/publicArticle",
+    "pages/publicArticle/publicArticle",
 
-
+    "pages/warrant/warrant",
     "pages/calendarComponent/index",
     "pages/test/test"
   ],

@@ -75,7 +75,7 @@ Page({
     payState:['待支付','已支付','已退款'],
     payStateArr: ['初始化订单', '待付款', '已付款', '订单已取消', '已申请退票', '已退票'],
     noRecord:'暂无订单',
-    activeIndex: '',
+    activeIndex: 0,
     sliderOffset: 0,
     sliderLeft: 0,
   },

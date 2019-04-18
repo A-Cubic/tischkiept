@@ -117,8 +117,8 @@ Page({
         if (json.success) {
           app.Toast('订单已取消', 'success', 2000, );
           setTimeout(function(){
-            wx.navigateTo({
-              url: '../../pages/orderList/orderList',
+            wx.switchTab({
+              url: '../../pages/navMine/navMine',
             })
           },1500)
           
@@ -149,8 +149,8 @@ Page({
         if (json.success) {
           app.Toast('退票处理中', 'none', 2000);
           setTimeout(function () {
-            wx.navigateTo({
-              url: '../pages/orderList/orderList',
+            wx.navigateBack({
+              delta: 1,
             })
           }, 1500)
 

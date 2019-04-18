@@ -38,7 +38,7 @@ App({
                 // 跳转到授权登录页
                 console.log('跳转授权页');
                 wx.redirectTo({
-                  url: '../register/register',
+                  url: '../warrant/warrant',
                 })
               }else{
                 console.log('here');
@@ -96,94 +96,15 @@ App({
   Toast: function (title, icon, duration, code) {
     let content = title;
     switch (code) {
-      // 个人中心
-      case 10001:
-        content = '会员已存在'
-        break;
-      case 10002:
-        content = '会员注册异常'
-        break;
-      case 10003:
-        content = '用户已绑定'
-        break;
-      case 10004:
-        content = '无效会员卡'
-        break;
-      case 10005:
-        content = '绑定会员卡错误'
-        break;
-      case 10006:
-        content = '无效验证码'
-        break;
-      case 10007:
-        content = '处理积分同步错误'
-        break;
-      case 10008:
-        content = '兑换积分错误'
-        break;
-      case 10009:
-        content = '设置默认会员店铺失败'
-        break;
-      case 10010:
-        content = '获取验证码错误'
-        break;
-      case 10011:
-        content = '您今天的兑换已经达到上限了哦'
-        break;
-      case 10012:
-        content = '您的手机号在该店铺已经绑定过了哦'
-        break;
-
-      // 商城
-      case 10101:
-        content = '首页加载失败'
-        break;
-      case 10102:
-        content = '无效的商品'
-        break;
-      case 10103:
-        content = '没有足够库存'
-        break;
-      case 10104:
-        content = '更新购物车失败'
-        break;
-      case 10105:
-        content = '删除购物车失败'
-        break;
-      case 10106:
-        content = '请先绑定会员卡哦'
-        break;
-      case 10107:
-        content = '无效的预订单号'
-        break;
-      case 10108:
-        content = '	生成订单失败'
-        break;
-      case 10109:
-        content = '无效的订单状态'
-        break;
-      case 10110:
-        content = '没有足够的心值'
-        break;
-      case 10111:
-        content = '支付订单失败'
-        break;
-      case 10112:
-        content = '	无效的店铺'
-        break;
-      case 10201:
-        content = '	店铺会员已存在'
-        break;
-      case 10202:
-        content = '	同步用户信息失败'
-        break;
-
       // 通用
+      case -1:
+        content = 'Post为空'
+        break;
       case 201:
         content = 'APPID错误'
         break;
       case 202:
-        content = '签名错误'
+        content = '	签名错误'
         break;
       case 404:
         content = '没有找到'
@@ -195,7 +116,7 @@ App({
         content = '	微信组件异常'
         break;
       case 3000:
-        content = '支付错误'
+        content = '	支付错误'
         break;
       case 3001:
         content = '支付金额不能为0'
@@ -204,7 +125,6 @@ App({
         content = '支付返回异常'
         break;
       case 4000:
-
         content = '无效的Token'
         break;
       case 4001:
@@ -225,6 +145,50 @@ App({
       case 4006:
         content = '需要登陆'
         break;
+
+        // 我的
+      case 10001:
+        content = '用户已存在'
+        break;
+      case 10002:
+        content = '注册用户失败'
+        break;
+
+        // 首页
+      case 20000:
+        content = '	订票失败'
+        break;
+      case 20001:
+        content = '	检查乘车人失败'
+        break;
+      case 20002:
+        content = '获取订单id失败'
+        break;
+      case 20003:
+        content = '订票失败'
+        break;
+      case 20004:
+        content = '获取订单状态失败'
+        break;
+      case 20005:
+        content = '	写入订单失败'
+        break;
+      case 20006:
+        content = '退票时退票状态校验失败'
+        break;
+      case 20007:
+        content = '	退票失败'
+        break;
+      case 30000:
+        content = '新增乘客失败'
+        break;
+      case 30001:
+        content = '删除乘客失败'
+        break;
+      case 30002:
+        content = '	已有相同证件号的乘客'
+        break;
+     
       default:
         console.log(code);
     }
