@@ -7,32 +7,32 @@ Page({
    */
   data: {
     consultList:[
-      {
-        addr:'警务室',
-        phone:'123'
-      }, {
-        addr: '售票处',
-        phone: '234'
-      }, {
-        addr: '咨询台',
-        phone: '4565'
-      }
+      // {
+      //   addr:'警务室',
+      //   phone:'123'
+      // }, {
+      //   addr: '售票处',
+      //   phone: '234'
+      // }, {
+      //   addr: '咨询台',
+      //   phone: '4565'
+      // }
     ],
     
     newsList:[
-      {
-        title:'学哲学使我们能够过上经过思虑的人生',
-        time:'2019-03-16 18：03：03',
-        url:'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/bannerEuropeanAmerican.jpg',
-        reading:'20',
-        type: 0,
-      }, {
-        title: '学哲学使我们能够过上经过思虑的人生',
-        time: '2019-03-16 18：03：03',
-        url: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/bannerEuropeanAmerican.jpg',
-        reading: '22',
-        type: 1
-      }
+      // {
+      //   title:'学哲学使我们能够过上经过思虑的人生',
+      //   time:'2019-03-16 18：03：03',
+      //   url:'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/bannerEuropeanAmerican.jpg',
+      //   reading:'20',
+      //   type: 0,
+      // }, {
+      //   title: '学哲学使我们能够过上经过思虑的人生',
+      //   time: '2019-03-16 18：03：03',
+      //   url: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/bannerEuropeanAmerican.jpg',
+      //   reading: '22',
+      //   type: 1
+      // }
     ]
   },
 
@@ -41,6 +41,7 @@ Page({
    */
   onLoad: function (options) {
     this.getNewsList();
+    this.getTelList();
   },
   getTelList(){
     const that = this;
@@ -54,7 +55,7 @@ Page({
         if (json.success) {
           // that.imageLoad();
           that.setData({
-            consultList: json.data
+            consultList: json.data.tellist
           })
         } else {
           app.Toast('', 'none', 3000, json.msg.code);
@@ -99,7 +100,7 @@ Page({
     })
   },
   madeCall: function (e) {
-    console.log(e.currentTarget.dataset.phone)
+    // console.log(e.currentTarget.dataset.phone)
     wx.makePhoneCall({
       phoneNumber: e.currentTarget.dataset.phone // 仅为示例，并非真实的电话号码
     })

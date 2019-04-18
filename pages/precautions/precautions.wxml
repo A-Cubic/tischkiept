@@ -1,0 +1,4 @@
+<!--pages/precautions/precautions.wxml-->
+<view class='memberBenefits'>
+  <image src='{{url}}' mode='widthFix' data-src='{{url}}' ></image>
+</view>

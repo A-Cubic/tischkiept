@@ -201,7 +201,7 @@ Page({
     wx.getLocation({//获取当前经纬度
       type: 'wgs84', //返回可以用于wx.openLocation的经纬度，官方提示bug: iOS 6.3.30 type 参数不生效，只会返回 wgs84 类型的坐标信息  
       success: function (res) {
-        console.log('ssss', res)
+        // console.log('ssss', res)
         wx.openLocation({//​使用微信内置地图查看位置。
           latitude: 122.516797,//要去的纬度-地址122.516797,39.306283
           longitude: 39.306283,//要去的经度-地址
@@ -211,11 +211,13 @@ Page({
       }
     })
   },
-  gotoPayAttention:function(){
-
+  gotoPrecautions() {
+    wx.navigateTo({
+      url: '../precautions/precautions',
+    })
   },
   callTele: function (e) {
-    console.log(e.currentTarget.dataset.tele)
+    // console.log(e.currentTarget.dataset.tele)
     const te = e.currentTarget.dataset.tele;
     wx.makePhoneCall({
       phoneNumber: te // 仅为示例，并非真实的电话号码

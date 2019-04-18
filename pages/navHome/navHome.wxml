@@ -56,7 +56,7 @@
   </view>
 </view>
 <view class='nav'>
-      <view class='main_nav' bindtap='gotoPayAttention'>
+      <view class='main_nav' bindtap='gotoPrecautions'>
         <text class='main_title'>主要事项</text>
         <text class='main_theme'>{{getData.phone}}</text>
         <text class='main_logo weui-cell__ft weui-cell__ft_in-access'></text>

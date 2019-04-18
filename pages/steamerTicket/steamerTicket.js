@@ -1,6 +1,8 @@
 Page({
   data: {
+    noRecord:'暂无船期',
     paramsData:'',
+    date:'',
     ticketForm: {
       ticketList: [
         {
@@ -45,6 +47,7 @@ Page({
     // console.log('options', JSON.parse(options.params))
     this.setData({
       'ticketForm.ticketList': JSON.parse(options.params).shiplist,
+      date: JSON.parse(options.params).date,
       paramsData: JSON.parse(options.params).paramsData
     })
     var that = this;

@@ -9,7 +9,7 @@ const conf = {
     chooseData:'',
   },
   onLoad:function(options){
-    console.log(options)
+    // console.log(options)
     this.setData({
       chooseData: options.time
     })

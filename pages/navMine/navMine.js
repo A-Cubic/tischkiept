@@ -9,9 +9,9 @@ Page({
   
 //获取头像信息等
   onLoad: function () {
-    this.setData({
-      sex:wx.getStorageSync('sex')
-    })
+    // this.setData({
+    //   sex:wx.getStorageSync('sex')
+    // })
   },
  
   
@@ -46,6 +46,11 @@ Page({
   gotoSystemInforms(){
     wx.navigateTo({
       url: '../systemInforms/systemInforms',
+    })
+  },
+  gotoPrecautions(){
+    wx.navigateTo({
+      url: '../precautions/precautions',
     })
   },
   gotoUsedPassenger:function(){

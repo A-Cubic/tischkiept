@@ -10,7 +10,8 @@ App({
     var isDebug = false;//true调试状态使用本地服务器，非调试状态使用远程服务器
     if (!isDebug) {
       //远程域名
-      wx.setStorageSync('domainName', "http://112.126.92.32:9290/api/analysis/Ship/")
+      wx.setStorageSync('domainName', "https://ticket.yiswl.com/api/analysis/Ship/")
+      // wx.setStorageSync('domainName', "http://112.126.92.32:9290/api/analysis/Ship/")
     }
     else {
       //本地测试域名

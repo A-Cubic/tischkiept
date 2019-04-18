@@ -10,9 +10,11 @@
       </view>
       <view class='header-card-right'>
         <open-data class="userinfo-nickname" type="userNickName" ></open-data>
-        <view>女</view>
-        <view>2000-2-20</view>
-        <view>辽宁 - 大连</view>
+        
+        
+        <!-- <view><open-data class="userinfo-nickname" type="userGender" ></open-data></view> -->
+        <view><open-data class="userinfo-nickname" type="userProvince" ></open-data></view>
+        <view><open-data class="userinfo-nickname" type="userCountry" ></open-data></view>
       </view>
             <!-- <open-data  class="userinfo-avatar"  type="userAvatarUrl"></open-data>
             <open-data type="userNickName" class="userinfo-nickname"></open-data> -->
@@ -50,14 +52,14 @@
   </view>
   
 <view class='nav'>
-      <view class='main_nav' bindtap='gotoPayAttention'>
+      <view class='main_nav' bindtap='gotoPrecautions'>
         <text class='main_title'>注意事项</text>
-        <text class='main_theme'>{{getData.phone}}</text>
+        <text class='main_theme'></text>
         <text class='main_logo weui-cell__ft weui-cell__ft_in-access'></text>
       </view>
       <view class='main_nav' bindtap='gotoSystemInforms' >
         <text class='main_title'>系统通知</text>
-        <text class='main_theme'>{{getData.phone}}</text>
+        <text class='main_theme'></text>
         <text class='main_logo weui-cell__ft weui-cell__ft_in-access'></text>
       </view>
       <view class='main_nav' bindtap='gotoUsedPassenger'>

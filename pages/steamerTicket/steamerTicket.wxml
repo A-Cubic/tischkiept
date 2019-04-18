@@ -2,7 +2,7 @@
   <view class="steamer-ticket-header">
     <!-- <view class='header-last'>前一天</view>
     <view class='header-next'>后一天</view> -->
-    <view class='header-time'>{{paramsData}}</view>
+    <view class='header-time'>{{date}}</view>
   </view>
   <view class='steamer-ticket-wrap'>
     <block wx:for="{{ ticketForm.ticketList }}" wx:key="{{item.id}}">
@@ -36,5 +36,7 @@
           </view>
         </view>
       </block>
+      
   </view>
+  <view class='noRecord' hidden="{{ticketForm.ticketList != ''}}">{{noRecord}}</view>
 </view>
