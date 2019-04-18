@@ -42,7 +42,7 @@
       </view>
       <view class='content_right'>
       <navigator class='looks-view' url="/pages/orderList/orderList?num=2">
-        <text class='content_num'>{{getData.unpaid}}</text>
+        <text class='content_num'>{{getData.refund}}</text>
         <text class='content_method'>已退票</text>
       </navigator>
       </view>

@@ -1,9 +1,9 @@
 {
   "pages":[
-
+"pages/navMine/navMine",
     
     "pages/navHome/navHome",
-    "pages/navMine/navMine",
+    
     "pages/orderList/orderList",
     "pages/navConsult/navConsult",
    "pages/systemInforms/systemInforms",

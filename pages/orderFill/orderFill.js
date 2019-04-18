@@ -60,7 +60,7 @@ Page({
   
   // 生命周期函数--监听页面加载
   onLoad: function (options) {
-    console.log('options', JSON.parse(options.params))
+    // console.log('options', JSON.parse(options.params))
     this.setData({
       ticketForm: JSON.parse(options.params)
     })
@@ -145,7 +145,7 @@ Page({
       'paramsData.phone': e.detail.value
     })
   },
-  gotoTicketDetails:function(){
+  goReadytoTicketDetails:function(){
     const params = {
       planId: this.data.ticketForm.planId,
       gradeId: this.data.ticketForm.gradeList[0].gradeId,
@@ -161,9 +161,7 @@ Page({
       function (json) {
         // console.log('aaa',json);
         if (json.success) {
-          wx.navigateTo({
-            url: '../ticketDetails/ticketDetails',
-          })
+          that.gotoTicketDetails(json.data)
         } else {
           app.Toast('', 'none', 3000, json.msg.code);
         }
@@ -171,5 +169,31 @@ Page({
     )
 
    
+  },
+  gotoTicketDetails(billid) {
+    // console.log(e.currentTarget.dataset)
+    const that = this;
+    app.Ajax(
+      'Plan',
+      'POST',
+      'GetBookingListById',
+      { billId: billid },
+      function (json) {
+        // console.log('aaa',json);
+        if (json.success) {
+          wx.navigateTo({
+            url: '../../pages/ticketDetails/ticketDetails?params=' + JSON.stringify(json.data),
+          })
+        } else {
+          app.Toast('', 'none', 3000, json.msg.code);
+          // wx.showToast({
+          //   title: json.msg.msg,
+          //   icon: 'none',
+          //   duration: 2500
+          // });
+        }
+      }
+    )
+
   }
 })

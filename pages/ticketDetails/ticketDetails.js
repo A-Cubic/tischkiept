@@ -1,4 +1,5 @@
 // pages/ticketDetails/ticketDetails.js
+const app = getApp();
 Page({
 
   /**
@@ -6,9 +7,11 @@ Page({
    */
   data: {
     paystate:1,
-    payStateArr: ['待支付', '已支付', '已退款'],
-    getData:{
-      alert:'您已成功占座，请在20分钟之内完成支付，避免订单超时',
+    // payStateArr: ['待支付', '已支付', '已退款'],
+    payStateArr: ['初始化订单', '待付款', '已付款', '订单已取消','已申请退票','已退票'],
+    alert: '您已成功占座，请在下单后30分钟之内完成支付，避免订单超时',
+    getData:{},
+    getDataOld:{
       ticketMessage:{
         num: '2323421',
         lineName: '通泰7号',
@@ -96,12 +99,72 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    // console.log(options)
     this.setData({
-      paystate: options.paystate
+      getData: JSON.parse(options.params)
     })
   },
+  cancelOrder(e) {
+    // console.log(e.currentTarget.dataset)
+    const that = this;
+    app.Ajax(
+      'Plan',
+      'POST',
+      'ReturnBill',
+      { billId: e.currentTarget.dataset.billid },
+      function (json) {
+        // console.log('aaa',json);
+        if (json.success) {
+          app.Toast('订单已取消', 'success', 2000, );
+          setTimeout(function(){
+            wx.navigateTo({
+              url: '../../pages/orderList/orderList',
+            })
+          },1500)
+          
+        } else {
+          app.Toast('', 'none', 3000, json.msg.code);
+          // wx.showToast({
+          //   title: json.msg.msg,
+          //   icon: 'none',
+          //   duration: 2500
+          // });
+        }
+      }
+    )
 
+  },
+  refundTicket(e){
+    const that = this;
+    app.Ajax(
+      'Plan',
+      'POST',
+      'ReturnTicket',
+      { 
+        billId: e.currentTarget.dataset.billid,
+        id: e.currentTarget.dataset.id
+       },
+      function (json) {
+        // console.log('aaa',json);
+        if (json.success) {
+          app.Toast('退票处理中', 'none', 2000);
+          setTimeout(function () {
+            wx.navigateTo({
+              url: '../pages/orderList/orderList',
+            })
+          }, 1500)
+
+        } else {
+          app.Toast('', 'none', 3000, json.msg.code);
+          // wx.showToast({
+          //   title: json.msg.msg,
+          //   icon: 'none',
+          //   duration: 2500
+          // });
+        }
+      }
+    )
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -116,38 +179,5 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

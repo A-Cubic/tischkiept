@@ -58,7 +58,7 @@
 
   <view class='ticket-details-reserve'>
     <!-- <view class='reserve-btn'>立即预定</view> -->
-    <button class='reserve-btn' disabled="{{paramsData.phone == ''  || paramsData.personList == ''}}" bindtap='gotoTicketDetails'>立即预定</button>
+    <button class='reserve-btn' disabled="{{paramsData.phone == ''  || paramsData.personList == ''}}" bindtap='goReadytoTicketDetails'>立即预定</button>
   </view>
 
   <!-- <view class='ticket-details-wrap'>

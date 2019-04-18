@@ -2,9 +2,10 @@ var sliderWidth = 70; // 需要设置slider的宽度，用于计算中间位置
 const app = getApp()
 Page({
   data: {
-    getData: {
-      allList:[],
-      unpaidList: [
+    getData:{},
+    getDataOld: {
+      
+      unpaid: [
         {
           shopName: 'shopName',
           address: '长海鸳鸯港-杏树屯港 獐子8号',
@@ -25,7 +26,7 @@ Page({
           payState: 0
         }
       ],
-      havePaid:[
+      paid:[
         {
           shopName: 'shopName',
           address: '长海鸳鸯港-杏树屯港 獐子8号',
@@ -46,7 +47,7 @@ Page({
           payState: 1
         }
       ],
-      refundedList:[
+      refund:[
         {
           shopName: 'shopName',
           address: '长海鸳鸯港-杏树屯港 獐子8号',
@@ -69,8 +70,10 @@ Page({
       ]
 
     },
+    
     tabs: ["待支付", "已支付", "已退票"],
     payState:['待支付','已支付','已退款'],
+    payStateArr: ['初始化订单', '待付款', '已付款', '订单已取消', '已申请退票', '已退票'],
     noRecord:'暂无订单',
     activeIndex: '',
     sliderOffset: 0,
@@ -98,14 +101,14 @@ Page({
     });
   },
   onShow:function(){
-    // this.getMainList()
+    this.getMainList()
   },
   getMainList:function(){
     const that = this;
     app.Ajax(
-      'User',
+      'Plan',
       'POST',
-      'GetMainList',
+      'GetBookingList',
       {  },
       function (json) {
         // console.log('aaa',json);
@@ -125,8 +128,29 @@ Page({
     )
   },
   gotoTicketDetails(e){
-    wx.navigateTo({
-      url: '../../pages/ticketDetails/ticketDetails?paystate=' + e.currentTarget.dataset.paystate,
-    })
+    // console.log(e.currentTarget.dataset)
+    const that = this;
+    app.Ajax(
+      'Plan',
+      'POST',
+      'GetBookingListById',
+      { billId: e.currentTarget.dataset.billid},
+      function (json) {
+        // console.log('aaa',json);
+        if (json.success) {
+          wx.navigateTo({
+            url: '../../pages/ticketDetails/ticketDetails?params=' + JSON.stringify(json.data),
+          })
+        } else {
+          app.Toast('', 'none', 3000, json.msg.code);
+          // wx.showToast({
+          //   title: json.msg.msg,
+          //   icon: 'none',
+          //   duration: 2500
+          // });
+        }
+      }
+    )
+    
   }
 });
