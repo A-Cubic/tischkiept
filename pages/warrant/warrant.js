@@ -1,4 +1,5 @@
 // pages/warrant/warrant.js
+const app = getApp()
 Page({
 
   /**
