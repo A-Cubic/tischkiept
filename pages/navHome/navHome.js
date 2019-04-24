@@ -224,7 +224,7 @@ Page({
     })
   },
   imageLoad: function (e) {//获取图片真实宽度  
-    console.log(e)
+    // console.log(e)
     var imgwidth = e.detail.width,
       imgheight = e.detail.height,
       //宽高比  

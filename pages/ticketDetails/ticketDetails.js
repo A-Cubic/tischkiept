@@ -104,7 +104,7 @@ Page({
     this.setData({
       getData: JSON.parse(options.params)
     })
-    console.log(this.data.getData)
+    // console.log(this.data.getData)
   },
   cancelOrder(e) {
     // console.log(e.currentTarget.dataset)
@@ -188,9 +188,12 @@ Page({
               // console.log("ok");
               // console.log(res);
               that.finishPaySend(json.data.billId);
-              wx.navigateBack({
-                url: '../orderList/orderList?num=1'
-              })
+              setTimeout(function () {
+                console.log('')
+                wx.reLaunch({
+                  url: '../orderList/orderList?num=1'
+                })
+              },500)
             },
             'fail': function (res) {
               // app.Toast('', 'none', 3000, json.msg.code);
@@ -224,7 +227,9 @@ Page({
       { orderId: billId },
       function (json) {
         if (json.success) {
-          console.log('yesssss')
+          // console.log('111111111')
+          
+          // console.log('yesssss')
         } else {
           // console.log(that.data.payTime)
           if (that.data.payTime < 3) {
