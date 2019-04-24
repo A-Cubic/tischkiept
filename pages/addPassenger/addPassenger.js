@@ -54,7 +54,7 @@ Page({
       passengerCardType: this.data.passengerCardType,
       ...e.detail.value
     }
-    console.log('form发生了submit事件，携带数据为：', params)
+    // console.log('form发生了submit事件，携带数据为：', params)
     app.Ajax(
       'User',
       'POST',

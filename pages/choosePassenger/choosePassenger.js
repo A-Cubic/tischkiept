@@ -107,21 +107,9 @@ Page({
   },
   //确定选择
   submitChecked: function () {
-    // console.log(app.globalData.passengerChecked)
-    // var list = [];
-    // var checkedStr = '';
-    // this.data.passengerForm.passengerList.forEach((item) => {
-    //   if (item.checked == true) {
-    //     list.push(item.userId);
-    //   }
-    // }); 
-    // checkedStr = list.join(',');
     wx.navigateBack({
       delta: 1
     });
-    // wx.redirectTo({
-    //   url: '../ticketDetails/ticketDetails?checkedStr=' + checkedStr
-    // })
   }
  
 })

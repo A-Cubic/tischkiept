@@ -3,41 +3,41 @@ Page({
   data: {
     alert: '优先按照制定作息出票',
     ticketForm: {
-      planId: 'a1111111111',
-      imgUrl: 'http://img.ui.cn/data/file/0/2/7/751720.jpg',
-      shipName: '通泰7号',
-      fromPort: '长海鸳鸯港',
-      toPort: '广鹿多落母港',
-      departureTime: '8:30',
-      arriveTime: '13:00',
-      sailingTime: '4.5小时',
-      price: 1000,
-      explain: '',
-      status: 0,
-      gradeList: [
-        {
-          gradeId: "021",
-          gradeName: '软座',
-          ticketLeft: '0'
-        },
-        {
-          label: '硬卧',
-          val: '有票'
-        },
-        {
-          label: '软卧',
-          val: '有票'
-        },
-        {
-          label: '无座',
-          val: '有票'
-        }
-      ],
+      // planId: 'a1111111111',
+      // imgUrl: 'http://img.ui.cn/data/file/0/2/7/751720.jpg',
+      // shipName: '通泰7号',
+      // fromPort: '长海鸳鸯港',
+      // toPort: '广鹿多落母港',
+      // departureTime: '8:30',
+      // arriveTime: '13:00',
+      // sailingTime: '4.5小时',
+      // price: 1000,
+      // explain: '',
+      // status: 0,
+      // gradeList: [
+      //   {
+      //     gradeId: "021",
+      //     gradeName: '软座',
+      //     ticketLeft: '0'
+      //   },
+      //   {
+      //     label: '硬卧',
+      //     val: '有票'
+      //   },
+      //   {
+      //     label: '软卧',
+      //     val: '有票'
+      //   },
+      //   {
+      //     label: '无座',
+      //     val: '有票'
+      //   }
+      // ],
       
       
       
-      price: 10,
-      num: 1
+      // price: 10,
+      // num: 1
     },
     paramsData:{
       personList: [

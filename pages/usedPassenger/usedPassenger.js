@@ -2,15 +2,15 @@ const app = getApp();
 Page({
   data: {
     usedPassengerForm: [
-      {
-        passengerName: '刘刚',
-        passengerId: '111111111111',
-        passengerCard:'343512312132132',
-        passengerType:'001',
-        passengerCardType:'1',
-        type: 0,
-        passengerTel: '13124567890'
-      }
+      // {
+      //   passengerName: '刘刚',
+      //   passengerId: '111111111111',
+      //   passengerCard:'343512312132132',
+      //   passengerType:'001',
+      //   passengerCardType:'1',
+      //   type: 0,
+      //   passengerTel: '13124567890'
+      // }
     ]
   },
   
