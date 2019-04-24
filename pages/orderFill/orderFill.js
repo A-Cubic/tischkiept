@@ -1,6 +1,7 @@
 const app = getApp();
 Page({
   data: {
+    phoneReg:false,
     alert: '优先按照制定作息出票',
     ticketForm: {
       // planId: 'a1111111111',
@@ -146,28 +147,32 @@ Page({
     })
   },
   goReadytoTicketDetails:function(){
-    const params = {
-      planId: this.data.ticketForm.planId,
-      gradeId: this.data.ticketForm.gradeList[0].gradeId,
-      passengerList: this.data.paramsData.personList,
-      mobile: this.data.paramsData.phone
-    }
-    const that = this;
-    app.Ajax(
-      'Plan',
-      'POST',
-      'BookingTicket',
-      { ...params},
-      function (json) {
-        // console.log('aaa',json);
-        if (json.success) {
-          that.gotoTicketDetails(json.data)
-        } else {
-          app.Toast('', 'none', 3000, json.msg.code);
+    var myreg = /^[1][3,4,5,7,8,9][0-9]{9}$/;
+    if (!myreg.test(this.data.paramsData.phone)) {
+      app.Toast('请输入正确的手机号码', 'none', 2000);
+    } else {
+        const params = {
+          planId: this.data.ticketForm.planId,
+          gradeId: this.data.ticketForm.gradeList[0].gradeId,
+          passengerList: this.data.paramsData.personList,
+          mobile: this.data.paramsData.phone
         }
-      }
-    )
-
+        const that = this;
+        app.Ajax(
+          'Plan',
+          'POST',
+          'BookingTicket',
+          { ...params},
+          function (json) {
+            // console.log('aaa',json);
+            if (json.success) {
+              that.gotoTicketDetails(json.data)
+            } else {
+              app.Toast('', 'none', 3000, json.msg.code);
+            }
+          }
+        )
+    }
    
   },
   gotoTicketDetails(billid) {
@@ -195,5 +200,18 @@ Page({
       }
     )
 
+  },
+  bindblurPhone(e){
+    console.log('11111', e.detail.value)
+    var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
+    if (!myreg.test(e.detail.value)) {
+      this.setData({
+        phoneReg:false
+      })
+    } else {
+      this.setData({
+        phoneReg: true
+      })
+    }
   }
 })
