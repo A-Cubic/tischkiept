@@ -6,17 +6,17 @@ Page({
   data: {
     allData:{
       listHome:[
-        {
-          img:'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/bannerEuropeanAmerican.jpg'
-        },
-        {
-          img: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/bannerEuropeanAmerican.jpg'
-        }
+        // {
+        //   img:'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/bannerEuropeanAmerican.jpg'
+        // },
+        // {
+        //   img: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/bannerEuropeanAmerican.jpg'
+        // }
       ],
       listShop:[]
     },
     index:0,
-    address: ['广鹿多落母港','杏树屯港'], 
+    address: [], 
     bannerList:[],  
     autoplay: true,//是否自动切换  
     indicatorDots: true,//是否显示圆点  
@@ -36,13 +36,12 @@ Page({
     today:'',
     nowDate:'',
     preData:'',
-    paramsData:''
+    paramsData:'',
+    swiperH:1
   },
   onLoad: function () {
-    // this.imageLoad();
     this.getAddress();
     this.getBanner();
-
     this.getToday()
     // this.getPreData();
   },
@@ -103,7 +102,6 @@ Page({
       function (json) {
         // console.log('json', json)
         if (json.success) {
-          // that.imageLoad();
           that.setData({
             address: json.data
           })
@@ -128,7 +126,6 @@ Page({
       function (json) {
         // console.log('json', json)
         if (json.success) {
-          // that.imageLoad();
           that.setData({
             bannerList: json.data
           })
@@ -164,7 +161,6 @@ Page({
       function (json) {
         // console.log('json', json)
         if (json.success) {
-          // that.imageLoad();
           // that.setData({
           //   address: json.data
           // })
@@ -224,20 +220,14 @@ Page({
     })
   },
   imageLoad: function (e) {//获取图片真实宽度  
-    // console.log(e)
-    var imgwidth = e.detail.width,
-      imgheight = e.detail.height,
-      //宽高比  
-      ratio = imgwidth / imgheight;
-    // console.log(imgwidth, imgheight)
-    //计算的高度值  
-    var viewHeight = 750 / ratio;
-    var imgheight = viewHeight;
-    var imgheights = this.data.imgheights;
-    //把每一张图片的对应的高度记录到数组里  
-    imgheights[e.target.dataset.id] = imgheight;
+    var winWid = wx.getSystemInfoSync().windowWidth; //获取当前屏幕的宽度
+    var imgh = e.detail.height;//图片高度
+    var imgw = e.detail.width;//图片宽度
+    var swiperH = winWid * imgh / imgw    
+    //等比设置swiper的高度。 即 屏幕宽度 / swiper高度 = 图片宽度 / 图片高度 ==》swiper高度 = 屏幕宽度 * 图片高度 / 图片宽度
+    // console.log(swiperH)
     this.setData({
-      imgheights: imgheights
+      swiperH: swiperH//设置高度
     })
   },
 })
