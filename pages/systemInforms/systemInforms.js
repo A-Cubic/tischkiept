@@ -45,7 +45,7 @@ Page({
   getNewsList(){
     const that = this;
     app.Ajax(
-      'User',
+      'Open',
       'POST',
       'GetNotify',
       {},

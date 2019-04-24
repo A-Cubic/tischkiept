@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    payTime: 1,
     paystate:1,
     // payStateArr: ['待支付', '已支付', '已退款'],
     payStateArr: ['初始化订单', '待付款', '已付款', '订单已取消','已申请退票','已退票'],
@@ -99,10 +100,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // console.log(options)
+    
     this.setData({
       getData: JSON.parse(options.params)
     })
+    console.log(this.data.getData)
   },
   cancelOrder(e) {
     // console.log(e.currentTarget.dataset)
@@ -165,19 +167,77 @@ Page({
       }
     )
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+  gotoPayment(){
+    var that = this;
+    app.Ajax(
+      'Payment',
+      'POST',
+      'Payment',
+      {
+        billId: this.data.getData.billId
+      },
+      function (json) {
+        if (json.success) {
+          wx.requestPayment({
+            'timeStamp': json.data.timeStamp,
+            'nonceStr': json.data.nonceStr,
+            'package': json.data.package,
+            'signType': 'MD5',
+            'paySign': json.data.paySign,
+            'success': function (res) {
+              // console.log("ok");
+              // console.log(res);
+              that.finishPaySend(json.data.billId);
+              wx.navigateBack({
+                url: '../orderList/orderList?num=1'
+              })
+            },
+            'fail': function (res) {
+              // app.Toast('', 'none', 3000, json.msg.code);
+              wx.showModal({
+                title: "支付失败",
+                content: "请重新支付",
+                showCancel: false,
+                confirmText: "确定"
+              })
+            }
+          })
+        } else {
+          wx.showModal({
+            title: "支付失败",
+            content: "请重新支付",
+            showCancel: false,
+            confirmText: "确定"
+          })
+        }
 
+      }
+    );
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  finishPaySend: function (billId) {
+    // console.log(billId);
+    var that = this;
+    app.Ajax(
+      'Payment',
+      'POST',
+      'SendPaymentMsg',
+      { orderId: billId },
+      function (json) {
+        if (json.success) {
+          console.log('yesssss')
+        } else {
+          // console.log(that.data.payTime)
+          if (that.data.payTime < 3) {
+            var curPayTime = that.data.payTime += 1
+            that.setData({
+              payTime: curPayTime
+            })
+            setTimeout(
+              that.finishPaySend
+              , 5000, billId)
+          }
+        }
+      })
   },
-
 
 })

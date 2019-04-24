@@ -23,7 +23,7 @@ App({
         const that = this;
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         this.Ajax(
-          'Plan',
+          'Open',
           'POST',
           'Login',
           { code: res.code },

@@ -46,7 +46,7 @@ Page({
   getTelList(){
     const that = this;
     app.Ajax(
-      'User',
+      'Open',
       'POST',
       'GetTel',
       {},
@@ -71,7 +71,7 @@ Page({
   getNewsList(){
     const that = this;
     app.Ajax(
-      'User',
+      'Open',
       'POST',
       'GetNews',
       {},

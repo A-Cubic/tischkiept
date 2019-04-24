@@ -121,7 +121,7 @@ Page({
   getBanner: function () {
     const that = this;
     app.Ajax(
-      'User',
+      'Open',
       'POST',
       'GetBanner',
       {},

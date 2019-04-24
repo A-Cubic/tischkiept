@@ -49,7 +49,7 @@
     </view>
      <view class='ticket-bottom clearFix' wx:if='{{getData.bookingState==1}}'>
       <text class='ticket-bottom-price'>¥ {{getData.billPrice}}</text>
-      <button class='ticket-bottom-payment'>去支付</button>
+      <button class='ticket-bottom-payment' bindtap='gotoPayment'>去支付</button>
      </view>
   </view>
 

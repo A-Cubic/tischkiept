@@ -44,7 +44,7 @@ Page({
   getData:function(){
     app.Ajax(
       // 方法组名称为：User（代购用户），不是系统通用用户Users
-      'Plan',
+      'Open',
       'POST',
       'MemberReg',
       {  ...app.globalData.userInfo },
