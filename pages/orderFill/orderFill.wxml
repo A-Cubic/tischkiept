@@ -49,7 +49,7 @@
     <view class='ticket-details-phone'>
       <view class="ticket-details-phone-label">手机号 ：</view>
       <view class="ticket-details-phone-input">
-        <input class="phone-input" placeholder="请输入手机号" value="{{paramsData.phone}}" bindinput="bindPhoneInput"/>
+        <input class="phone-input" type="number" placeholder="请输入手机号" value="{{paramsData.phone}}" bindinput="bindPhoneInput"/>
       </view>
     </view>
     <!-- <view class='ticket-details-buy'>最高票价：￥{{ticketForm.price}} × {{ticketForm.num}}</view> -->
