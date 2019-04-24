@@ -187,7 +187,10 @@ App({
         content = '删除乘客失败'
         break;
       case 30002:
-        content = '	已有相同证件号的乘客'
+        content = '已有相同证件号的乘客'
+        break;
+      case 30003:
+        content = '身份证号校验失败'
         break;
      
       default:
