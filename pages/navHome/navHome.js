@@ -95,7 +95,7 @@ Page({
   getAddress:function(){
     const that = this;
     app.Ajax(
-      'Plan',
+      'Open',
       'POST',
       'GetPort',
       { },
@@ -106,7 +106,12 @@ Page({
             address: json.data
           })
         }else{
-          app.Toast('', 'none', 3000, json.msg.code);
+          if (json.msg.code == 4000) {
+            setTimeout(function () {
+              that.getAddress();
+            }, 2000)
+          }
+          // app.Toast('', 'none', 3000, json.msg.code);
           // wx.showToast({
           //   title: json.msg.msg,
           //   icon: 'none',
@@ -130,7 +135,12 @@ Page({
             bannerList: json.data
           })
         } else {
-          app.Toast('', 'none', 3000, json.msg.code);
+          if (json.msg.code == 4000) {
+            setTimeout(function () {
+              that.getAddress();
+            }, 2000)
+          }
+          // app.Toast('', 'none', 3000, json.msg.code);
           // wx.showToast({
           //   title: json.msg.msg,
           //   icon: 'none',
