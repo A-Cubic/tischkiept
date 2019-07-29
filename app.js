@@ -180,6 +180,12 @@ App({
       case 20007:
         content = '	退票失败'
         break;
+      case 20008:
+        content = '	用户被禁用'
+        break;
+      case 20009:
+        content = '	订票失败，每个订单最多提交5位乘客'
+        break;
       case 30000:
         content = '新增乘客失败'
         break;

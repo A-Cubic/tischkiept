@@ -9,12 +9,12 @@
         <open-data class="userinfo-avatar"  type="userAvatarUrl"></open-data>
       </view>
       <view class='header-card-right'>
-        <open-data class="userinfo-nickname" type="userNickName" ></open-data>
+        <open-data class="userinfo-nickname" type="userNickName" lang="zh_CN" ></open-data>
         
         
         <!-- <view><open-data class="userinfo-nickname" type="userGender" ></open-data></view> -->
-        <view><open-data class="userinfo-nickname" type="userProvince" ></open-data></view>
-        <view><open-data class="userinfo-nickname" type="userCountry" ></open-data></view>
+        <view><open-data class="userinfo-nickname" type="userProvince" lang="zh_CN" ></open-data></view>
+        <view><open-data class="userinfo-nickname" type="userCountry"  lang="zh_CN" ></open-data></view>
       </view>
             <!-- <open-data  class="userinfo-avatar"  type="userAvatarUrl"></open-data>
             <open-data type="userNickName" class="userinfo-nickname"></open-data> -->
@@ -63,7 +63,7 @@
         <text class='main_logo weui-cell__ft weui-cell__ft_in-access'></text>
       </view>
       <view class='main_nav' bindtap='gotoUsedPassenger'>
-        <text class='main_title'>常用乘车人</text>
+        <text class='main_title'>常用乘客</text>
         <text class='main_theme'></text>
         <text class='main_logo weui-cell__ft weui-cell__ft_in-access'></text>
       </view>

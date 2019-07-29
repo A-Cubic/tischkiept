@@ -9,7 +9,7 @@ Page({
     noRecord: '您还没有相关记录哦',
     inputShowed: false,
     inputVal: "",
-    tabs: ["待付款", "已付款"],
+    tabs: ["待支付", "已支付"],
     activeIndex: 0,
     sliderOffset: 0,
     sliderLeft: 0,

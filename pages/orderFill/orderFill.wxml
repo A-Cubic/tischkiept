@@ -24,7 +24,7 @@
       <block wx:for="{{ ticketForm.gradeList }}" wx:key="{{item.id}}">
         <view class='{{ index == ticketForm.gradeList.lenght - 1 ? "details-seat-list no-border-flex" : "details-seat-list" }}' data-index="{{index}}">
           <view class='seat-list-name'>{{item.gradeName}}</view>
-          <view class='seat-list-price'>票价￥{{item.price}} | 半价￥{{item.halfPrice}}</view>
+          <view class='seat-list-price'>票价￥{{item.price}}</view>
        
           <view class='seat-list-num'>{{item.ticketLeft}}张</view>
         </view>
@@ -45,13 +45,24 @@
         </view>
       </block>
     </view>
-    <view class='ticket-details-alert'>{{alert}}</view>
-    <view class='ticket-details-phone'>
+      <view class='ticket-details-phone'>
       <view class="ticket-details-phone-label">手机号 ：</view>
       <view class="ticket-details-phone-input">
-        <input class="phone-input" type="number" placeholder="请输入手机号" value="{{paramsData.phone}}"  bindinput="bindPhoneInput"/>
+        <input class="phone-input" type="number" placeholder="请输入紧急联系人手机号（必填）" value="{{paramsData.phone}}"  bindinput="bindPhoneInput"/>
       </view>
     </view>
+<view class='ticket-details-alert'>订票须知</view>
+  <text class="pay-hint-content {{ellipsis?'ellipsis':'unellipsis'}}" >1、本网站仅售个人实名制成人客票，购票人凭二代身份证购买，不支持二代身份证以外任何证件，特殊客票（包括但不限于军人票、学生票、儿童票、老年票、残疾人票、团体票等）及车票请前往航班出发港口客运处售票窗口购买；
+2、一个订单最多可以购买五张实名制成人客票，每张票需如实填写乘客身份信息，乘客二代身份证为唯一取票凭证及出行凭证；
+3、购票人提交订单后请在10分钟内完成支付，逾期订单自动取消，多次或重复提交订单且不进行支付的购票人，本网站将限制该购票人在本网站的购买行为，有违法违规情节的，网站运营方将移交相关信息至有关执法部门查处；
+4、购票成功后，请乘客在航班出发时间前30分钟至航班出发港口客运站取票机或售票窗口凭有效二代身份证原件取票；
+5、购票人购票时请确保所填报的信息真实准确，并确认航班出发日期在乘客个人身份证件有效期内，以保障乘客取票出行，由于填报信息与乘客真实信息不符产生的所有问题及其相关责任、损失由购票人承担；
+6、本网站支持售票和退票业务，换票业务请乘客前往航班出发港口客运处退票窗口办理，退、换票业务相关事宜依照港口客运处退、换票管理规定执行；
+7、开船前30分钟停止网上退票，工作人员将会在3个工作日内处理退票订单，退票手续费为票价的20%。
+8、港口咨询电话：0411-89895000/0411-89896000。</text>
+  <view class='bg-white-ellipsis' bindtap='ellipsis'>
+    <image class='img-ellipsis' src="{{ellipsis?'../images/ellipsis.png':'../images/unellipsis.png'}}"></image>
+  </view>
     <!-- <view class='ticket-details-buy'>最高票价：￥{{ticketForm.price}} × {{ticketForm.num}}</view> -->
     
   </view>

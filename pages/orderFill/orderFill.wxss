@@ -242,3 +242,29 @@ button[class="reserve-btn"]::after {
   opacity: 0.8
 }
 
+.pay-hint-content{
+  padding-left: 5%;
+  padding-right: 5%;
+  font-size: 13px;
+  display: -webkit-box;
+  -webkit-box-orient:vertical;
+  text-overflow: ellipsis;
+  overflow:hidden;
+  background-color: #FDFBEF;
+  color: #D5B79D;
+}
+.ellipsis{
+  -webkit-line-clamp:3; 
+  opacity: 0.75 
+}
+.unellipsis{
+  -webkit-line-clamp:0; 
+  opacity: 1 
+}
+.bg-white-ellipsis{
+ text-align: center;
+}
+.img-ellipsis{
+  height:40rpx;
+  width:40rpx;
+}

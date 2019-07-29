@@ -1,16 +1,12 @@
 {
-  "pages":[
-
-    
+  "pages": [
     "pages/navHome/navHome",
     "pages/navMine/navMine",
     "pages/orderList/orderList",
     "pages/navConsult/navConsult",
-   "pages/systemInforms/systemInforms",
+    "pages/systemInforms/systemInforms",
     "pages/addPassenger/addPassenger",
     "pages/ticketDetails/ticketDetails",
-
-    
     "pages/steamerTicket/steamerTicket",
     "pages/orderFill/orderFill",
     "pages/choosePassenger/choosePassenger",
@@ -19,18 +15,16 @@
     "pages/start/start",
     "pages/register/register",
     "pages/publicArticle/publicArticle",
-
     "pages/warrant/warrant",
-
     "pages/precautions/precautions",
     "pages/calendarComponent/index",
     "pages/test/test"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#6badf8",
     "navigationBarTitleText": "",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle": "white"
   },
   "permission": {
     "scope.userLocation": {
@@ -61,5 +55,6 @@
         "selectedIconPath": "static/img/mine_active.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

@@ -2,6 +2,7 @@
   <view class='ticket-details-wrap'>
     <view wx:if='{{paystate==0}}' class='ticket-details-alert'>{{alert}}</view>
     <view class='ticket-content' >
+      <view class='unit-text'  wx:if='{{getData.bookingState==1}}' >您已成功占座，请在10分钟之内完成支付，避免订单超时</view>
       <view class='unit-num'>订单号：{{getData.billId}}</view>
       <view class='unit-ticket'>
         <view class="unit-ticket-top unit-ticket-top-style">
@@ -13,7 +14,7 @@
           <view class='header-info'>
             <view class='header-info-line'>
               <view class='info-line'></view>
-              <view class='line-mes'>时刻表</view>
+              <view class='line-mes'>{{getData.sailing}}</view>
               <view class='info-line'></view>
             </view>
             <view class='header-info-lineName'>{{getData.shipName}}</view>
@@ -43,6 +44,18 @@
           
         </view>
       </view>
+      <view wx:if='{{getData.bookingState==2}}' >
+        <view class='ticket-details-alert'> 
+        退票须知
+        </view>
+        <view class='ticket-details-alert'> 
+        1、开船前30分钟停止退票，退票手续费为票价的20%；
+        </view>
+        <view class='ticket-details-alert'> 
+        2、线上退票工作人员会在3个工作日内审核后系统自动退还余款（适用于网上购票未取票的用户）；
+        </view>
+      </view>
+      
     </view>
     <view>
       <button class='ok' wx:if='{{getData.bookingState==1}}' data-billId="{{getData.billId}}" bindtap='cancelOrder'>取消订单</button>

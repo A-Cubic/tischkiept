@@ -8,7 +8,7 @@
       <block wx:for="{{ passengerList }}" wx:key="{{item.passengerId}}">
         <view class='add-passenger-list' data-passengerId="{{item.passengerId}}">
           <view class='add-passenger-edit'>
-            <van-icon name="edit" color="#6badf8"/>
+            <!-- <van-icon name="edit" color="#6badf8"/> -->
           </view>
           <view class='add-passenger-info'>
             <view class='add-passenger-name'>{{item.passengerName}}</view>

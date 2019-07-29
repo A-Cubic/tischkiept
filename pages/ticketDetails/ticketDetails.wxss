@@ -31,6 +31,9 @@ page{
   border-radius: 10rpx;
   overflow: hidden;
 }
+.unit-text{
+  color:#D5B79D
+}
 .unit-ticket-top {
   width: 100%;
   height: 200rpx;

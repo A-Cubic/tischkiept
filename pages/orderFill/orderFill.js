@@ -1,8 +1,10 @@
 const app = getApp();
 Page({
   data: {
-    phoneReg:false,
+    phoneReg: false,
     alert: '优先按照制定作息出票',
+    alert1: '优先按照制定作息出票',
+    ellipsis: true,
     ticketForm: {
       // planId: 'a1111111111',
       // imgUrl: 'http://img.ui.cn/data/file/0/2/7/751720.jpg',
@@ -39,7 +41,7 @@ Page({
       
       // price: 10,
       // num: 1
-    },
+    }, 
     paramsData:{
       personList: [
         // {
@@ -58,7 +60,13 @@ Page({
       phone: '',
     }
   },
-  
+
+  ellipsis: function () {
+    var value = !this.data.ellipsis;
+    this.setData({
+      ellipsis: value
+    })
+  },
   // 生命周期函数--监听页面加载
   onLoad: function (options) {
     // console.log('options', JSON.parse(options.params))
