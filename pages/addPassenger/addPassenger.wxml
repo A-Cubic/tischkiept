@@ -30,7 +30,7 @@
   </view>
   <view class='line'>
     <view class='iphone_left'>
-      证件号码  <input type='number' name='passengerCard' value='{{passengerCard}}'  bindinput='idCardCodeInput'  placeholder='与乘车证件一致'></input>
+      证件号码  <input type='idcard' name='passengerCard' value='{{passengerCard}}'  bindinput='idCardCodeInput'  placeholder='与乘车证件一致'></input>
     </view>
   </view>
   

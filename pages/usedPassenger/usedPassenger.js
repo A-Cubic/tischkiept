@@ -57,7 +57,7 @@ Page({
 
   //删除 
   deletePassenger:function(e){
-    console.log(e.currentTarget.dataset.passengerid)
+    // console.log(e.currentTarget.dataset.passengerid)
 
     const that = this;
     app.Ajax(

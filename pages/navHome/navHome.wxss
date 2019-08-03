@@ -23,6 +23,19 @@ page{
 .flex1{
   flex: 1;
 }
+.flex2{
+  flex: 1;
+  font-size: 30rpx;
+  margin-top: 7rpx;
+  float:left;
+  color: rgb(192, 192, 192);
+}
+.flex3{
+ font-size: 30rpx;
+  margin-top: 7rpx;
+ float: right;
+  color: rgb(192, 192, 192);
+}
 .address-picker,.date-checkbox{
   text-align: right;
 }

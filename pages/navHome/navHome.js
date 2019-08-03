@@ -209,10 +209,10 @@ Page({
       success: function (res) {
         // console.log('ssss', res)
         wx.openLocation({//​使用微信内置地图查看位置。
-          latitude: 122.516797,//要去的纬度-地址122.516797,39.306283
-          longitude: 39.306283,//要去的经度-地址
-          name: "中山广场店",
-          address: '中山广场A地铁口'
+          latitude: 39.299960,//要去的纬度-地址122.516797,39.306283
+          longitude: 122.5104,//要去的经度-地址
+          name: "长海县鸳鸯港",
+          address: '菜园子西屯75号'
         })
       }
     })

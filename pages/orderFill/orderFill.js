@@ -5,6 +5,7 @@ Page({
     alert: '优先按照制定作息出票',
     alert1: '优先按照制定作息出票',
     ellipsis: true,
+    formIdArray:'',
     ticketForm: {
       // planId: 'a1111111111',
       // imgUrl: 'http://img.ui.cn/data/file/0/2/7/751720.jpg',
@@ -104,7 +105,22 @@ Page({
         }
       }
     )
-
+    app.Ajax(
+      'User',
+      'POST',
+      'GetLastPhone',
+      {},
+      function (json) {
+        console.log('aaa',json);
+        if (json.success) {
+          that.setData({
+            'paramsData.phone': json.data
+          })
+        } else {
+          app.Toast('', 'none', 3000, json.msg.code);
+        }
+      }
+    )
     // for (var i = 0; i < this.data.passengerForm.passengerList.length; i++) {
     //   for (var j = 0; j < checked.length; j++) {
     //     if (this.data.passengerForm.passengerList[i].userId == checked[j]) {
@@ -153,8 +169,26 @@ Page({
     this.setData({
       'paramsData.phone': e.detail.value
     })
+  }, 
+  saveFormId: function (v) {
+    
+    if (v.detail.formId != 'the formId is a mock one') {
+      this.data.formIdArray.push(v.detail.formId);
+    }
   },
-  goReadytoTicketDetails:function(){
+  goReadytoTicketDetails: function (v) {
+    wx.showLoading({
+      title: 'loading',
+      duration: 5000,
+    });
+    // console.log('formId1', v.detail.formId); 
+    if (v.detail.formId != 'the formId is a mock one') {
+      this.setData({
+        'formIdArray': v.detail.formId
+      })
+    }
+    
+    // console.log('formId1', this.data.formIdArray);
     var myreg = /^[1][3,4,5,7,8,9][0-9]{9}$/;
     if (!myreg.test(this.data.paramsData.phone)) {
       app.Toast('请输入正确的手机号码', 'none', 2000);
@@ -163,7 +197,8 @@ Page({
           planId: this.data.ticketForm.planId,
           gradeId: this.data.ticketForm.gradeList[0].gradeId,
           passengerList: this.data.paramsData.personList,
-          mobile: this.data.paramsData.phone
+          mobile: this.data.paramsData.phone,
+          formId: this.data.formIdArray
         }
         const that = this;
         app.Ajax(
@@ -210,7 +245,7 @@ Page({
 
   },
   bindblurPhone(e){
-    console.log('11111', e.detail.value)
+    // console.log('11111', e.detail.value)
     var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
     if (!myreg.test(e.detail.value)) {
       this.setData({

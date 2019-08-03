@@ -189,9 +189,9 @@ Page({
               // console.log(res);
               that.finishPaySend(json.data.billId);
               setTimeout(function () {
-                console.log('')
+                // console.log('')
                 wx.reLaunch({
-                  url: '../orderList/orderList?num=1'
+                  url: '../navMine/navMine'
                 })
               },500)
             },

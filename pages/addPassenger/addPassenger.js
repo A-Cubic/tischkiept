@@ -7,10 +7,10 @@ Page({
    */
   data: {
     allPassengerTypesIndex:0,
-    allPassengerTypes: ['普通票', '学生票', '儿童票','军人票'],
-    allPassengerTypesNum:['001','002','004','005'],
+    allPassengerTypes: ['普通票'],
+    allPassengerTypesNum:['001'],
     allPassengerCardTypesIndex: 0,
-    allPassengerCardTypes:['身份证','护照','军人证'],
+    allPassengerCardTypes:['身份证'],
     allPassengerCardTypesNum:[1,2,3],
     // adultTicket:'成人票',
     // idCard: '身份证',

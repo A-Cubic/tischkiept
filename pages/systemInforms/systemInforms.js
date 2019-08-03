@@ -74,7 +74,7 @@ Page({
     })
   },
   madeCall: function (e) {
-    console.log(e.currentTarget.dataset.phone)
+    // console.log(e.currentTarget.dataset.phone)
     wx.makePhoneCall({
       phoneNumber: e.currentTarget.dataset.phone // 仅为示例，并非真实的电话号码
     })

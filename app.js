@@ -10,12 +10,12 @@ App({
     var isDebug = false;//true调试状态使用本地服务器，非调试状态使用远程服务器
     if (!isDebug) {
       //远程域名
-      wx.setStorageSync('domainName', "https://ticket.yiswl.com/api/analysis/Ship/")
-      // wx.setStorageSync('domainName', "http://112.126.92.32:9290/api/analysis/Ship/")
+       wx.setStorageSync('domainName', "https://ticket.yiswl.com/api/analysis/Ship/")
+      //wx.setStorageSync('domainName', "http://test.yiswl.com/api/analysis/Ship/")
     }
     else {
       //本地测试域名
-      wx.setStorageSync('domainName', "http://192.168.0.11:53695/api/gift/Wx/")
+      wx.setStorageSync('domainName', "http://127.0.0.1:52524/api/analysis/Ship/")
     }
     // 登录
     wx.login({
@@ -57,7 +57,7 @@ App({
   Ajax: function (url, type, method, data, callback) {
     wx.showLoading({
       title: 'loading',
-      duration: 1000,
+      duration: 2000,
     });
 
     var send = {
@@ -185,6 +185,9 @@ App({
         break;
       case 20009:
         content = '	订票失败，每个订单最多提交5位乘客'
+        break;
+      case 20010:
+        content = '	订票失败，每个身份证每个航班只能订一张票'
         break;
       case 30000:
         content = '新增乘客失败'
