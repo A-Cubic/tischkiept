@@ -54,3 +54,27 @@ page{
 .unit-right-image{
   width: 100%;
 }
+.mapWrap{
+  padding: 20rpx;
+}
+.shop{
+  background: #fff;
+  font-size: 28rpx;
+  border-radius: 10rpx;
+  /* overflow: hidden; */
+}
+.shop_adress,.shop_phone{
+  display: flex;
+  margin: 0 20rpx;
+}
+.shop_adress_img{
+  padding: 20rpx;
+  width: 50rpx;
+  flex: 1;
+}
+.shop_adress_word{
+  padding: 12rpx;
+  width: 580rpx;
+  flex: 12;
+  line-height: 70rpx;
+}

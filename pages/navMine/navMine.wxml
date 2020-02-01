@@ -1,30 +1,34 @@
 <!--pages/navMine/navMine.wxml-->
 <!-- <text>我的</text> -->
 <view class='index'>
-   <view class='header'>
-   <!-- 获取头像 名字 -->
+  <view class='header'>
+    <!-- 获取头像 名字 -->
     <!-- <view class="header_background {{sex==2?'F':'M'}}"></view> -->
     <view class="header-card">
       <view class='header-card-left'>
-        <open-data class="userinfo-avatar"  type="userAvatarUrl"></open-data>
+        <open-data class="userinfo-avatar" type="userAvatarUrl"></open-data>
       </view>
       <view class='header-card-right'>
-        <open-data class="userinfo-nickname" type="userNickName" lang="zh_CN" ></open-data>
-        
-        
+        <open-data class="userinfo-nickname" type="userNickName" lang="zh_CN"></open-data>
+
+
         <!-- <view><open-data class="userinfo-nickname" type="userGender" ></open-data></view> -->
-        <view><open-data class="userinfo-nickname" type="userProvince" lang="zh_CN" ></open-data></view>
-        <view><open-data class="userinfo-nickname" type="userCountry"  lang="zh_CN" ></open-data></view>
+        <view>
+          <open-data class="userinfo-nickname" type="userProvince" lang="zh_CN"></open-data>
+        </view>
+        <view>
+          <open-data class="userinfo-nickname" type="userCountry" lang="zh_CN"></open-data>
+        </view>
       </view>
-            <!-- <open-data  class="userinfo-avatar"  type="userAvatarUrl"></open-data>
+      <!-- <open-data  class="userinfo-avatar"  type="userAvatarUrl"></open-data>
             <open-data type="userNickName" class="userinfo-nickname"></open-data> -->
-    </view>  
-      <!-- 获取头像 名字 -->
     </view>
-  
-  <view class='content'> 
+    <!-- 获取头像 名字 -->
+  </view>
+
+  <view class='content'>
     <view class='content_all'>
-     <!-- <view class=''>
+      <!-- <view class=''>
         <navigator class='looks-view' url="/pages/orderList/orderList?num=0">
         <text class='content_num'>0{{getData.process}}</text>
         <text class='content_method'>全部订单</text>
@@ -32,54 +36,54 @@
       </view> -->
       <view class=''>
         <navigator class='looks-view' url="/pages/orderList/orderList?num=0">
-        <text class='content_num'>{{getData.unpaid}}</text>
-        <text class='content_method'>待支付</text>
+          <text class='content_num'>{{getData.unpaid}}</text>
+          <text class='content_method'>待支付</text>
         </navigator>
       </view>
       <view class='content_center'>
-      <navigator class='looks-view' url="/pages/orderList/orderList?num=1">
-        <text class='content_num'>{{getData.paid}}</text>
-        <text class='content_method'>已支付</text>
-      </navigator>
+        <navigator class='looks-view' url="/pages/orderList/orderList?num=1">
+          <text class='content_num'>{{getData.paid}}</text>
+          <text class='content_method'>已支付</text>
+        </navigator>
       </view>
       <view class='content_right'>
-      <navigator class='looks-view' url="/pages/orderList/orderList?num=2">
-        <text class='content_num'>{{getData.refund}}</text>
-        <text class='content_method'>已退票</text>
-      </navigator>
+        <navigator class='looks-view' url="/pages/orderList/orderList?num=2">
+          <text class='content_num'>{{getData.refund}}</text>
+          <text class='content_method'>已退票</text>
+        </navigator>
       </view>
     </view>
   </view>
-  
-<view class='nav'>
-      <view class='main_nav' bindtap='gotoPrecautions'>
-        <text class='main_title'>注意事项</text>
-        <text class='main_theme'></text>
-        <text class='main_logo weui-cell__ft weui-cell__ft_in-access'></text>
+
+  <view class='nav'>
+    <view class='main_nav' bindtap='gotoPrecautions'>
+      <text class='main_title'>注意事项</text>
+      <text class='main_theme'></text>
+      <text class='main_logo weui-cell__ft weui-cell__ft_in-access'></text>
+    </view>
+    <view class='main_nav' bindtap='gotoSystemInforms'>
+      <text class='main_title'>系统通知</text>
+      <text class='main_theme'></text>
+      <text class='main_logo weui-cell__ft weui-cell__ft_in-access'></text>
+    </view>
+    <view class='main_nav' bindtap='gotoUsedPassenger'>
+      <text class='main_title'>常用乘客</text>
+      <text class='main_theme'></text>
+      <text class='main_logo weui-cell__ft weui-cell__ft_in-access'></text>
+    </view>
+
+    <view class='main_nav'>
+      <view class='serviceWrap'>
+        <contact-button wx:for="{{12}}" wx:key="index" class='service' style='opacity:0' size="30" session-from="weapp" type="default-dark"></contact-button>
       </view>
-      <view class='main_nav' bindtap='gotoSystemInforms' >
-        <text class='main_title'>系统通知</text>
-        <text class='main_theme'></text>
-        <text class='main_logo weui-cell__ft weui-cell__ft_in-access'></text>
-      </view>
-      <view class='main_nav' bindtap='gotoUsedPassenger'>
-        <text class='main_title'>常用乘客</text>
-        <text class='main_theme'></text>
-        <text class='main_logo weui-cell__ft weui-cell__ft_in-access'></text>
-      </view>
-      
-      <view class='main_nav' >
-        <view class='serviceWrap' >
-          <contact-button wx:for="{{12}}" wx:key="index" class='service' style='opacity:0' size="30" session-from="weapp" type="default-dark" ></contact-button>
-        </view>
-        <text class='main_title'>联系客服</text>
-        <text class='main_theme'></text>
-        <text class='main_logo weui-cell__ft weui-cell__ft_in-access'></text>
-      </view>
-   </view> 
-    
-    <!-- 弹窗图层 -->
-      
-    <!-- 弹窗图层 -->
-   
+      <text class='main_title'>联系客服</text>
+      <text class='main_theme'></text>
+      <text class='main_logo weui-cell__ft weui-cell__ft_in-access'></text>
+    </view>
+  </view>
+
+  <!-- 弹窗图层 -->
+
+  <!-- 弹窗图层 -->
+
 </view>

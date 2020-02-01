@@ -61,7 +61,38 @@ Page({
       phone: '',
     }
   },
-
+  requestMsg() {
+    return new Promise((resolve, reject) => {
+      wx.requestSubscribeMessage({
+        tmplIds: ["RY5-SOQ2J7JtXJR9luD9hrftaHhzFd3Fa_Wr3ZPqzZs"],
+        success: (res) => {
+          // if (res['yXq0HWLxwD-l3PDHZpyO0LSO1ov83mOyZ5CiugSyn08'] === 'accept') {
+          //   wx.showToast({
+          //     title: '订阅OK！',
+          //     duration: 1000,
+          //     success(data) {
+          //       console.log('ssss', res)
+          //     }
+          //   })
+          // }
+          if (res['RY5-SOQ2J7JtXJR9luD9hrftaHhzFd3Fa_Wr3ZPqzZs'] === 'accept') {
+            wx.showToast({
+              title: '订阅OK！',
+              duration: 1000,
+              success(data) {
+                console.log('ssss', res)
+              }
+            })
+          }
+        },
+        fail(err) {
+          //失败
+          console.error(err);
+          reject()
+        }
+      })
+    })
+  },
   ellipsis: function () {
     var value = !this.data.ellipsis;
     this.setData({
@@ -131,6 +162,39 @@ Page({
     //     }
     //   }
     // }
+  },
+
+  requestMsg() {
+    return new Promise((resolve, reject) => {
+      wx.requestSubscribeMessage({
+        tmplIds: ["yXq0HWLxwD-l3PDHZpyO0LSO1ov83mOyZ5CiugSyn08", "RY5-SOQ2J7JtXJR9luD9hrftaHhzFd3Fa_Wr3ZPqzZs"],
+        success: (res) => {
+          if (res['yXq0HWLxwD-l3PDHZpyO0LSO1ov83mOyZ5CiugSyn08'] === 'accept') {
+            wx.showToast({
+              title: '订阅OK！',
+              duration: 1000,
+              success(data) {
+                console.log('ssss', res)
+              }
+            })
+          }
+          if (res['RY5-SOQ2J7JtXJR9luD9hrftaHhzFd3Fa_Wr3ZPqzZs'] === 'accept') {
+            wx.showToast({
+              title: '订阅OK！',
+              duration: 1000,
+              success(data) {
+                console.log('ssss', res)
+              }
+            })
+          }
+        },
+        fail(err) {
+          //失败
+          console.error(err);
+          reject()
+        }
+      })
+    })
   },
   addPassenger () {
     app.globalData.passengerChecked=[];

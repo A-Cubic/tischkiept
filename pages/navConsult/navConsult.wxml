@@ -2,35 +2,52 @@
 <view class='navConsult'>
   <view class='headline'>紧急咨询台</view>
   <view class='consultList'>
-    <view class='unit borBotGray' wx:for="{{consultList}}" wx:key="{{item}}" data-phone='{{item.phone}}' bindtap='madeCall' >
+    <view class='unit borBotGray' wx:for="{{consultList}}" wx:key="{{item}}" data-phone='{{item.phone}}' bindtap='madeCall'>
       <text class='addr'>{{item.addr}}</text>
       <text class='phone'>{{item.phone}}</text>
+    </view>
+  </view>
+  <view class='headline'>港口地址</view>
+  <view class='mapWrap'>
+    <view class='shop'>
+      <view class='shop_adress borBotGray' bindtap='goAddress'>
+        <image class='shop_adress_img' src='../../static/img/map.png' mode="widthFix"></image>
+        <view class='shop_adress_word'>
+          <text>鸳鸯港客运站地址：菜园子西屯75号</text>
+        </view>
+      </view>
+      <view class='shop_adress borBotGray' bindtap='gopikouAddress'>
+        <image class='shop_adress_img' src='../../static/img/map.png' mode="widthFix"></image>
+        <view class='shop_adress_word'>
+          <text>皮口港客运站地址：辽宁省大连市普兰店区疏港路11号</text>
+        </view>
+      </view>
     </view>
   </view>
   <!-- <view class='borBotGray'></view> -->
   <view class='headline'>近期动态</view>
   <view class='newsList'>
-  <view wx:for="{{newsList}}" wx:key="{{item.remark}}">
-    <block wx:if="{{item.type==0}}">
-      <view class='unit' data-url="{{item.advurl}}" bindtap='togoPublicArticle'>
-        <view class='title'>{{item.advname}}</view>
-        <view class='time'>{{item.advtime}}</view>
-        <image class='image' mode="widthFix" src='{{item.imgurl}}'></image>
-        <!-- <view class='reading'>阅读量：{{item.reading}}</view> -->
-      </view>
-    </block>
-    <block wx:else>
-      <view class='unit' data-url="{{item.advurl}}" bindtap='togoPublicArticle'>
-        <view class='unit-left'>
+    <view wx:for="{{newsList}}" wx:key="{{item.remark}}">
+      <block wx:if="{{item.type==0}}">
+        <view class='unit' data-url="{{item.advurl}}" bindtap='togoPublicArticle'>
           <view class='title'>{{item.advname}}</view>
           <view class='time'>{{item.advtime}}</view>
-          <!-- <view class='reading' >阅读量：{{item.reading}}</view> -->
+          <image class='image' mode="widthFix" src='{{item.imgurl}}'></image>
+          <!-- <view class='reading'>阅读量：{{item.reading}}</view> -->
         </view>
-        <view class='unit-right'>
-          <image class='unit-right-image' mode="widthFix" src='{{item.imgurl}}'></image>
+      </block>
+      <block wx:else>
+        <view class='unit' data-url="{{item.advurl}}" bindtap='togoPublicArticle'>
+          <view class='unit-left'>
+            <view class='title'>{{item.advname}}</view>
+            <view class='time'>{{item.advtime}}</view>
+            <!-- <view class='reading' >阅读量：{{item.reading}}</view> -->
+          </view>
+          <view class='unit-right'>
+            <image class='unit-right-image' mode="widthFix" src='{{item.imgurl}}'></image>
+          </view>
         </view>
-      </view>
-    </block>
+      </block>
     </view>
   </view>
 </view>

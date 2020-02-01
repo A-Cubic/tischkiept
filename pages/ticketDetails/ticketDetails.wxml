@@ -35,8 +35,12 @@
             <view class='bottom-right'>
               <view>{{item.bunkGradeName}}：{{item.bunkCode}}</view>
               <view>¥{{item.factPrice}}</view>
-              <view wx:if='{{item.ticketState==2}}' >
+              <view wx:if='{{item.ticketState==2&&item.printState==0}}' >
                 <text class='refund-ticket' data-billId="{{item.billId}}" data-id="{{item.id}}" bindtap='refundTicket'>退票</text>
+                <!-- <button class='refund-ticket'>退票</button> -->
+              </view>
+              <view wx:elif="{{item.printState==1}}" >
+                <text class='refund-ticket' >已打票</text>
                 <!-- <button class='refund-ticket'>退票</button> -->
               </view>
             </view>

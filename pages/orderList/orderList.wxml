@@ -3,17 +3,17 @@
 <view class='index'>
   <view class="page__bd">
     <view class="weui-tab">
-        <view class="weui-navbar">
-            <block wx:for-items="{{tabs}}" wx:key="{{index}}">
-                <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
-                    <view class="weui-navbar__title">{{item}}</view>
-                </view>
-            </block>
-            <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
-        </view>
-        <view class="weui-tab__panel">
+      <view class="weui-navbar">
+        <block wx:for-items="{{tabs}}" wx:key="{{index}}">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+      </view>
+      <view class="weui-tab__panel">
         <!-- 全部订单 -->
-            <!-- <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+        <!-- <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
               <view class='content'>
                   <view class='unit' wx:for="{{getData.allList}}" wx:key='{{id}}'>
                     <view class='line clearfix borBotGray'>
@@ -32,71 +32,71 @@
                   <view class='noRecord' hidden="{{getData.allList != ''}}">{{noRecord}}</view>
                 </view>
             </view> -->
-            <!-- 待支付 -->
-            <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
-              <view class='content'>
-                  <view class='unit' wx:for="{{getData.unpaid}}" wx:key='{{item}}' bindtap='gotoTicketDetails' data-billId='{{item.billId}}'>
-                    <view class='line clearfix borBotGray'>
-                      <view class=' address fl'>{{item.beginPort}}-{{item.endPort}}  {{item.shipName}}</view>
-                      <!-- <view class='line-right fr'>{{payState[item.payState]}}</view> -->
-                      <view class='line-right fr'>{{payStateArr[item.bookingState]}}</view>
-                    </view>
-                    <view class='line clearfix'>
-                      <view class='fl'>{{item.beginDate}}  {{item.beginTime}} - {{item.endTime}}</view>
-                      <view class='line-right fr'>¥{{item.billPrice}}</view>
-                    </view>
-                    <view class='line' >
-                      <text wx:for="{{item.billInfoList}}" wx:key='{{item.passengerId}}'>{{item.passengerName}} </text>
-                    </view>
-                  </view>
-                  <!-- 当内容List 不为空时隐藏 -->
-                  <view class='noRecord' hidden="{{getData.unpaid != ''}}">{{noRecord}}</view>
-                </view>
+        <!-- 待支付 -->
+        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+          <view class='content'>
+            <view class='unit' wx:for="{{getData.unpaid}}" wx:key='{{item}}' bindtap='gotoTicketDetails' data-billId='{{item.billId}}'>
+              <view class='line clearfix borBotGray'>
+                <view class=' address fl'>{{item.beginPort}}-{{item.endPort}} {{item.shipName}}</view>
+                <!-- <view class='line-right fr'>{{payState[item.payState]}}</view> -->
+                <view class='line-right fr'>{{payStateArr[item.bookingState]}}</view>
+              </view>
+              <view class='line clearfix'>
+                <view class='fl'>{{item.beginDate}} {{item.beginTime}} - {{item.endTime}}</view>
+                <view class='line-right fr'>¥{{item.billPrice}}</view>
+              </view>
+              <view class='line'>
+                <text wx:for="{{item.billInfoList}}" wx:key='{{item.passengerId}}'>{{item.passengerName}} </text>
+              </view>
             </view>
-            <!-- 已支付 -->
-            <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
-                
-                <view class='content'>
-                  <view class='unit' wx:for="{{getData.paid}}" wx:key='{{item}}' bindtap='gotoTicketDetails' data-billId='{{item.billId}}'>
-                    <view class='line clearfix borBotGray'>
-                      <view class=' address fl'>{{item.beginPort}}-{{item.endPort}}  {{item.shipName}}</view>
-                      <view class='line-right fr'>{{payStateArr[item.bookingState]}}</view>
-                    </view>
-                    <view class='line clearfix'>
-                      <view class='fl'>{{item.beginDate}}  {{item.beginTime}} - {{item.endTime}}</view>
-                      <view class='line-right fr'>¥{{item.billPrice}}</view>
-                    </view>
-                    <view class='line' >
-                      <text wx:for="{{item.billInfoList}}" wx:key='{{item.passengerId}}'>{{item.passengerName}} </text>
-                    </view>
-                  </view>
-                 
-                  <!-- 当内容List 不为空时隐藏 -->
-                  <view class='noRecord' hidden="{{getData.paid != ''}}">{{noRecord}}</view>
-                </view>
-            </view>
-            <!-- 已退票 -->
-            <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
-
-                <view class='content'>
-                  <view class='unit' wx:for="{{getData.refund}}" wx:key='{{item}}' bindtap='gotoTicketDetails' data-billId='{{item.billId}}'>
-                    <view class='line clearfix borBotGray'>
-                      <view class=' address fl'>{{item.beginPort}}-{{item.endPort}}  {{item.shipName}}</view>
-                      <view class='line-right fr'>{{payStateArr[item.bookingState]}}</view>
-                    </view>
-                    <view class='line clearfix'>
-                      <view class='fl'>{{item.beginDate}}  {{item.beginTime}} - {{item.endTime}}</view>
-                      <view class='line-right fr'>¥{{item.billPrice}}</view>
-                    </view>
-                    <view class='line' >
-                      <text wx:for="{{item.billInfoList}}" wx:key='{{item.passengerId}}'>{{item.passengerName}} </text>
-                    </view>
-                  </view>
-                  <!-- 当内容List 不为空时隐藏 -->
-                  <view class='noRecord' hidden="{{getData.refund != ''}}">{{noRecord}}</view>
-                </view>
-            </view>
+            <!-- 当内容List 不为空时隐藏 -->
+            <view class='noRecord' hidden="{{getData.unpaid != ''}}">{{noRecord}}</view>
+          </view>
         </view>
+        <!-- 已支付 -->
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+
+          <view class='content'>
+            <view class='unit' wx:for="{{getData.paid}}" wx:key='{{item}}' bindtap='gotoTicketDetails' data-billId='{{item.billId}}'>
+              <view class='line clearfix borBotGray'>
+                <view class=' address fl'>{{item.beginPort}}-{{item.endPort}} {{item.shipName}}</view>
+                <view class='line-right fr'>{{payStateArr[item.bookingState]}} {{item.printState}}</view>
+              </view>
+              <view class='line clearfix'>
+                <view class='fl'>{{item.beginDate}} {{item.beginTime}} - {{item.endTime}}</view>
+                <view class='line-right fr'>¥{{item.billPrice}}</view>
+              </view>
+              <view class='line'>
+                <text wx:for="{{item.billInfoList}}" wx:key='{{item.passengerId}}'>{{item.passengerName}} </text>
+              </view>
+            </view>
+
+            <!-- 当内容List 不为空时隐藏 -->
+            <view class='noRecord' hidden="{{getData.paid != ''}}">{{noRecord}}</view>
+          </view>
+        </view>
+        <!-- 已退票 -->
+        <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+
+          <view class='content'>
+            <view class='unit' wx:for="{{getData.refund}}" wx:key='{{item}}' bindtap='gotoTicketDetails' data-billId='{{item.billId}}'>
+              <view class='line clearfix borBotGray'>
+                <view class=' address fl'>{{item.beginPort}}-{{item.endPort}} {{item.shipName}}</view>
+                <view class='line-right fr'>{{payStateArr[item.bookingState]}}</view>
+              </view>
+              <view class='line clearfix'>
+                <view class='fl'>{{item.beginDate}} {{item.beginTime}} - {{item.endTime}}</view>
+                <view class='line-right fr'>¥{{item.billPrice}}</view>
+              </view>
+              <view class='line'>
+                <text wx:for="{{item.billInfoList}}" wx:key='{{item.passengerId}}'>{{item.passengerName}} </text>
+              </view>
+            </view>
+            <!-- 当内容List 不为空时隐藏 -->
+            <view class='noRecord' hidden="{{getData.refund != ''}}">{{noRecord}}</view>
+          </view>
+        </view>
+      </view>
     </view>
   </view>
 </view>

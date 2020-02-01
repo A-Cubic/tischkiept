@@ -111,7 +111,7 @@ Page({
       'GetBookingList',
       {  },
       function (json) {
-        // console.log('aaa',json);
+         console.log('aaa',json);
         if (json.success) {
           that.setData({
             getData: json.data

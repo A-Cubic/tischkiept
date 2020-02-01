@@ -18,6 +18,7 @@ Page({
     index:0,
     address: [], 
     bannerList:[],  
+    newsList: [],
     autoplay: true,//是否自动切换  
     indicatorDots: true,//是否显示圆点  
     interval: 5000,//自动切换间隔  
@@ -42,7 +43,9 @@ Page({
   onLoad: function () {
     this.getAddress();
     this.getBanner();
-    this.getToday()
+    this.getToday();
+    this.getNewsList();
+    this.CheckPlan();
     // this.getPreData();
   },
   onShow:function(){
@@ -68,7 +71,7 @@ Page({
     let nowDate = year + "-" + month + "-" + day;
 
     this.setData({
-      today: month + '月' + day + '日',
+      today: year+'年'+month + '月' + day + '日',
       nowDate: nowDate,
       paramsData: year.toString() + month.toString() + day.toString()
     })
@@ -155,7 +158,6 @@ Page({
     this.setData({ index: e.detail.value })
   },
   formSubmit: function (e) {
-    
     const params = {
       dateFrom: this.data.paramsData,
       dateTo: this.data.paramsData,
@@ -217,9 +219,86 @@ Page({
       }
     })
   },
+  requestMsg() {
+    return new Promise((resolve, reject) => {
+      wx.requestSubscribeMessage({
+        tmplIds: ["RY5-SOQ2J7JtXJR9luD9hrftaHhzFd3Fa_Wr3ZPqzZs"],
+        success: (res) => {
+          // if (res['yXq0HWLxwD-l3PDHZpyO0LSO1ov83mOyZ5CiugSyn08'] === 'accept') {
+          //   wx.showToast({
+          //     title: '订阅OK！',
+          //     duration: 1000,
+          //     success(data) {
+          //       console.log('ssss', res)
+          //     }
+          //   })
+          // }
+          if (res['RY5-SOQ2J7JtXJR9luD9hrftaHhzFd3Fa_Wr3ZPqzZs'] === 'accept') {
+            wx.showToast({
+              title: '订阅OK！',
+              duration: 1000,
+              success(data) {
+                console.log('ssss', res)
+              }
+            })
+          }
+        },
+        fail(err) {
+          //失败
+          console.error(err);
+          reject()
+        }
+      })
+    })
+  },
   gotoPrecautions() {
     wx.navigateTo({
       url: '../precautions/precautions',
+    })
+  },
+  dateReduce() {
+    var time = this.data.nowDate.split('-');
+
+    var myTime = new Date(time[0], (time[1] - 1), time[2]);
+    let date = new Date(myTime.getTime() - 24 * 60 * 60 * 1000)
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+    if (month < 10) {
+      month = "0" + month;
+    }
+    if (day < 10) {
+      day = "0" + day;
+    }
+    let nowDate = year + "-" + month + "-" + day;
+
+    this.setData({
+      today: year + '年' +month + '月' + day + '日',
+      nowDate: nowDate,
+      paramsData: year.toString() + month.toString() + day.toString()
+    })
+  },
+  dateAdd() {
+    console.log('dateAdd', '2')
+    var time = this.data.nowDate.split('-');
+
+    var myTime = new Date(time[0], (time[1] - 1), time[2]);
+    let date = new Date(myTime.getTime() + 24 * 60 * 60 * 1000)
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+    if (month < 10) {
+      month = "0" + month;
+    }
+    if (day < 10) {
+      day = "0" + day;
+    }
+    let nowDate = year + "-" + month + "-" + day;
+
+    this.setData({
+      today: year + '年' +month + '月' + day + '日',
+      nowDate: nowDate,
+      paramsData: year.toString() + month.toString() + day.toString()
     })
   },
   callTele: function (e) {
@@ -239,5 +318,98 @@ Page({
     this.setData({
       swiperH: swiperH//设置高度
     })
+  },
+
+  gotoPlan: function (e) {
+     console.log('w', e.currentTarget.dataset)
+
+    const params = {
+      dateFrom: this.data.paramsData,
+      dateTo: this.data.paramsData,
+      port: e.currentTarget.dataset.port,
+    }
+    // console.log('form发生了submit事件，携带数据为：', params)
+    const that = this;
+    app.Ajax(
+      'Plan',
+      'POST',
+      'GetPlan',
+      { ...params },
+      function (json) {
+        // console.log('json', json)
+        if (json.success) {
+          // that.setData({
+          //   address: json.data
+          // })
+          const params = {
+            ...json.data,
+            paramsData: that.data.nowDate
+          }
+          wx.navigateTo({
+            url: '../steamerTicket/steamerTicket?params=' + JSON.stringify(params)
+          })
+        } else {
+          app.Toast('', 'none', 3000, json.msg.code);
+          // wx.showToast({
+          //   title: json.msg.msg,
+          //   icon: 'none',
+          //   duration: 2500
+          // });
+        }
+      }
+    )
+
+  },
+  getNewsList() {
+    const that = this;
+    app.Ajax(
+      'Open',
+      'POST',
+      'GetNews',
+      {},
+      function (json) {
+        // console.log('json', json)
+        if (json.success) {
+          // that.imageLoad();
+          that.setData({
+            newsList: json.data
+          })
+        } else {
+          app.Toast('', 'none', 3000, json.msg.code);
+          // wx.showToast({
+          //   title: json.msg.msg,
+          //   icon: 'none',
+          //   duration: 2500
+          // });
+        }
+      }
+    )
+  },
+  togoPublicArticle(e) {
+    // console.log(e.currentTarget.dataset.url)
+    wx.navigateTo({
+      url: '../publicArticle/publicArticle?url=' + e.currentTarget.dataset.url,
+    })
+  },
+  CheckPlan: function (e) { 
+
+    const that = this;
+    app.Ajax(
+      'Open',
+      'POST',
+      'CheckPlan',
+      {  },
+      function (json) {
+        // console.log('json', json)
+        if (json.success) {
+          if(json.data=="0"){
+            that.dateAdd();
+          }
+        } else {
+          
+        }
+      }
+    )
+
   },
 })

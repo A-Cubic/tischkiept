@@ -105,6 +105,25 @@ Page({
       phoneNumber: e.currentTarget.dataset.phone // 仅为示例，并非真实的电话号码
     })
   },
+  goAddress: function () {
+    wx.openLocation({//​使用微信内置地图查看位置。
+      latitude: 39.299960,//要去的纬度-地址122.516797,39.306283
+      longitude: 122.5104,//要去的经度-地址
+      name: "长海县鸳鸯港",
+      address: '菜园子西屯75号',
+      scale: 10
+    })
+    
+  },
+  gopikouAddress: function () {
+    wx.openLocation({//​使用微信内置地图查看位置。
+      latitude: 39.369390,//要去的纬度-地址，
+      longitude: 122.360450,//要去的经度-地址
+      name: "皮口港客运站",
+      address: '辽宁省大连市普兰店区疏港路11号',
+      scale: 10
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

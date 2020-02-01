@@ -10,8 +10,9 @@ App({
     var isDebug = false;//true调试状态使用本地服务器，非调试状态使用远程服务器
     if (!isDebug) {
       //远程域名
-       wx.setStorageSync('domainName', "https://ticket.yiswl.com/api/analysis/Ship/")
-      //wx.setStorageSync('domainName', "http://test.yiswl.com/api/analysis/Ship/")
+     // wx.setStorageSync('domainName', "http://39.100.237.7:9291/api/analysis/Ship/")
+       //wx.setStorageSync('domainName', "https://ticket.yiswl.com/api/analysis/Ship/")
+      wx.setStorageSync('domainName', "http://test.yiswl.com/api/analysis/Ship/")
     }
     else {
       //本地测试域名
@@ -57,7 +58,7 @@ App({
   Ajax: function (url, type, method, data, callback) {
     wx.showLoading({
       title: 'loading',
-      duration: 2000,
+      duration: 3000,
     });
 
     var send = {
@@ -188,6 +189,9 @@ App({
         break;
       case 20010:
         content = '	订票失败，每个身份证每个航班只能订一张票'
+        break;
+      case 20011:
+        content = '	订票失败，距离开航时间太近，请订其他船'
         break;
       case 30000:
         content = '新增乘客失败'

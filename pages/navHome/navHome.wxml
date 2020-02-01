@@ -12,6 +12,25 @@
 </view>
 <form class="page__bd" catchsubmit="formSubmit" catchreset="formReset">
   <view class='ticket fff '>
+    <view class='dateWrap'>
+      <view class='flexDate1'  bindtap='dateReduce'>
+           <text class='flex1' >{{'<'}}</text>
+      </view>
+      <view class='flexDate'>
+      <image class='dateImg' src='http://acbc-production.oss-cn-beijing.aliyuncs.com/yyg/date_Black.png' mode="widthFix" ></image>
+      <view class='Date1'>
+        <navigator class="navigator" url="/pages/calendarComponent/index?time={{today}}">{{today}}</navigator>
+        </view>
+      </view>
+      <view class='flexDate2'  bindtap='dateAdd'>
+      <text class='flex1' >{{'>'}}</text>
+      </view>
+      <!-- <view class='flex1 date-checkbox'>
+      <checkbox-group name="checkbox">
+        <label><checkbox value="checkbox1"/>折价票</label>
+      </checkbox-group>
+    </view> -->
+    </view>
     <view class='addressWrap'>
       <text class='flex2'>始发港</text>
       <text class='flex3'>目的港</text>
@@ -24,33 +43,45 @@
         </view>
       </picker>
     </view>
-    <view class='dateWrap'>
-      <view class='flex1'>
-        <navigator class="navigator" url="/pages/calendarComponent/index?time={{today}}">{{today}}</navigator>
-      </view>
-      <!-- <view class='flex1 date-checkbox'>
-      <checkbox-group name="checkbox">
-        <label><checkbox value="checkbox1"/>折价票</label>
-      </checkbox-group>
-    </view> -->
-    </view>
     <view class="btnWrap">
-      <button class='btn' formType="submit">查询</button>
+      <button class='btn' formType="submit"  >查询</button>
     </view>
   </view>
 </form>
+
+<view class='mapWrap'>
+  <view class='fbutton_l' bindtap='gotoPlan' data-port='皮口港'>
+    长海鸳鸯港-皮口港
+  </view>
+  <view class='fbutton_r' bindtap='gotoPlan' data-port='杏树屯港'>
+    长海鸳鸯港-杏树屯港
+  </view>
+</view>
+<view class='mapWrap'>
+  <view class='fbutton_l' bindtap='gotoPlan' data-port='广鹿多落母港'>
+    长海鸳鸯港-广鹿多落母港
+  </view>
+  <view class='fbutton_r' bindtap='gotoPlan' data-port='瓜皮港'>
+    长海鸳鸯港-瓜皮港
+  </view>
+</view>
+<view class='mapWrap'>
+  <view class='fbutton_l' bindtap='gotoPlan' data-port='格仙港'>
+    长海鸳鸯港-格仙港
+  </view>
+  <view class='fbutton_r' bindtap='gotoPlan' data-port='哈仙港'>
+    长海鸳鸯港-哈仙港
+  </view>
+</view>
+<view class='divline'>
+</view>
+
 <view class='mapWrap'>
   <view class='shop'>
-    <view class='shop_adress borBotGray' bindtap='goAddress'>
-      <image class='shop_adress_img' src='../../static/img/map.png' mode="widthFix"></image>
-      <view class='shop_adress_word'>
-        <text>地址：菜园子西屯75号</text>
-      </view>
-    </view>
     <view class='shop_phone'>
       <image class='shop_phone_img' src='../../static/img/tele.png' mode="widthFix"></image>
       <view class='shop_phone_word'>
-        <text>电话：(0411)89896000</text>
+        <text>电话 ：(0411)898960010</text>
       </view>
       <image class='shop_phone_phone' src='../../static/img/phone.png' mode="widthFix" bindtap='madeCall'></image>
     </view>
@@ -69,5 +100,30 @@
     <text class='main_title'>联系客服</text>
     <text class='main_theme'></text>
     <text class='main_logo weui-cell__ft weui-cell__ft_in-access'></text>
+  </view>
+  <view class='headline'>近期动态</view>
+  <view class='newsList'>
+    <view wx:for="{{newsList}}" wx:key="{{item.remark}}">
+      <block wx:if="{{item.type==0}}">
+        <view class='unit' data-url="{{item.advurl}}" bindtap='togoPublicArticle'>
+          <view class='title'>{{item.advname}}</view>
+          <view class='time'>{{item.advtime}}</view>
+          <image class='image' mode="widthFix" src='{{item.imgurl}}'></image>
+          <!-- <view class='reading'>阅读量：{{item.reading}}</view> -->
+        </view>
+      </block>
+      <block wx:else>
+        <view class='unit' data-url="{{item.advurl}}" bindtap='togoPublicArticle'>
+          <view class='unit-left'>
+            <view class='title'>{{item.advname}}</view>
+            <view class='time'>{{item.advtime}}</view>
+            <!-- <view class='reading' >阅读量：{{item.reading}}</view> -->
+          </view>
+          <view class='unit-right'>
+            <image class='unit-right-image' mode="widthFix" src='{{item.imgurl}}'></image>
+          </view>
+        </view>
+      </block>
+    </view>
   </view>
 </view>

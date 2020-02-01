@@ -71,7 +71,7 @@
     <!-- <view class='reserve-btn'>立即预定</view> -->
     <!-- <button class='reserve-btn' disabled="{{paramsData.phone == ''  || paramsData.personList == ''|| paramsData.phone.length!==11}}" bindtap='goReadytoTicketDetails'>立即预定</button> -->
     <form bindsubmit="goReadytoTicketDetails" report-submit="{{true}}">
-     <button class='reserve-btn' disabled="{{paramsData.phone == ''  || paramsData.personList == ''|| paramsData.phone.length!==11}}" formType="submit">立即预定</button>
+     <button class='reserve-btn' disabled="{{paramsData.phone == ''  || paramsData.personList == ''|| paramsData.phone.length!==11}}" formType="submit" bindtap="requestMsg">立即预定</button>
   </form>
 
   </view>
